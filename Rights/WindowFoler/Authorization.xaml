@@ -9,7 +9,7 @@
         Background="Transparent"
         AllowsTransparency="True"
         Title="Авторизация"
-        Height="600"
+        Height="526"
         Width="322" Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen">
     <Border CornerRadius="20"
@@ -20,7 +20,7 @@
             <ImageBrush ImageSource="/Rights;component/ResourceFolder/AuthorizationBack.png"
                         Stretch="None" />
         </Border.Background>
-        <Border BorderThickness="2" Margin="0,0,0,-67">
+        <Border BorderThickness="2" Margin="0,0,0,-35">
             <Grid Margin="0,0,0,86">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -122,8 +122,8 @@
                             Grid.ColumnSpan="4"
                             Grid.Row="0"
                             Grid.RowSpan="2"
-                            Height="595"
-                            VerticalAlignment="Top">
+                            Height="524"
+                            VerticalAlignment="Top" Margin="0,0,0,-103">
 
                     <Image Margin="0,60,0,-10"
                            Source="/ResourceFolder/LogoImage.png"
@@ -150,7 +150,7 @@
                                 Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
                                Background="Transparent" Margin="38,10">
                         <StackPanel Orientation="Horizontal">
-                            <TextBox x:Name="LoginTb" BorderThickness="0" Text="Man" FontFamily="Montserrat" Foreground="White" FontSize="14" Width="260" Padding="15" Margin="0,-6" Height="55">
+                            <TextBox x:Name="LoginTb" CaretBrush="White" BorderThickness="0" Text="Man" FontFamily="Montserrat" Foreground="White" FontSize="14" Width="260" Padding="15" Margin="0,-6" Height="55">
 
                                 <TextBox.Style>
                                     <Style TargetType="TextBox" >
@@ -173,9 +173,9 @@
                                 BorderThickness="2"
                                 BorderBrush="#ECECEC"
                                 Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"
-                               Background="Transparent" Margin="36,10">
+                               Background="Transparent" Margin="39,10">
                         <StackPanel Orientation="Horizontal">
-                            <PasswordBox Height="55" x:Name="PasswordPb" Padding="15" BorderThickness="0"  Foreground="#ffffff" FontFamily="Montserrat" FontSize="14" VerticalContentAlignment="Center" Width="274" Margin="0,-6">
+                            <PasswordBox Height="55" CaretBrush="White" x:Name="PasswordPb" Padding="15" BorderThickness="0"  Foreground="#ffffff" FontFamily="Montserrat" FontSize="14" VerticalContentAlignment="Center" Width="242" Margin="0,-6">
                                 <PasswordBox.Style>
                                     <Style TargetType="PasswordBox" >
                                         <Setter Property="BorderThickness" Value="0" />
@@ -187,8 +187,8 @@
                         </StackPanel>
                     </Border>
 
-                    <Border Width="250" Height="53" CornerRadius="15" BorderThickness="2" BorderBrush="#ECECEC" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Background="Transparent" Margin="20,10">
-                        <Button x:Name="loginBtn" Foreground="White" Background="Transparent" Click="LoginBtn_Click" FontSize="18" Width="246">
+                    <Border Height="53" CornerRadius="15" BorderThickness="2" BorderBrush="#ECECEC" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="57,10">
+                        <Button x:Name="loginBtn" Foreground="White" BorderBrush="Transparent" Click="LoginBtn_Click" FontSize="18" Margin="-1,0">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Template">
@@ -200,6 +200,20 @@
                                             </ControlTemplate>
                                         </Setter.Value>
                                     </Setter>
+
+                                    <!-- Добавляем триггеры для изменения цвета при наведении и покидании курсора -->
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#7F007FFF"/>
+                                            <!-- Полупрозрачный синий цвет -->
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="False">
+                                            <Setter Property="Background" Value="Transparent"/>
+                                        </Trigger>
+                                    </Style.Triggers>
                                 </Style>
                             </Button.Style>
                             <TextBlock Text="Войти" />
