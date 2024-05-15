@@ -239,7 +239,6 @@
   <ItemGroup>
     <Resource Include="ResourceFolder\AuthorizationBack.png" />
     <Resource Include="ResourceFolder\background.png" />
-    <Resource Include="ResourceFolder\LogoImage.png" />
     <Resource Include="ResourceFolder\Profile_Image.png" />
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +255,7 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="ResourceFolder\LogoImage.png" />
     <Content Include="ResourceFolder\скрипт.sql" />
     <Resource Include="LogoImage.ico" />
   </ItemGroup>

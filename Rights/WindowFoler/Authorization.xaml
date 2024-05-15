@@ -127,9 +127,9 @@
 
                     <Image Margin="0,60,0,-10"
                            Source="/ResourceFolder/LogoImage.png"
-                           Height="141"></Image>
+                           Height="114"></Image>
 
-                    <TextBlock Margin="90,5"
+                    <TextBlock Margin="90,15"
                                Foreground="White"
                                HorizontalAlignment="Center"
                                FontSize="28"
@@ -140,7 +140,7 @@
                                FontWeight="Light"
                                HorizontalAlignment="Center"
                                Foreground="White"
-                               Opacity="0.75"
+                               Opacity="0.75" Margin="0 -10 0 0"
                                Text="Аккаунты выдаются администрацией"></TextBlock>
 
                     <Border
@@ -148,9 +148,9 @@
                                 BorderThickness="2"
                                 BorderBrush="#ECECEC"
                                 Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
-                               Background="Transparent" Margin="19,10">
+                               Background="Transparent" Margin="38,10">
                         <StackPanel Orientation="Horizontal">
-                            <TextBox x:Name="LoginTb" BorderThickness="0" Text="Man" FontFamily="Montserrat" Foreground="White" FontSize="14" Width="257" Padding="15" Margin="0,-6" Height="55">
+                            <TextBox x:Name="LoginTb" BorderThickness="0" Text="Man" FontFamily="Montserrat" Foreground="White" FontSize="14" Width="260" Padding="15" Margin="0,-6" Height="55">
 
                                 <TextBox.Style>
                                     <Style TargetType="TextBox" >
@@ -173,9 +173,9 @@
                                 BorderThickness="2"
                                 BorderBrush="#ECECEC"
                                 Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"
-                               Background="Transparent" Margin="20,10">
+                               Background="Transparent" Margin="36,10">
                         <StackPanel Orientation="Horizontal">
-                            <PasswordBox Height="55" x:Name="PasswordPb" Padding="15" BorderThickness="0"  Foreground="#ffffff" FontFamily="Montserrat" FontSize="14" VerticalContentAlignment="Center" Width="270" Margin="0,-6">
+                            <PasswordBox Height="55" x:Name="PasswordPb" Padding="15" BorderThickness="0"  Foreground="#ffffff" FontFamily="Montserrat" FontSize="14" VerticalContentAlignment="Center" Width="274" Margin="0,-6">
                                 <PasswordBox.Style>
                                     <Style TargetType="PasswordBox" >
                                         <Setter Property="BorderThickness" Value="0" />
@@ -187,14 +187,24 @@
                         </StackPanel>
                     </Border>
 
-                    <Button Margin="22,20,22,0" x:Name="loginBtn" Foreground="White" 
-                            Height="53" Click="LoginBtn_Click"
-                            materialDesign:ButtonAssist.CornerRadius="10" FontSize="18">
-                        <Button.Background>
-                            <SolidColorBrush Color="White" Opacity="0.3" />
-                        </Button.Background>
-                        <TextBlock Text="Войти" />
-                    </Button>
+                    <Border Width="250" Height="53" CornerRadius="15" BorderThickness="2" BorderBrush="#ECECEC" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Background="Transparent" Margin="20,10">
+                        <Button x:Name="loginBtn" Foreground="White" Background="Transparent" Click="LoginBtn_Click" FontSize="18" Width="246">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                            <TextBlock Text="Войти" />
+                        </Button>
+                    </Border>
                 </StackPanel>
             </Grid>
         </Border>
