@@ -144,24 +144,22 @@
                                Text="Аккаунты выдаются администрацией"></TextBlock>
 
                     <Border
-                                        CornerRadius="12"
-                                BorderThickness="2"
-                                BorderBrush="#ECECEC"
-                                Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
-                               Background="Transparent" Margin="38,10">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBox x:Name="LoginTb" CaretBrush="White" BorderThickness="0" Text="Man" FontFamily="Montserrat" Foreground="White" FontSize="14" Width="260" Padding="15" Margin="0,-6" Height="55">
+                    CornerRadius="12"
+                    BorderThickness="2"
+                    BorderBrush="#ECECEC"
+                    Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+                    Background="Transparent"  Margin="39,10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="LoginTb" CaretBrush="White" BorderBrush="White" BorderThickness="0 0 2 0"  Text="Man" FontFamily="Montserrat" Foreground="White" FontSize="14" Padding="10 20 0 0" Margin="0,-6" Height="55"
+                 Grid.Column="0">
 
-                                <TextBox.Style>
-                                    <Style TargetType="TextBox" >
-                                        <Setter Property="BorderThickness" Value="0" />
-                                        <Setter Property="Background" Value="transparent" />
-                                        <Setter Property="VerticalContentAlignment" Value="Center" />
-                                    </Style>
-                                </TextBox.Style>
                             </TextBox>
-
-                        </StackPanel>
+                            <Image Source="Customer.png" Width="20" Height="20" Grid.Column="1" Margin="5,0,5,0"/>
+                        </Grid>
                     </Border>
 
                     <!--<Label Content="Пароль" 
@@ -175,15 +173,10 @@
                                 Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"
                                Background="Transparent" Margin="39,10">
                         <StackPanel Orientation="Horizontal">
-                            <PasswordBox Height="55" CaretBrush="White" x:Name="PasswordPb" Padding="15" BorderThickness="0"  Foreground="#ffffff" FontFamily="Montserrat" FontSize="14" VerticalContentAlignment="Center" Width="242" Margin="0,-6">
-                                <PasswordBox.Style>
-                                    <Style TargetType="PasswordBox" >
-                                        <Setter Property="BorderThickness" Value="0" />
-                                        <Setter Property="Background" Value="transparent" />
-                                        <Setter Property="VerticalContentAlignment" Value="Center" />
-                                    </Style>
-                                </PasswordBox.Style>
+                            <PasswordBox CaretBrush="White" x:Name="PasswordPb" Padding="10 10 0 0" BorderBrush="White" BorderThickness="0 0 2 0"   Foreground="#ffffff" FontFamily="Montserrat" VerticalContentAlignment="Center" FontSize="14" Width="206" Margin="0,-6" Height="55" Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}">
+
                             </PasswordBox>
+                            <Image Source="/Rights;component/ResourceFolder/Lock.png" Width="20" Height="20" Grid.Column="1" Margin="5,0,5,0"/>
                         </StackPanel>
                     </Border>
 
