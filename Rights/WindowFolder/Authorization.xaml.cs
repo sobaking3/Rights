@@ -65,27 +65,45 @@ namespace Rights
                         App.CurrentUser = user;
                         Hide();
                         Window window = null;
-                        switch (user.IdRole)
+                        
+                        try
                         {
-                            case 1:
-                                window = new WindowFolder.PresidentFolder.PresidentMainWindow();
-                                break;
+                            switch (user.IdRole)
+                            {
+                                case 1:
+                                    window = new WindowFolder.PresidentFolder.PresidentMainWindow();
+                                    break;
 
-                            case 2:
-                                window = new WindowFolder.DirectorFolder.DirectorMainWindow();
-                                break;
+                                case 2:
+                                    window = new WindowFolder.DirectorFolder.DirectorMainWindow();
+                                    break;
 
-                            case 3:
-                                window = new WindowFolder.ManagerFolder.ManagerMainWindow();
-                                break;
+                                case 3:
+                                    window = new WindowFolder.ManagerFolder.ManagerMainWindow();
+                                    break;
 
-                            case 4:
-                                window = new WindowFolder.EmployeeFolder.EmployeeMainWindow();
-                                break;
 
-                            case 5:
-                                window = new WindowFolder.AdminFolder.AdminMainWindow();
-                                break;
+                                case 4:
+                                    window = new WindowFolder.EmployeeFolder.EmployeeMainWindow();
+                                    break;
+
+                                case 5:
+                                    window = new WindowFolder.AdminFolder.AdminMainWindow();
+                                    break;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            if (ex.InnerException != null)
+                            {
+                                // Выводим сообщение об ошибке из внутреннего исключения
+                                MessageBox.Show(ex.InnerException.Message);
+                            }
+                            else
+                            {
+                                // Выводим сообщение об ошибке из основного исключения
+                                MessageBox.Show(ex.Message);
+                            }
                         }
 
                         if (window != null)

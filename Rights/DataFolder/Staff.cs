@@ -28,7 +28,7 @@ namespace Rights.DataFolder
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         public string Number { get; set; }
-        public string Email { get; set; }
+        public System.DateTime DateOfBirth { get; set; }
         public int IdGender { get; set; }
         public int IdUser { get; set; }
         public int IdPosition { get; set; }

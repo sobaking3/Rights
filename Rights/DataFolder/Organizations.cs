@@ -12,21 +12,22 @@ namespace Rights.DataFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class Status
+    public partial class Organizations
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Status()
+        public Organizations()
         {
-            this.AppealsAndComplaints = new HashSet<AppealsAndComplaints>();
-            this.Organizations = new HashSet<Organizations>();
+            this.Bonus = new HashSet<Bonus>();
         }
     
+        public int IdOrganization { get; set; }
+        public string NameOrganization { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Description { get; set; }
         public int IdStatus { get; set; }
-        public string StatusName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AppealsAndComplaints> AppealsAndComplaints { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Organizations> Organizations { get; set; }
+        public virtual ICollection<Bonus> Bonus { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

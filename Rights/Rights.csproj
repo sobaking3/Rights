@@ -87,6 +87,9 @@
     <Compile Include="DataFolder\AppealsAndComplaints.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataFolder\Bonus.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataFolder\Budget.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -121,6 +124,9 @@
     <Compile Include="DataFolder\Meetings.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataFolder\Organizations.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataFolder\Position.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -131,6 +137,12 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\Solutions.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\sp_helpdiagrams_Result.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\Staff.cs">
@@ -252,6 +264,10 @@
     <Folder Include="WindowFolder\UtilsFolder\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ResourceFolder\LogoImage.png" />
+    <Resource Include="ResourceFolder\Customer.png" />
+    <Resource Include="ResourceFolder\Lock.png" />
+    <Resource Include="ResourceFolder\MenuBack.png" />
     <Content Include="DataFolder\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DBModel.Context.cs</LastGenOutput>
@@ -262,10 +278,6 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
-    <Resource Include="ResourceFolder\LogoImage.png" />
-    <Resource Include="ResourceFolder\Customer.png" />
-    <Resource Include="ResourceFolder\Lock.png" />
-    <Resource Include="ResourceFolder\MenuBack.png" />
     <Content Include="ResourceFolder\скрипт.sql" />
     <Resource Include="LogoImage.ico" />
   </ItemGroup>

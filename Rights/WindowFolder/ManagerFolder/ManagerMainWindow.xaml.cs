@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rights.ClassFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace Rights.WindowFolder.ManagerFolder
         public ManagerMainWindow()
         {
             InitializeComponent();
+            EmpName.Text = App.GetCurrentWorkerInitials();
         }
 
         private void ListStaffBtn_Click(object sender, RoutedEventArgs e)
@@ -56,27 +58,38 @@ namespace Rights.WindowFolder.ManagerFolder
 
         private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowState = WindowState.Minimized;
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MBClass.MBLogOut(this);
         }
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MBClass.MBExit();
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            WindowTransitionHelper.OpenWindow(this, this);
         }
     }
 }
