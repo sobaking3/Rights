@@ -145,24 +145,27 @@
     <Compile Include="DataFolder\User.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="WindowFoler\AdminFolder\AdminMainWindow.xaml.cs">
+    <Compile Include="WindowFolder\AdminFolder\AdminMainWindow.xaml.cs">
       <DependentUpon>AdminMainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowFoler\DirectorFolder\DirectorMainWindow.xaml.cs">
+    <Compile Include="WindowFolder\DirectorFolder\DirectorMainWindow.xaml.cs">
       <DependentUpon>DirectorMainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowFoler\EmployeeFolder\EmployeeMainWindow.xaml.cs">
+    <Compile Include="WindowFolder\EmployeeFolder\EmployeeMainWindow.xaml.cs">
       <DependentUpon>EmployeeMainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowFoler\ManagerFolder\ManagerMainWindow.xaml.cs">
+    <Compile Include="WindowFolder\ManagerFolder\ManagerMainWindow.xaml.cs">
       <DependentUpon>ManagerMainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowFoler\MessageBoxCustom.xaml.cs">
+    <Compile Include="WindowFolder\MessageBoxCustom.xaml.cs">
       <DependentUpon>MessageBoxCustom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\PresidentFolder\PresidentMainWindow.xaml.cs">
+      <DependentUpon>PresidentMainWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WindowFoler\Authorization.xaml.cs">
+    <Compile Include="WindowFolder\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClassFolder\ElementsToolsClass.cs" />
@@ -203,11 +206,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="WindowFoler\AdminFolder\AdminMainWindow.xaml">
+    <Page Include="WindowFolder\AdminFolder\AdminMainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WindowFoler\Authorization.xaml">
+    <Page Include="WindowFolder\Authorization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,21 +222,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WindowFoler\DirectorFolder\DirectorMainWindow.xaml">
+    <Page Include="WindowFolder\DirectorFolder\DirectorMainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WindowFoler\EmployeeFolder\EmployeeMainWindow.xaml">
+    <Page Include="WindowFolder\EmployeeFolder\EmployeeMainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WindowFoler\ManagerFolder\ManagerMainWindow.xaml">
+    <Page Include="WindowFolder\ManagerFolder\ManagerMainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WindowFoler\MessageBoxCustom.xaml">
+    <Page Include="WindowFolder\MessageBoxCustom.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WindowFolder\PresidentFolder\PresidentMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -242,7 +249,7 @@
     <Resource Include="ResourceFolder\Profile_Image.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="WindowFoler\UtilsFolder\" />
+    <Folder Include="WindowFolder\UtilsFolder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataFolder\DBModel.Context.tt">

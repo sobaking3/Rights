@@ -68,19 +68,23 @@ namespace Rights
                         switch (user.IdRole)
                         {
                             case 1:
-                                window = new WindowFolder.AdminFolder.AdminMainWindow();
+                                window = new WindowFolder.PresidentFolder.PresidentMainWindow();
                                 break;
 
                             case 2:
-                                window = new WindowFolder.ManagerFolder.ManagerMainWindow();
+                                window = new WindowFolder.DirectorFolder.DirectorMainWindow();
                                 break;
 
                             case 3:
-                                window = new WindowFolder.DirectorFolder.DirectorMainWindow();
+                                window = new WindowFolder.ManagerFolder.ManagerMainWindow();
                                 break;
 
                             case 4:
                                 window = new WindowFolder.EmployeeFolder.EmployeeMainWindow();
+                                break;
+
+                            case 5:
+                                window = new WindowFolder.AdminFolder.AdminMainWindow();
                                 break;
                         }
 
