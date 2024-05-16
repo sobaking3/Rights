@@ -2,9 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="FillFon"
-                     Color="#312F2F" />
+                     Color="#353D68" />
     <SolidColorBrush x:Key="FillFont" Color="Black" />
-    <SolidColorBrush x:Key="FillBorder" Color="#252525" />
+    <SolidColorBrush x:Key="FillBorder" Color="#353D68" />
 
     <Style x:Key="LogoLabel" TargetType="Label">
         <Setter Property="FontFamily" Value="Montserrat" />
@@ -83,7 +83,7 @@
             <Trigger Property="IsMouseOver"
                      Value="True">
                 <Setter Property="Background"
-                        Value="#312F2F" />
+                        Value="#353D68" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -117,25 +117,25 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="buttonBorder" Property="Background"  Value="#FF7A00" />
+                            <Setter TargetName="buttonBorder" Property="Background"  Value="#2F539A" />
                         </Trigger>
                         <Trigger Property="IsPressed"
                                  Value="True">
                             <Setter TargetName="buttonBorder"
                                     Property="Background"
-                                    Value="#FF7A00" />
+                                    Value="#2F539A" />
                         </Trigger>
                         <Trigger Property="IsFocused"
                                  Value="True">
                             <Setter TargetName="buttonBorder"
                                     Property="Background"
-                                    Value="#FF7A00" />
+                                    Value="#2F539A" />
                         </Trigger>
                         <Trigger Property="IsMouseOver"
                                  Value="True">
                             <Setter TargetName="buttonBorder"
                                     Property="Background"
-                                    Value="#C06817" />
+                                    Value="#2F539A" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -201,7 +201,7 @@
         <Setter Property="FontSize" Value="16" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background"
-                Value="#706F6F" />
+                Value="#353D68" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="BorderThickness" Value="0" />
         <Style.Triggers>
@@ -280,7 +280,7 @@
         <Setter Property="FontSize" Value="16" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background"
-                Value="#312F2F" />
+                Value="#353D68" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="BorderThickness" Value="0" />
         <Style.Triggers>
@@ -304,7 +304,7 @@
                     <Border x:Name="border" CornerRadius="20" Height="40"
                             Background="{TemplateBinding Background}"
                             SnapsToDevicePixels="True" BorderThickness="1"
-                            BorderBrush="#312F2F">
+                            BorderBrush="#353D68">
                         <ScrollViewer x:Name="PART_ContentHost" Focusable="False"
                                       HorizontalScrollBarVisibility="Hidden" />
                     </Border>
@@ -329,7 +329,7 @@
         <Setter Property="Foreground"     Value="Black" />
         <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
         <Setter Property="CaretBrush" Value="White" />
-        <Setter Property="BorderBrush" Value="#312F2F" />
+        <Setter Property="BorderBrush" Value="#353D68" />
         <Setter Property="Height" Value="28" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
@@ -467,7 +467,7 @@
 
     <Style x:Key="theComboBox" TargetType="{x:Type ComboBox}">
         <Setter Property="Background"
-                Value="#706F6F" />
+                Value="#353D68" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="SnapsToDevicePixels" Value="true" />
         <Setter Property="OverridesDefaultStyle" Value="true" />

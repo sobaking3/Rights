@@ -23,5 +23,60 @@ namespace Rights.WindowFolder.ManagerFolder
         {
             InitializeComponent();
         }
+
+        private void ListStaffBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CommitteList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DepartmentList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OrganizationsList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SocialProgramsList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MeetingsList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

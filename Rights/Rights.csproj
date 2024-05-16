@@ -265,6 +265,7 @@
     <Resource Include="ResourceFolder\LogoImage.png" />
     <Resource Include="ResourceFolder\Customer.png" />
     <Resource Include="ResourceFolder\Lock.png" />
+    <Resource Include="ResourceFolder\MenuBack.png" />
     <Content Include="ResourceFolder\скрипт.sql" />
     <Resource Include="LogoImage.ico" />
   </ItemGroup>
