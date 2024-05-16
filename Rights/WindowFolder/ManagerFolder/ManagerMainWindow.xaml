@@ -51,7 +51,7 @@
                                    Margin="0 20 20 10">
 
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="MUSIC MAN"
+                            <TextBlock Text="RIGHTS"
                                        LineHeight="30"
                                        LineStackingStrategy="BlockLineHeight"
                                        TextWrapping="Wrap"
@@ -59,7 +59,7 @@
                                        FontSize="32"
                                        FontFamily="Montserrat"
                                        FontWeight="ExtraBold"
-                                       Height=" 85"
+                                       Height="30" 
                                        Width="121" />
                         </StackPanel>
                     </TextBlock>
@@ -317,10 +317,10 @@
                     <!--TopButtons-->
                 </Grid>
                 <Border Grid.Column="1" 
-                        Margin="0,110,0,0"
+                        Margin="5,100,0,10"
                         CornerRadius="20 20 20 20">
                     <Border.Background>
-                        <ImageBrush ImageSource="/Rights;component/ResourceFolder/MenuBack.png"
+                        <ImageBrush ImageSource="/Rights;component/ResourceFolder/MainBack2.png"
                         Stretch="Fill" />
                     </Border.Background>
 

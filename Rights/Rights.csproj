@@ -278,6 +278,7 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="ResourceFolder\MainBack2.png" />
     <Content Include="ResourceFolder\скрипт.sql" />
     <Resource Include="LogoImage.ico" />
   </ItemGroup>
