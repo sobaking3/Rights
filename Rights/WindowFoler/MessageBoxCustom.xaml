@@ -39,7 +39,7 @@
                                   Grid.Row="0"
                                   Padding="10"
                                   Margin="0,0,-24,0"
-                                  Background="#312F2F"
+                                  Background="#353D68"
                                   Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                                   Visibility="Visible"
                                   Grid.ColumnSpan="2">
@@ -62,7 +62,7 @@
                         Width="35"
                         Height="35"
                         Background="White"
-                        Foreground="#747474">
+                        Foreground="#353D68">
                     <materialDesign:PackIcon Kind="Close" />
                 </Button>
             </StackPanel>
@@ -112,7 +112,7 @@
                                 Margin="5"
                                 Width="100"
                                 Content="ОК"
-                                Background="Gray"
+                                Background="#353D68"
                                 Foreground="White"
                                 ToolTip="Ok" />
                         <Button x:Name="btnCancel"
@@ -120,7 +120,7 @@
                                 Grid.Column="2"
                                 Margin="5"
                                 Width="100"
-                                Background="Gray"
+                                Background="#353D68"
                                 Foreground="White"
                                 Content="Отмена"
                                 ToolTip="Cancel" />
@@ -130,13 +130,13 @@
                                 Margin="5"
                                 Width="100"
                                 Content="Да"
-                                Background="#312F2F"
+                                Background="#353D68"
                                 Foreground="White"
                                 ToolTip="Yes" />
                         <Button x:Name="btnNo"
                                 Click="btnNo_Click"
                                 Grid.Column="2"
-                                Background="#312F2F"
+                                Background="#353D68"
                                 Foreground="White"
                                 Margin="5"
                                 Width="100"

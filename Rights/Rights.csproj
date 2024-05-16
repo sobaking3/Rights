@@ -255,7 +255,6 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
-    <Resource Include="WindowFoler\Customer.png" />
     <Resource Include="ResourceFolder\LogoImage.png" />
     <Resource Include="ResourceFolder\Customer.png" />
     <Resource Include="ResourceFolder\Lock.png" />
