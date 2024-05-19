@@ -108,11 +108,22 @@
                               Margin="13 20">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
+                            
+ 
+
                             <Grid x:Name="StaffGridInfo"
                                   Height="160"
                                   MouseLeftButtonDown="StaffGridInfo_MouseLeftButtonDown"
                                   Margin="0 0 23 22"
                                   Width="510">
+                                <Grid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Информация" x:Name="InfoM1" Click="InfoM1_Click"/>
+                                        <MenuItem Header="Удалить" x:Name="DeleteM1" Click="DeleteM1_Click"/>
+                                        <MenuItem Header="Изменить" x:Name="EditM1" Click="EditM1_Click"/>
+
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
                                 <Grid.Background>
                                     <SolidColorBrush Color="#353D68"
                                                      Opacity=".12" />

@@ -40,7 +40,7 @@ namespace Rights.DataFolder
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<SocialPrograms> SocialPrograms { get; set; }
         public virtual DbSet<Solutions> Solutions { get; set; }
-        public virtual DbSet<Staff> Staff { get; set; }
+        public virtual DbSet<Staff> staff { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }

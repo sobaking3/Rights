@@ -164,6 +164,12 @@
     <Compile Include="PageFolder\ListStaff.xaml.cs">
       <DependentUpon>ListStaff.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\ManagerWindow\AddStaff.xaml.cs">
+      <DependentUpon>AddStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\ManagerWindow\EditStaff.xaml.cs">
+      <DependentUpon>EditStaff.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowFolder\AdminFolder\AdminMainWindow.xaml.cs">
       <DependentUpon>AdminMainWindow.xaml</DependentUpon>
     </Compile>
@@ -233,6 +239,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PageFolder\ListStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\ManagerWindow\AddStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\ManagerWindow\EditStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

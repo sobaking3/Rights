@@ -1,0 +1,245 @@
+﻿<Window x:Class="Rights.PageFolder.ManagerWindow.EditStaff"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rights.PageFolder.ManagerWindow" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Width="1229"
+        Height="617"
+        Loaded="Window_Loaded"
+        Style="{StaticResource WindowCorneredGeneral}"
+        Title="StaffWindow">
+    <Border Background="White"
+            MouseLeftButtonDown="Border_MouseLeftButtonDown"
+            CornerRadius="10">
+        <!--<Image Source="{Binding PhotoStaff, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="100"/>-->
+        <Grid Margin="25 20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0 0 0 20">
+                <Button Style="{StaticResource ButtonIconGeneral}"
+                        Height="41"
+                        Width="100"
+                        Margin="0 0 30 0"
+                        x:Name="BackBtn"
+                        Content="{materialDesign:PackIcon Kind=KeyboardReturn, Size=24}"
+                        Click="BackBtn_Click" />
+                <TextBlock Text="Здесь изменится текст в зависимости от прав пользователя"
+                           x:Name="TitleTb"
+                           Style="{StaticResource TextBlockHeader1}" />
+            </StackPanel>
+            <Separator Width="1177"
+                       Background="{StaticResource PrimaryBrush}"
+                       Margin="0 0 0 20"
+                       Grid.Row="1" />
+            <Grid VerticalAlignment="Stretch"
+                  Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <!--Информация о сотруднике-->
+                    <ColumnDefinition Width="807" />
+                    <!--Фотография-->
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!--Информация о сотруднике-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <!--Личная информация-->
+                        <RowDefinition Height="Auto" />
+                        <!--Сепаратор-->
+                        <RowDefinition Height="40" />
+                        <!--Данные-->
+                        <RowDefinition Height="Auto" />
+                        <!--Кнопка сохранить-->
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!--Личная информация-->
+                    <StackPanel>
+                        <TextBlock Text="Личная информация"
+                                   Margin="0 0 0 24"
+                                   Style="{StaticResource TextBlockHeader2}" />
+
+                        <WrapPanel Orientation="Vertical"
+                                   Height="114">
+                            <WrapPanel.Resources>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="VerticalAlignment"
+                                            Value="Top" />
+                                    <Setter Property="Margin"
+                                            Value="0 12 100 0" />
+                                </Style>
+                            </WrapPanel.Resources>
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Фамилия"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <TextBox Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="220"
+                                         materialDesign:HintAssist.Hint="Фамилия"
+                                         Style="{StaticResource TextBoxField}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Имя"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="220"
+                                         materialDesign:HintAssist.Hint="Имя"
+                                         Style="{StaticResource TextBoxField}" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Отчество"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="220"
+                                         materialDesign:HintAssist.Hint="Отчество"
+                                         Style="{StaticResource TextBoxField}" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Пол"
+                                           MinWidth="110"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <ComboBox Width="220"
+                                          SelectedItem="{Binding Gender}"
+                                          SelectedValuePath="IdGender"
+                                          DisplayMemberPath="NameGender"
+                                          materialDesign:HintAssist.Hint="Пол"
+                                          x:Name="GenderCb"
+                                          Style="{StaticResource ComboBoxField}" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Дата рождения"
+                                           MinWidth="110"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <DatePicker SelectedDate="{Binding WorkStateDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue=Не выбрана}"
+                                            Width="220"
+                                            materialDesign:HintAssist.Hint="Дата рождения"
+                                            Style="{StaticResource DatePickerField}" />
+                            </StackPanel>
+                        </WrapPanel>
+
+
+
+                    </StackPanel>
+
+                    <Separator Width="807"
+                               Height="1"
+                               Grid.Row="1"
+                               Background="{StaticResource PrimaryBrush}"
+                               Margin="0 0 0 0" />
+
+                    <!--Данные-->
+                    <StackPanel Grid.Row="2">
+                        <TextBlock Text="Данные"
+                                   Margin="0 0 0 24"
+                                   Style="{StaticResource TextBlockHeader2}" />
+                        <WrapPanel Orientation="Vertical"
+                                   Height="114">
+                            <WrapPanel.Resources>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="VerticalAlignment"
+                                            Value="Top" />
+                                    <Setter Property="Margin"
+                                            Value="0 12 100 0" />
+                                </Style>
+                            </WrapPanel.Resources>
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Логин"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <TextBox Text="{Binding User.Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="220"
+                                         materialDesign:HintAssist.Hint="Введите логин"
+                                         Style="{StaticResource TextBoxField}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Пароль"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <TextBox Text="{Binding User.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="220"
+                                         materialDesign:HintAssist.Hint="Придумайте пароль"
+                                         Style="{StaticResource TextBoxField}" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Почта"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="220"
+                                         materialDesign:HintAssist.Hint="Введите почту"
+                                         Style="{StaticResource TextBoxField}" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Номер телефона"
+                                           MinWidth="140"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <TextBox Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="220"
+                                         materialDesign:HintAssist.Hint="Введите телефон"
+                                         Style="{StaticResource TextBoxField}" />
+                            </StackPanel>
+                        </WrapPanel>
+                    </StackPanel>
+
+                    <Button Content="Изменить"
+                            x:Name="ChangeStaffBtn"
+                            Grid.Row="3"
+                            Margin="0 40 0 0"
+                            Width="350"
+                            Height="42"
+                            Style="{StaticResource ButtonGeneral}"
+                            Click="ChangeStaffBtn_Click" />
+                </Grid>
+
+                <!--Фотография-->
+                <Grid Grid.Column="1"
+                      Margin="20 0 0 0"
+                      Width="350">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Border CornerRadius="10"
+                            Margin="0 30 0 0"
+                            Height="360"
+                            BorderBrush="{StaticResource PrimaryBrush}"
+                            BorderThickness="2">
+                        <Border.Background>
+                            <ImageBrush x:Name="PhotoStaffImgBrush"
+                                        ImageSource="{Binding PhotoStaff, TargetNullValue={StaticResource NotExistsPhotoPath}, Converter={StaticResource StringToImageSourceConverter}}" />
+                        </Border.Background>
+                    </Border>
+
+                    <Button Content="{materialDesign:PackIcon Kind=Plus, Size=32}"
+                            x:Name="ChangePhotoStaffBtn"
+                            Grid.Row="1"
+                            Margin="0 40 0 0"
+                            Width="150"
+                            Height="42"
+                            Style="{StaticResource ButtonIconGeneral}"
+                            Click="ChangePhotoStaffBtn_Click" />
+
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+    </Border>
+</Window>

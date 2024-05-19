@@ -1,5 +1,7 @@
-﻿using Rights.DataFolder;
+﻿using Rights.ClassFolder;
+using Rights.DataFolder;
 using Rights.Helpers;
+using Rights.PageFolder.ManagerWindow;
 using Rights.WindowFolder.OtherWindows;
 using System;
 using System.Collections.Generic;
@@ -80,12 +82,13 @@ namespace Rights.PageFolder
 
         private void AddStaffBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Не заплачено за это", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            new AddStaff().ShowDialog();
+            UpdateStaffList();
         }
 
         private void UpdateStaffList()
         {
-            var query = DBEntities.GetContext().Staff.Select(x => x);
+            var query = DBEntities.GetContext().staff.Select(x => x);
 
             if (!string.IsNullOrEmpty(_searchText))
             {
@@ -133,6 +136,38 @@ namespace Rights.PageFolder
             DepartamentFilterCb.ItemsSource = DBEntities.GetContext().Department.ToList();
             PositionFilterCb.ItemsSource = DBEntities.GetContext().Position.ToList();
 
+        }
+
+        private void EditM1_Click(object sender, RoutedEventArgs e)
+        {
+            Staff staff = (sender as Grid).DataContext as Staff;
+
+            WindowHelper.ShowDialogWithBlur(this, new StaffWindow(staff));
+
+            UpdateStaffList();
+        }
+
+        private void DeleteM1_Click(object sender, RoutedEventArgs e)
+        {
+            //try
+            //{
+            //    DBEntities.GetContext().Staff.Remove();
+            //    DBEntities.GetContext().SaveChanges();
+            //    MessageBox.Show("Сотрудник удален!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
+        }
+
+        private void InfoM1_Click(object sender, RoutedEventArgs e)
+        {
+            Staff staff = (sender as Grid).DataContext as Staff;
+
+            WindowHelper.ShowDialogWithBlur(this, new StaffWindow(staff));
+              
+            UpdateStaffList();
         }
     }
 }
