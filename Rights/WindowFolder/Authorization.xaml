@@ -173,7 +173,7 @@
                                 Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"
                                Background="Transparent" Margin="39,10">
                         <StackPanel Orientation="Horizontal">
-                            <PasswordBox CaretBrush="White" x:Name="PasswordPb" Padding="10 10 0 0" BorderBrush="White" BorderThickness="0 0 2 0"   Foreground="#ffffff" FontFamily="Montserrat" VerticalContentAlignment="Center" FontSize="14" Width="206" Margin="0,-6" Height="55" Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}">
+                            <PasswordBox CaretBrush="White" x:Name="PasswordPb" Padding="10 10 0 0" BorderBrush="White" BorderThickness="0 0 2 0"   Foreground="#ffffff" FontFamily="Montserrat" VerticalContentAlignment="Center" FontSize="14" Width="206" Margin="0,-6" Height="55" >
 
                             </PasswordBox>
                             <Image Source="/Rights;component/ResourceFolder/Lock.png" Width="20" Height="20" Grid.Column="1" Margin="5,0,5,0"/>

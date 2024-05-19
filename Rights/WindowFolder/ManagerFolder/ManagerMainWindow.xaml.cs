@@ -1,4 +1,5 @@
 ﻿using Rights.ClassFolder;
+using Rights.PageFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,12 @@ namespace Rights.WindowFolder.ManagerFolder
         public ManagerMainWindow()
         {
             InitializeComponent();
-            EmpName.Text = App.GetCurrentWorkerInitials();
+            EmpName.Text = App.GetCurrentstaffInitials();
         }
 
         private void ListStaffBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new ListStaff());
         }
 
         private void CommitteList_Click(object sender, RoutedEventArgs e)

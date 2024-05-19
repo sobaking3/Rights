@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <FontFamily x:Key="FontFamilyGeneral">Montserrat</FontFamily>
+    <sys:Double x:Key="FontSizeGeneral">16</sys:Double>
+    <FontWeight x:Key="FontWeightGeneral">Regular</FontWeight>
+
+    <!--Задали для всех элементов управления семейство шрифтов и вес-->
+    <Style TargetType="Control">
+        <Setter Property="FontFamily"
+                Value="{StaticResource FontFamilyGeneral}" />
+
+        <Setter Property="FontWeight"
+                Value="{StaticResource FontWeightGeneral}" />
+    </Style>
+</ResourceDictionary>

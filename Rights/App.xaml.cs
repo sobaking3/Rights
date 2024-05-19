@@ -22,19 +22,19 @@ namespace Rights
             return Application.Current.MainWindow;
         };
 
-        public static string GetCurrentWorkerInitials()
+        public static string GetCurrentstaffInitials()
         {
             if (CurrentUser == null)
             {
                 return string.Empty;
             }
-            Staff worker = App.CurrentUser.Staff.FirstOrDefault();
-            if (worker == null)
+            Staff staff = App.CurrentUser.Staff.FirstOrDefault();
+            if (staff == null)
             {
                 return "Сотрудник";
             }
-            return $"{worker.LastName} {worker.FirstName[0]}." +
-                (string.IsNullOrEmpty(worker.MiddleName) ? string.Empty : worker.LastName[0] + ".");
+            return $"{staff.LastName} {staff.FirstName[0]}." +
+                (string.IsNullOrEmpty(staff.MiddleName) ? string.Empty : staff.LastName[0] + ".");
         }
         public App()
         {

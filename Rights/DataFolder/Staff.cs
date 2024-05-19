@@ -31,9 +31,9 @@ namespace Rights.DataFolder
         public System.DateTime DateOfBirth { get; set; }
         public int IdGender { get; set; }
         public int IdUser { get; set; }
-        public int IdPosition { get; set; }
+        public Nullable<int> IdPosition { get; set; }
         public System.DateTime WorkStartDate { get; set; }
-        public int IdDepartment { get; set; }
+        public Nullable<int> IdDepartment { get; set; }
         public Nullable<int> IdCommittee { get; set; }
         public Nullable<System.DateTime> CommitteeStartDate { get; set; }
         public byte[] PhotoStaff { get; set; }

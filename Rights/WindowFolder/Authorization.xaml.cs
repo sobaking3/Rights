@@ -28,7 +28,7 @@ namespace Rights
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
             WindowTransitionHelper.CloseWindow(this);
-            Task.Delay(500).ContinueWith(_ => // Задержка в 1 секунду
+            Task.Delay(250).ContinueWith(_ => // Задержка в 1 секунду
             {
                 Application.Current.Dispatcher.Invoke(() =>
                 {

@@ -121,7 +121,7 @@
           <Key>
             <PropertyRef Name="IdStaff" />
           </Key>
-          <Property Name="IdStaff" Type="int" Nullable="false" />
+          <Property Name="IdStaff" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="MiddleName" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -129,9 +129,9 @@
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
           <Property Name="IdGender" Type="int" Nullable="false" />
           <Property Name="IdUser" Type="int" Nullable="false" />
-          <Property Name="IdPosition" Type="int" Nullable="false" />
+          <Property Name="IdPosition" Type="int" />
           <Property Name="WorkStartDate" Type="date" Nullable="false" />
-          <Property Name="IdDepartment" Type="int" Nullable="false" />
+          <Property Name="IdDepartment" Type="int" />
           <Property Name="IdCommittee" Type="int" />
           <Property Name="CommitteeStartDate" Type="date" />
           <Property Name="PhotoStaff" Type="varbinary(max)" />
@@ -307,7 +307,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Staff_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Position">
@@ -592,7 +592,7 @@
           <Key>
             <PropertyRef Name="IdStaff" />
           </Key>
-          <Property Name="IdStaff" Type="Int32" Nullable="false" />
+          <Property Name="IdStaff" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
@@ -600,9 +600,9 @@
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IdGender" Type="Int32" Nullable="false" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
-          <Property Name="IdPosition" Type="Int32" Nullable="false" />
+          <Property Name="IdPosition" Type="Int32" />
           <Property Name="WorkStartDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="IdDepartment" Type="Int32" Nullable="false" />
+          <Property Name="IdDepartment" Type="Int32" />
           <Property Name="IdCommittee" Type="Int32" />
           <Property Name="CommitteeStartDate" Type="DateTime" Precision="0" />
           <Property Name="PhotoStaff" Type="Binary" MaxLength="Max" FixedLength="false" />
@@ -789,7 +789,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Staff_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Position">

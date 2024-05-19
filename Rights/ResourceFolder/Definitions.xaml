@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!--Путь к фотографии "Нет изображения"-->
+    <sys:String x:Key="NotExistsPhotoPath">/Resource/Images/photo_not_exists.jpg</sys:String>
+</ResourceDictionary>
