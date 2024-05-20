@@ -88,9 +88,6 @@
     <Compile Include="DataFolder\AppealsAndComplaints.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataFolder\Bonus.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataFolder\Budget.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -126,9 +123,6 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\Organizations.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataFolder\Position.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\Role.cs">
@@ -359,6 +353,8 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="ResourceFolder\Close.png" />
+    <Resource Include="ResourceFolder\Minus.png" />
     <Content Include="ResourceFolder\скрипт.sql" />
     <Resource Include="LogoImage.ico" />
   </ItemGroup>

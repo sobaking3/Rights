@@ -15,10 +15,10 @@ namespace Rights.DataFolder
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Entities : DbContext
+    public partial class DBEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public DBEntities()
+            : base("name=DBEntities")
         {
         }
     
@@ -28,7 +28,6 @@ namespace Rights.DataFolder
         }
     
         public virtual DbSet<AppealsAndComplaints> AppealsAndComplaints { get; set; }
-        public virtual DbSet<Bonus> Bonus { get; set; }
         public virtual DbSet<Budget> Budget { get; set; }
         public virtual DbSet<Committee> Committee { get; set; }
         public virtual DbSet<CommitteePayment> CommitteePayment { get; set; }
@@ -36,7 +35,6 @@ namespace Rights.DataFolder
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Meetings> Meetings { get; set; }
         public virtual DbSet<Organizations> Organizations { get; set; }
-        public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<SocialPrograms> SocialPrograms { get; set; }
         public virtual DbSet<Solutions> Solutions { get; set; }

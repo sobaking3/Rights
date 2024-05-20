@@ -51,14 +51,14 @@
                           Style="{StaticResource ComboBoxGeneral}">
                 </ComboBox>
 
-                <ComboBox x:Name="PositionFilterCb"
+                <ComboBox x:Name="RoleFilterCb"
                           Margin="0 0 16 0"
                           Width="272"
                           Height="42"
                           materialDesign:TextFieldAssist.HasClearButton="True"
-                          SelectedItem="{Binding SelectedPosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          DisplayMemberPath="NamePosition"
-                          SelectedValuePath="IdPosition"
+                          SelectedItem="{Binding SelectedRole, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          DisplayMemberPath="NameRole"
+                          SelectedValuePath="IdRole"
                           materialDesign:HintAssist.Hint="Должность"
                           Style="{StaticResource ComboBoxGeneral}">
                 </ComboBox>
@@ -179,7 +179,7 @@
                                                TextAlignment="Left"
                                                FontStyle="Italic"
                                                TextDecorations="Underline"
-                                               Text="{Binding Position.NamePosition, TargetNullValue=Отсутствует, FallbackValue=Отсутствует}" />
+                                               Text="{Binding Role.NameRole, TargetNullValue=Отсутствует, FallbackValue=Отсутствует}" />
 
                                     <TextBlock Style="{StaticResource TextBlockBody2}"
                                                Margin="0 0 0 8"

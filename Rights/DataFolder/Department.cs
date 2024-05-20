@@ -16,7 +16,7 @@ namespace Rights.DataFolder
     {
         public int IdDepartment { get; set; }
         public string Department1 { get; set; }
-        public int IdStaff { get; set; }
+        public Nullable<int> IdStaff { get; set; }
     
         public virtual Staff Staff { get; set; }
     }

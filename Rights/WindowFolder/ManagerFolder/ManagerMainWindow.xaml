@@ -48,7 +48,7 @@
                             CornerRadius="0 18 0 0">
 
                         <TextBlock Background="Transparent"
-                                   Margin="0 20 20 10">
+                                   Margin="0,20,132,10">
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="RIGHTS"
@@ -241,46 +241,32 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <Button x:Name="MinimizeBtn"
-                            Background="Transparent"
-                            Foreground="White"
-                            FontSize="23"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Grid.Column="1"
-                            Content="-"
-                            Click="MinimizeBtn_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="Transparent" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseDirectlyOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="Transparent" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-
+                    <Button Name="MinimizeBtn" BorderBrush="Black" Background="#00000000" 
+                Foreground="#00000000" 
+                Click="MinimizeBtn_Click"
+                Grid.Column="1" Margin="0,0,3,1">
                         <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="28"
-                                        Height="28"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center" />
-                                </Border>
+                            <ControlTemplate>
+                                <Image Source="/Rights;component/ResourceFolder/Minus.png" />
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
 
-                    <Button x:Name="CloseBtn"
+                    <Button Name="CloseBtn" BorderBrush="Black" Background="#00000000" 
+                Foreground="#00000000" 
+                Click="CloseBtn_Click" Width="28"
+                            Height="28"
+                Grid.Column="3" >
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Image Source="/Rights;component/ResourceFolder/Close.png" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <!--<Button x:Name="CloseBtn"
                             Background="Transparent"
                             Foreground="White"
-                            FontSize="15"
+                            FontSize="28"
                             FontFamily="Montserrat"
                             Cursor="Hand"
                             Grid.Column="3"
@@ -312,7 +298,7 @@
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>
-                    </Button>
+                    </Button>-->
 
                     <!--TopButtons-->
                 </Grid>

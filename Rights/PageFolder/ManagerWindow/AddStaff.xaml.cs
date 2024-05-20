@@ -25,7 +25,7 @@ namespace Rights.PageFolder.ManagerWindow
     /// </summary>
     public partial class AddStaff : Window
     {
-        private Staff staff = new Staff();
+        private Staff Staff = new Staff();
         private User user = new User();
         private Gender gender = new Gender();
         private Department department = new Department();
@@ -56,8 +56,8 @@ namespace Rights.PageFolder.ManagerWindow
                 if (op.ShowDialog() == true)
                 {
                     selectedFileName = op.FileName;
-                    staff.PhotoStaff = ImageClass.ConvertImageToByteArray(selectedFileName);
-                    PhotoStaffImgBrush.ImageSource = ImageClass.ConvertByteArrayToImage(staff.PhotoStaff);
+                    Staff.PhotoStaff = ImageClass.ConvertImageToByteArray(selectedFileName);
+                    PhotoStaffImgBrush.ImageSource = ImageClass.ConvertByteArrayToImage(Staff.PhotoStaff);
                 }
             }
             catch (Exception ex)
@@ -76,13 +76,14 @@ namespace Rights.PageFolder.ManagerWindow
                     MiddleName = MiddleNameTb.Text,
                     DateOfBirth = DateOfBirthDP.SelectedDate.Value,
                     Number = PhoneNumberTb.Text,
+                    WorkStartDate = WorkStartDateDP.SelectedDate.Value,
                     IdGender = Int32.Parse(GenderCb.SelectedValue.ToString()),
                     IdDepartment = Int32.Parse(DepartmentCb.SelectedValue.ToString()),
                     IdCommittee = Int32.Parse(CommitteeCb.SelectedValue.ToString()),
                     IdUser = user.IdUser,
                     PhotoStaff = !string.IsNullOrEmpty(selectedFileName) ? ImageClass.ConvertImageToByteArray(selectedFileName) : null
                 };
-                DBEntities.GetContext().staff.Add(Staff);
+                DBEntities.GetContext().Staff.Add(Staff);
                 DBEntities.GetContext().SaveChanges();
             }
         }
@@ -102,7 +103,7 @@ namespace Rights.PageFolder.ManagerWindow
         private void AddStaffBtn_Click(object sender, RoutedEventArgs e)
         {
             if (DBEntities.GetContext()
-               .staff.FirstOrDefault(w => w.LastName == LastNameTb.Text
+               .Staff.FirstOrDefault(w => w.LastName == LastNameTb.Text
                && w.FirstName == FirstNameTb.Text && w.MiddleName == MiddleNameTb.Text) != null)
             {
 
@@ -110,7 +111,7 @@ namespace Rights.PageFolder.ManagerWindow
                 LastNameTb.Focus();
                 MiddleNameTb.Focus();
             }
-            else if (DBEntities.GetContext().staff.FirstOrDefault(u =>
+            else if (DBEntities.GetContext().Staff.FirstOrDefault(u =>
             u.Number == PhoneNumberTb.Text) != null)
             {
                 MBClass.ErrorMB($"Пользователь c номером {PhoneNumberTb.Text} уже создан");

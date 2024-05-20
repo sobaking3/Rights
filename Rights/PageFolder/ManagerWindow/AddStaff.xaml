@@ -112,7 +112,7 @@
                                 <ComboBox Width="220"
                                           SelectedItem="{Binding Gender}"
                                           SelectedValuePath="IdGender"
-                                          DisplayMemberPath="NameGender"
+                                          DisplayMemberPath="GenderName"
                                           materialDesign:HintAssist.Hint="Пол"
                                           x:Name="GenderCb"
                                           Style="{StaticResource ComboBoxField}" />
@@ -133,8 +133,8 @@
                                 <TextBlock Text="Дата устройства"
                                            MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <DatePicker SelectedDate="{Binding CommitteeStartDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue=Не выбрана}"
-                                            Width="220" x:Name="CommitteeStartDP"
+                                <DatePicker SelectedDate="{Binding WorkStartDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue=Не выбрана}"
+                                            Width="220" x:Name="WorkStartDateDP"
                                             materialDesign:HintAssist.Hint="Дата устройства"
                                             Style="{StaticResource DatePickerField}" />
                             </StackPanel>
@@ -213,7 +213,7 @@
                                            MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <ComboBox Width="220"
-                                          SelectedItem="{Binding Role}"
+                                          SelectedItem="{Binding Staff.Role}"
                                           SelectedValuePath="IdRole"
                                           DisplayMemberPath="NameRole"
                                           materialDesign:HintAssist.Hint="Роль"

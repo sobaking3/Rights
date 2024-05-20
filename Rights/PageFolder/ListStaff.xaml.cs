@@ -29,7 +29,7 @@ namespace Rights.PageFolder
     {
         private string _searchText;
         public Department _selectedDepartament;
-        public Position _selectedPosition;
+        public Role _selectedRole;
         public string SearchText
         {
             get => _searchText;
@@ -56,14 +56,14 @@ namespace Rights.PageFolder
 
             }
         }
-        public Position SelectedPosition
+        public Role SelectedRole
         {
-            get => _selectedPosition;
+            get => _selectedRole;
             set
             {
-                if (!object.Equals(value, _selectedPosition))
+                if (!object.Equals(value, _selectedRole))
                 {
-                    _selectedPosition = value;
+                    _selectedRole = value;
                     UpdateStaffList();
                 }
 
@@ -76,7 +76,7 @@ namespace Rights.PageFolder
             DataContext = this;
             _onLoadingBlockingControls.Add(SearchStaffByFullNameTb);
             _onLoadingBlockingControls.Add(DepartamentFilterCb);
-            _onLoadingBlockingControls.Add(PositionFilterCb);
+            _onLoadingBlockingControls.Add(RoleFilterCb);
             _onLoadingBlockingControls.Add(AddStaffBtn);
         }
 
@@ -88,7 +88,7 @@ namespace Rights.PageFolder
 
         private void UpdateStaffList()
         {
-            var query = DBEntities.GetContext().staff.Select(x => x);
+            var query = DBEntities.GetContext().Staff.Select(x => x);
 
             if (!string.IsNullOrEmpty(_searchText))
             {
@@ -100,9 +100,9 @@ namespace Rights.PageFolder
                 query = query.Where(x => x.IdDepartment == _selectedDepartament.IdDepartment);
             }
 
-            if (_selectedPosition != null)
+            if (_selectedRole != null)
             {
-                query = query.Where(x => x.IdPosition == _selectedPosition.IdPosition);
+                query = query.Where(x => x.User.IdRole == _selectedRole.IdRole);
             }
 
             List<Staff> result = query.ToList();
@@ -134,7 +134,7 @@ namespace Rights.PageFolder
         {
             UpdateStaffList();
             DepartamentFilterCb.ItemsSource = DBEntities.GetContext().Department.ToList();
-            PositionFilterCb.ItemsSource = DBEntities.GetContext().Position.ToList();
+            RoleFilterCb.ItemsSource = DBEntities.GetContext().Role.ToList();
 
         }
 

@@ -15,15 +15,6 @@
           <Property Name="Discription" Type="nvarchar" MaxLength="150" />
           <Property Name="IdStatus" Type="int" />
         </EntityType>
-        <EntityType Name="Bonus">
-          <Key>
-            <PropertyRef Name="IdBonus" />
-          </Key>
-          <Property Name="IdBonus" Type="int" Nullable="false" />
-          <Property Name="BonusName" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="IdOrganization" Type="int" />
-          <Property Name="Description" Type="nvarchar" MaxLength="150" />
-        </EntityType>
         <EntityType Name="Budget">
           <Key>
             <PropertyRef Name="IdBudget" />
@@ -58,7 +49,7 @@
           </Key>
           <Property Name="IdDepartment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Department" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="IdStaff" Type="int" Nullable="false" />
+          <Property Name="IdStaff" Type="int" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -85,13 +76,6 @@
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="180" Nullable="false" />
           <Property Name="IdStatus" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Position">
-          <Key>
-            <PropertyRef Name="IdPosition" />
-          </Key>
-          <Property Name="IdPosition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PositionName" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -129,11 +113,9 @@
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
           <Property Name="IdGender" Type="int" Nullable="false" />
           <Property Name="IdUser" Type="int" Nullable="false" />
-          <Property Name="IdPosition" Type="int" />
           <Property Name="WorkStartDate" Type="date" Nullable="false" />
           <Property Name="IdDepartment" Type="int" />
           <Property Name="IdCommittee" Type="int" />
-          <Property Name="CommitteeStartDate" Type="date" />
           <Property Name="PhotoStaff" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Status">
@@ -186,18 +168,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Bonus_Organizations">
-          <End Role="Organizations" Type="Self.Organizations" Multiplicity="0..1" />
-          <End Role="Bonus" Type="Self.Bonus" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Organizations">
-              <PropertyRef Name="IdOrganization" />
-            </Principal>
-            <Dependent Role="Bonus">
-              <PropertyRef Name="IdOrganization" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Budget_Committee">
           <End Role="Committee" Type="Self.Committee" Multiplicity="0..1" />
           <End Role="Budget" Type="Self.Budget" Multiplicity="*" />
@@ -235,7 +205,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Department_Staff">
-          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
           <End Role="Department" Type="Self.Department" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Staff">
@@ -303,18 +273,6 @@
             </Principal>
             <Dependent Role="Staff">
               <PropertyRef Name="IdGender" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Staff_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
-          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Position">
-              <PropertyRef Name="IdPosition" />
-            </Principal>
-            <Dependent Role="Staff">
-              <PropertyRef Name="IdPosition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -375,7 +333,6 @@
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Хранилище DBModelContainer">
           <EntitySet Name="AppealsAndComplaints" EntityType="Self.AppealsAndComplaints" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Bonus" EntityType="Self.Bonus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Budget" EntityType="Self.Budget" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Committee" EntityType="Self.Committee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CommitteePayment" EntityType="Self.CommitteePayment" Schema="dbo" store:Type="Tables" />
@@ -383,7 +340,6 @@
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Meetings" EntityType="Self.Meetings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Organizations" EntityType="Self.Organizations" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SocialPrograms" EntityType="Self.SocialPrograms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Solutions" EntityType="Self.Solutions" Schema="dbo" store:Type="Tables" />
@@ -398,10 +354,6 @@
           <AssociationSet Name="FK_AppealsAndComplaints_Status" Association="Self.FK_AppealsAndComplaints_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="AppealsAndComplaints" EntitySet="AppealsAndComplaints" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Bonus_Organizations" Association="Self.FK_Bonus_Organizations">
-            <End Role="Organizations" EntitySet="Organizations" />
-            <End Role="Bonus" EntitySet="Bonus" />
           </AssociationSet>
           <AssociationSet Name="FK_Budget_Committee" Association="Self.FK_Budget_Committee">
             <End Role="Committee" EntitySet="Committee" />
@@ -439,10 +391,6 @@
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Staff" EntitySet="Staff" />
           </AssociationSet>
-          <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
-            <End Role="Position" EntitySet="Position" />
-            <End Role="Staff" EntitySet="Staff" />
-          </AssociationSet>
           <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
             <End Role="User" EntitySet="User" />
             <End Role="Staff" EntitySet="Staff" />
@@ -468,16 +416,6 @@
           <Property Name="IdStatus" Type="Int32" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_AppealsAndComplaints_Staff" FromRole="AppealsAndComplaints" ToRole="Staff" />
           <NavigationProperty Name="Status" Relationship="Self.FK_AppealsAndComplaints_Status" FromRole="AppealsAndComplaints" ToRole="Status" />
-        </EntityType>
-        <EntityType Name="Bonus">
-          <Key>
-            <PropertyRef Name="IdBonus" />
-          </Key>
-          <Property Name="IdBonus" Type="Int32" Nullable="false" />
-          <Property Name="BonusName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdOrganization" Type="Int32" />
-          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Organizations" Relationship="Self.FK_Bonus_Organizations" FromRole="Bonus" ToRole="Organizations" />
         </EntityType>
         <EntityType Name="Budget">
           <Key>
@@ -519,7 +457,7 @@
           </Key>
           <Property Name="IdDepartment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Department1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdStaff" Type="Int32" Nullable="false" />
+          <Property Name="IdStaff" Type="Int32" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Department_Staff" FromRole="Department" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Gender">
@@ -550,16 +488,7 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="180" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdStatus" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Bonus" Relationship="Self.FK_Bonus_Organizations" FromRole="Organizations" ToRole="Bonus" />
           <NavigationProperty Name="Status" Relationship="Self.FK_Organizations_Status" FromRole="Organizations" ToRole="Status" />
-        </EntityType>
-        <EntityType Name="Position">
-          <Key>
-            <PropertyRef Name="IdPosition" />
-          </Key>
-          <Property Name="IdPosition" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PositionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Position" FromRole="Position" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -600,18 +529,15 @@
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IdGender" Type="Int32" Nullable="false" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
-          <Property Name="IdPosition" Type="Int32" />
           <Property Name="WorkStartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IdDepartment" Type="Int32" />
           <Property Name="IdCommittee" Type="Int32" />
-          <Property Name="CommitteeStartDate" Type="DateTime" Precision="0" />
           <Property Name="PhotoStaff" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="AppealsAndComplaints" Relationship="Self.FK_AppealsAndComplaints_Staff" FromRole="Staff" ToRole="AppealsAndComplaints" />
           <NavigationProperty Name="Committee" Relationship="Self.FK_Committee_Staff" FromRole="Staff" ToRole="Committee" />
           <NavigationProperty Name="CommitteePayment" Relationship="Self.FK_CommitteePayment_Staff" FromRole="Staff" ToRole="CommitteePayment" />
           <NavigationProperty Name="Department" Relationship="Self.FK_Department_Staff" FromRole="Staff" ToRole="Department" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Staff_Gender" FromRole="Staff" ToRole="Gender" />
-          <NavigationProperty Name="Position" Relationship="Self.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
           <NavigationProperty Name="User" Relationship="Self.FK_Staff_User" FromRole="Staff" ToRole="User" />
         </EntityType>
         <EntityType Name="Status">
@@ -665,18 +591,6 @@
             </Principal>
             <Dependent Role="AppealsAndComplaints">
               <PropertyRef Name="IdStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Bonus_Organizations">
-          <End Role="Organizations" Type="Self.Organizations" Multiplicity="0..1" />
-          <End Role="Bonus" Type="Self.Bonus" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Organizations">
-              <PropertyRef Name="IdOrganization" />
-            </Principal>
-            <Dependent Role="Bonus">
-              <PropertyRef Name="IdOrganization" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -741,7 +655,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Department_Staff">
-          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
           <End Role="Department" Type="Self.Department" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Staff">
@@ -788,18 +702,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Staff_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
-          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Position">
-              <PropertyRef Name="IdPosition" />
-            </Principal>
-            <Dependent Role="Staff">
-              <PropertyRef Name="IdPosition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_User_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -824,9 +726,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AppealsAndComplaints" EntityType="Self.AppealsAndComplaints" />
-          <EntitySet Name="Bonus" EntityType="Self.Bonus" />
           <EntitySet Name="Budget" EntityType="Self.Budget" />
           <EntitySet Name="Committee" EntityType="Self.Committee" />
           <EntitySet Name="CommitteePayment" EntityType="Self.CommitteePayment" />
@@ -834,7 +735,6 @@
           <EntitySet Name="Gender" EntityType="Self.Gender" />
           <EntitySet Name="Meetings" EntityType="Self.Meetings" />
           <EntitySet Name="Organizations" EntityType="Self.Organizations" />
-          <EntitySet Name="Position" EntityType="Self.Position" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="SocialPrograms" EntityType="Self.SocialPrograms" />
           <EntitySet Name="Solutions" EntityType="Self.Solutions" />
@@ -849,10 +749,6 @@
           <AssociationSet Name="FK_AppealsAndComplaints_Status" Association="Self.FK_AppealsAndComplaints_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="AppealsAndComplaints" EntitySet="AppealsAndComplaints" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Bonus_Organizations" Association="Self.FK_Bonus_Organizations">
-            <End Role="Organizations" EntitySet="Organizations" />
-            <End Role="Bonus" EntitySet="Bonus" />
           </AssociationSet>
           <AssociationSet Name="FK_Budget_Committee" Association="Self.FK_Budget_Committee">
             <End Role="Committee" EntitySet="Committee" />
@@ -889,10 +785,6 @@
           <AssociationSet Name="FK_Organizations_Status" Association="Self.FK_Organizations_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="Organizations" EntitySet="Organizations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
-            <End Role="Position" EntitySet="Position" />
-            <End Role="Staff" EntitySet="Staff" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
@@ -949,7 +841,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище DBModelContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DBModelContainer" CdmEntityContainer="DBEntities">
           <EntitySetMapping Name="AppealsAndComplaints">
             <EntityTypeMapping TypeName="DBModel.AppealsAndComplaints">
               <MappingFragment StoreEntitySet="AppealsAndComplaints">
@@ -958,16 +850,6 @@
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Discription" ColumnName="Discription" />
                 <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Bonus">
-            <EntityTypeMapping TypeName="DBModel.Bonus">
-              <MappingFragment StoreEntitySet="Bonus">
-                <ScalarProperty Name="IdBonus" ColumnName="IdBonus" />
-                <ScalarProperty Name="BonusName" ColumnName="BonusName" />
-                <ScalarProperty Name="IdOrganization" ColumnName="IdOrganization" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1040,14 +922,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Position">
-            <EntityTypeMapping TypeName="DBModel.Position">
-              <MappingFragment StoreEntitySet="Position">
-                <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
-                <ScalarProperty Name="PositionName" ColumnName="PositionName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Role">
             <EntityTypeMapping TypeName="DBModel.Role">
               <MappingFragment StoreEntitySet="Role">
@@ -1086,11 +960,9 @@
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="IdGender" ColumnName="IdGender" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
                 <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
                 <ScalarProperty Name="IdDepartment" ColumnName="IdDepartment" />
                 <ScalarProperty Name="IdCommittee" ColumnName="IdCommittee" />
-                <ScalarProperty Name="CommitteeStartDate" ColumnName="CommitteeStartDate" />
                 <ScalarProperty Name="PhotoStaff" ColumnName="PhotoStaff" />
               </MappingFragment>
             </EntityTypeMapping>
