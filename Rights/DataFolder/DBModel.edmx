@@ -824,7 +824,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AppealsAndComplaints" EntityType="Self.AppealsAndComplaints" />
           <EntitySet Name="Bonus" EntityType="Self.Bonus" />
           <EntitySet Name="Budget" EntityType="Self.Budget" />
@@ -949,7 +949,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище DBModelContainer" CdmEntityContainer="DBEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DBModelContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="AppealsAndComplaints">
             <EntityTypeMapping TypeName="DBModel.AppealsAndComplaints">
               <MappingFragment StoreEntitySet="AppealsAndComplaints">
