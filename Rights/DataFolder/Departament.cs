@@ -12,12 +12,19 @@ namespace Rights.DataFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class Department
+    public partial class Departament
     {
-        public int IdDepartment { get; set; }
-        public string Department1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Departament()
+        {
+            this.Staff = new HashSet<Staff>();
+        }
+    
+        public int IdDepartament { get; set; }
+        public string NameDepartament { get; set; }
         public Nullable<int> IdStaff { get; set; }
     
-        public virtual Staff Staff { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Staff> Staff { get; set; }
     }
 }

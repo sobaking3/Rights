@@ -20,7 +20,6 @@ namespace Rights.DataFolder
             this.AppealsAndComplaints = new HashSet<AppealsAndComplaints>();
             this.Committee = new HashSet<Committee>();
             this.CommitteePayment = new HashSet<CommitteePayment>();
-            this.Department = new HashSet<Department>();
         }
     
         public int IdStaff { get; set; }
@@ -42,8 +41,7 @@ namespace Rights.DataFolder
         public virtual ICollection<Committee> Committee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CommitteePayment> CommitteePayment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Department> Department { get; set; }
+        public virtual Departament Departament { get; set; }
         public virtual Gender Gender { get; set; }
         public virtual User User { get; set; }
     }

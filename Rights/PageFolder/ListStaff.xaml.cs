@@ -28,7 +28,7 @@ namespace Rights.PageFolder
     public partial class ListStaff : Page
     {
         private string _searchText;
-        public Department _selectedDepartament;
+        public Departament _selectedDepartament;
         public Role _selectedRole;
         public string SearchText
         {
@@ -43,7 +43,7 @@ namespace Rights.PageFolder
 
             }
         }
-        public Department SelectedDepartament
+        public Departament SelectedDepartament
         {
             get => _selectedDepartament;
             set
@@ -97,7 +97,7 @@ namespace Rights.PageFolder
 
             if (_selectedDepartament != null)
             {
-                query = query.Where(x => x.IdDepartment == _selectedDepartament.IdDepartment);
+                query = query.Where(x => x.IdDepartment == _selectedDepartament.IdDepartament);
             }
 
             if (_selectedRole != null)
@@ -133,7 +133,7 @@ namespace Rights.PageFolder
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateStaffList();
-            DepartamentFilterCb.ItemsSource = DBEntities.GetContext().Department.ToList();
+            DepartamentFilterCb.ItemsSource = DBEntities.GetContext().Departament.ToList();
             RoleFilterCb.ItemsSource = DBEntities.GetContext().Role.ToList();
 
         }

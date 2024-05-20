@@ -31,7 +31,7 @@ namespace Rights.DataFolder
         public virtual DbSet<Budget> Budget { get; set; }
         public virtual DbSet<Committee> Committee { get; set; }
         public virtual DbSet<CommitteePayment> CommitteePayment { get; set; }
-        public virtual DbSet<Department> Department { get; set; }
+        public virtual DbSet<Departament> Departament { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Meetings> Meetings { get; set; }
         public virtual DbSet<Organizations> Organizations { get; set; }

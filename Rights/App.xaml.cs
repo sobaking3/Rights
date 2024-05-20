@@ -3,9 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace Rights
 {
@@ -16,6 +21,7 @@ namespace Rights
     {
         public static User CurrentUser { get; set; }
         public byte[] PhotoStaff { get; set; }
+
 
         public static Func<int, Window> GetCurrentWindow = (_) =>
         {
@@ -35,7 +41,8 @@ namespace Rights
             }
             return $"{staff.LastName} {staff.FirstName[0]}." +
                 (string.IsNullOrEmpty(staff.MiddleName) ? string.Empty : staff.LastName[0] + ".");
-        }
+        }    
+
         public App()
         {
             this.InitializeComponent(); ;

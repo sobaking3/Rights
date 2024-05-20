@@ -27,6 +27,8 @@ namespace Rights.WindowFolder.ManagerFolder
             EmpName.Text = App.GetCurrentstaffInitials();
         }
 
+       
+
         private void ListStaffBtn_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new ListStaff());

@@ -28,7 +28,7 @@ namespace Rights.PageFolder.ManagerWindow
         private Staff Staff = new Staff();
         private User user = new User();
         private Gender gender = new Gender();
-        private Department department = new Department();
+        private Departament departament = new Departament();
         private Committee committee = new Committee();
 
 
@@ -40,7 +40,7 @@ namespace Rights.PageFolder.ManagerWindow
           || r.NameRole == "Директор" || r.NameRole == "Менеджер"))
           .ToList();
             GenderCb.ItemsSource = DBEntities.GetContext().Gender.ToList();
-            DepartmentCb.ItemsSource = DBEntities.GetContext().Department.ToList();
+            DepartamentCb.ItemsSource = DBEntities.GetContext().Departament.ToList();
             CommitteeCb.ItemsSource = DBEntities.GetContext().Committee.ToList();
         }
         private void AddImage()
@@ -78,7 +78,7 @@ namespace Rights.PageFolder.ManagerWindow
                     Number = PhoneNumberTb.Text,
                     WorkStartDate = WorkStartDateDP.SelectedDate.Value,
                     IdGender = Int32.Parse(GenderCb.SelectedValue.ToString()),
-                    IdDepartment = Int32.Parse(DepartmentCb.SelectedValue.ToString()),
+                    IdDepartment = Int32.Parse(DepartamentCb.SelectedValue.ToString()),
                     IdCommittee = Int32.Parse(CommitteeCb.SelectedValue.ToString()),
                     IdUser = user.IdUser,
                     PhotoStaff = !string.IsNullOrEmpty(selectedFileName) ? ImageClass.ConvertImageToByteArray(selectedFileName) : null

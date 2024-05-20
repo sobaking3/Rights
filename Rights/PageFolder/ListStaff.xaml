@@ -179,7 +179,7 @@
                                                TextAlignment="Left"
                                                FontStyle="Italic"
                                                TextDecorations="Underline"
-                                               Text="{Binding Role.NameRole, TargetNullValue=Отсутствует, FallbackValue=Отсутствует}" />
+                                               Text="{Binding User.Role.NameRole, TargetNullValue=Отсутствует, FallbackValue=Отсутствует}" />
 
                                     <TextBlock Style="{StaticResource TextBlockBody2}"
                                                Margin="0 0 0 8"

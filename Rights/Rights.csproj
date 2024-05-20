@@ -113,7 +113,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DataFolder\Department.cs">
+    <Compile Include="DataFolder\Departament.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\Gender.cs">
@@ -343,6 +343,8 @@
     <Resource Include="ResourceFolder\Lock.png" />
     <Resource Include="ResourceFolder\MenuBack.png" />
     <Resource Include="ResourceFolder\MainBack2.png" />
+    <Resource Include="ResourceFolder\Close.png" />
+    <Resource Include="ResourceFolder\Minus.png" />
     <Content Include="DataFolder\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModel.edmx</DependentUpon>
@@ -353,8 +355,6 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
-    <Resource Include="ResourceFolder\Close.png" />
-    <Resource Include="ResourceFolder\Minus.png" />
     <Content Include="ResourceFolder\скрипт.sql" />
     <Resource Include="LogoImage.ico" />
   </ItemGroup>

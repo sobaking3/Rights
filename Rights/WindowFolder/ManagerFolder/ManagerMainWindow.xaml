@@ -85,9 +85,9 @@
                                     DockPanel.Dock="Top"
                                     HorizontalAlignment="Center"
                                     Margin="20 30 15 0">
-                                <Ellipse>
+                                <Ellipse x:Name="Ecl">
                                     <Ellipse.Fill>
-                                        <ImageBrush ImageSource="/ResourceFolder/Profile_Image.png"
+                                        <ImageBrush x:Name="EmpImage" ImageSource="/ResourceFolder/Profile_Image.png"
                                                     Stretch="UniformToFill" />
                                     </Ellipse.Fill>
                                 </Ellipse>

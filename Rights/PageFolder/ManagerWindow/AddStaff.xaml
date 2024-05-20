@@ -189,11 +189,11 @@
                                 <TextBlock Text="Отдел"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <ComboBox Width="220"
-                                          SelectedItem="{Binding Department}"
-                                          SelectedValuePath="IdDepartment"
-                                          DisplayMemberPath="Department"
+                                          SelectedItem="{Binding Departament}"
+                                          SelectedValuePath="IdDepartament"
+                                          DisplayMemberPath="NameDepartament"
                                           materialDesign:HintAssist.Hint="Отдел"
-                                          x:Name="DepartmentCb"
+                                          x:Name="DepartamentCb"
                                           Style="{StaticResource ComboBoxField}" />
                             </StackPanel>
 
@@ -209,7 +209,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"
                                         Height="26">
-                                <TextBlock Text="Роль"
+                                <TextBlock Text="Должность"
                                            MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <ComboBox Width="220"
