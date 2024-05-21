@@ -29,7 +29,7 @@
                         x:Name="BackBtn"
                         Content="{materialDesign:PackIcon Kind=KeyboardReturn, Size=24}"
                         Click="BackBtn_Click" />
-                <TextBlock Text="Здесь изменится текст в зависимости от прав пользователя"
+                <TextBlock Text="текст"
                            x:Name="TitleTb"
                            Style="{StaticResource TextBlockHeader1}" />
             </StackPanel>
@@ -80,7 +80,7 @@
                                 <TextBlock Text="Фамилия"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220"
+                                         Width="220" x:Name="LastNameTb"
                                          materialDesign:HintAssist.Hint="Фамилия"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
@@ -89,7 +89,7 @@
                                 <TextBlock Text="Имя"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220"
+                                         Width="220" x:Name="FirstNameTb"
                                          materialDesign:HintAssist.Hint="Имя"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
@@ -99,7 +99,7 @@
                                 <TextBlock Text="Отчество"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220"
+                                         Width="220" x:Name="MiddleNameTb"
                                          materialDesign:HintAssist.Hint="Отчество"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
@@ -112,7 +112,7 @@
                                 <ComboBox Width="220"
                                           SelectedItem="{Binding Gender}"
                                           SelectedValuePath="IdGender"
-                                          DisplayMemberPath="NameGender"
+                                          DisplayMemberPath="GenderName"
                                           materialDesign:HintAssist.Hint="Пол"
                                           x:Name="GenderCb"
                                           Style="{StaticResource ComboBoxField}" />
@@ -123,9 +123,19 @@
                                 <TextBlock Text="Дата рождения"
                                            MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <DatePicker SelectedDate="{Binding WorkStateDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue=Не выбрана}"
-                                            Width="220"
+                                <DatePicker SelectedDate="{Binding DateOfBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue=Не выбрана}"
+                                            Width="220" x:Name="DateOfBirthDP"
                                             materialDesign:HintAssist.Hint="Дата рождения"
+                                            Style="{StaticResource DatePickerField}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Дата устройства"
+                                           MinWidth="110"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <DatePicker SelectedDate="{Binding WorkStartDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue=Не выбрана}"
+                                            Width="220" x:Name="WorkStartDateDP"
+                                            materialDesign:HintAssist.Hint="Дата устройства"
                                             Style="{StaticResource DatePickerField}" />
                             </StackPanel>
                         </WrapPanel>
@@ -160,7 +170,7 @@
                                 <TextBlock Text="Логин"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding User.Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220"
+                                         Width="220" x:Name="LoginTb"
                                          materialDesign:HintAssist.Hint="Введите логин"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
@@ -169,31 +179,61 @@
                                 <TextBlock Text="Пароль"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding User.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220"
+                                         Width="220" x:Name="PasswordTb"
                                          materialDesign:HintAssist.Hint="Придумайте пароль"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
                                         Height="26">
-                                <TextBlock Text="Почта"
+                                <TextBlock Text="Отдел"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220"
-                                         materialDesign:HintAssist.Hint="Введите почту"
-                                         Style="{StaticResource TextBoxField}" />
+                                <ComboBox Width="220"
+                                          SelectedItem="{Binding Departament}"
+                                          SelectedValuePath="IdDepartament"
+                                          DisplayMemberPath="NameDepartament"
+                                          materialDesign:HintAssist.Hint="Отдел"
+                                          x:Name="DepartamentCb"
+                                          Style="{StaticResource ComboBoxField}" />
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
                                         Height="26">
                                 <TextBlock Text="Номер телефона"
-                                           MinWidth="140"
+                                           MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220"
+                                         Width="220" x:Name="PhoneNumberTb"
                                          materialDesign:HintAssist.Hint="Введите телефон"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Должность"
+                                           MinWidth="110"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <ComboBox Width="220"
+                                          SelectedItem="{Binding Staff.Role}"
+                                          SelectedValuePath="IdRole"
+                                          DisplayMemberPath="NameRole"
+                                          materialDesign:HintAssist.Hint="Роль"
+                                          x:Name="RoleCb"
+                                          Style="{StaticResource ComboBoxField}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26">
+                                <TextBlock Text="Комитет"
+                                           MinWidth="110"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <ComboBox Width="220"
+                                          SelectedItem="{Binding Committee}"
+                                          SelectedValuePath="IdCommittee"
+                                          DisplayMemberPath="NameCommittee"
+                                          materialDesign:HintAssist.Hint="Не обязательно"
+                                          x:Name="CommitteeCb"
+                                          Style="{StaticResource ComboBoxField}" />
+                            </StackPanel>
+
                         </WrapPanel>
                     </StackPanel>
 
@@ -240,6 +280,5 @@
 
             </Grid>
         </Grid>
-
     </Border>
 </Window>

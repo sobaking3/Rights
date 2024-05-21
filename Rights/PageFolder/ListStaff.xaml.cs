@@ -2,7 +2,6 @@
 using Rights.DataFolder;
 using Rights.Helpers;
 using Rights.PageFolder.ManagerWindow;
-using Rights.WindowFolder.OtherWindows;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -107,28 +106,9 @@ namespace Rights.PageFolder
 
             List<Staff> result = query.ToList();
 
-            int count = result.Count;
-
-            // Размножаем данные для теста
-            for (int i = 0; count > 0 && i < 3; i++)
-            {
-                for (int k = 0; k < count; k++)
-                {
-                    result.Add(result[k]);
-                }
-            }
-
             StaffListItemsControl.ItemsSource = result;
         }
 
-        private void StaffGridInfo_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Staff staff = (sender as Grid).DataContext as Staff;
-
-            WindowHelper.ShowDialogWithBlur(this, new StaffWindow(staff));
-
-            UpdateStaffList();
-        }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -140,34 +120,74 @@ namespace Rights.PageFolder
 
         private void EditM1_Click(object sender, RoutedEventArgs e)
         {
-            Staff staff = (sender as Grid).DataContext as Staff;
+            Grid grid = sender as Grid;
+            if ((sender as FrameworkElement).DataContext is Staff staff)
+            {
+                WindowHelper.ShowDialogWithBlur(this, new EditStaff(staff));
 
-            WindowHelper.ShowDialogWithBlur(this, new StaffWindow(staff));
-
-            UpdateStaffList();
+                UpdateStaffList();
+            }
         }
 
         private void DeleteM1_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    DBEntities.GetContext().Staff.Remove();
-            //    DBEntities.GetContext().SaveChanges();
-            //    MessageBox.Show("Сотрудник удален!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
+            try
+            {
+                if ((sender as FrameworkElement).DataContext is Staff staff)
+                {
+                    if (staff == null)
+                    {
+                        MBClass.ErrorMB("Пользователь не выбран");
+                    }
+                    else
+                    {
+                        if (MBClass.QuestionMB($"Удалить пользователя " +
+                        $"с Фамилией {staff.LastName}?"))
+                        {
+                            DBEntities.GetContext().User.Remove(staff.User);
+                            DBEntities.GetContext().Staff.Remove(staff);
+                            DBEntities.GetContext().SaveChanges();
+                            MBClass.InfoMB("Пользователь удален");
+                            UpdateStaffList();
+                        }
+                    }
+                }         
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
         }
+       
+        //private void DeleteUser(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+                
+        //        Grid grid = sender as Grid;
+        //        if ((sender as FrameworkElement).DataContext is User user)
+        //        {
+
+        //            DBEntities.GetContext().User.Remove(user);
+        //            DBEntities.GetContext().SaveChanges();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MBClass.ErrorMB(ex);
+        //    }
+        //}
 
         private void InfoM1_Click(object sender, RoutedEventArgs e)
         {
-            Staff staff = (sender as Grid).DataContext as Staff;
 
-            WindowHelper.ShowDialogWithBlur(this, new StaffWindow(staff));
-              
-            UpdateStaffList();
+            Grid grid = sender as Grid;
+            if ((sender as FrameworkElement).DataContext is Staff staff)
+            {
+                WindowHelper.ShowDialogWithBlur(this, new InfoStaff(staff));
+
+                UpdateStaffList();
+            }
         }
     }
 }

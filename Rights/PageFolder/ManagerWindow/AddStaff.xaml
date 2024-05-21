@@ -228,8 +228,8 @@
                                 <ComboBox Width="220"
                                           SelectedItem="{Binding Committee}"
                                           SelectedValuePath="IdCommittee"
-                                          DisplayMemberPath="Committee"
-                                          materialDesign:HintAssist.Hint="Роль"
+                                          DisplayMemberPath="NameCommittee"
+                                          materialDesign:HintAssist.Hint="Не обязательно"
                                           x:Name="CommitteeCb"
                                           Style="{StaticResource ComboBoxField}" />
                             </StackPanel>

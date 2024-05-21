@@ -20,18 +20,20 @@ namespace Rights.DataFolder
             this.Budget = new HashSet<Budget>();
             this.Meetings = new HashSet<Meetings>();
             this.SocialPrograms = new HashSet<SocialPrograms>();
+            this.Staff = new HashSet<Staff>();
         }
     
         public int IdCommittee { get; set; }
-        public string Committee1 { get; set; }
+        public string NameCommittee { get; set; }
         public int IdStaff { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Budget> Budget { get; set; }
-        public virtual Staff Staff { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Meetings> Meetings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SocialPrograms> SocialPrograms { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Staff> Staff { get; set; }
     }
 }

@@ -31,7 +31,7 @@
             <PropertyRef Name="IdCommittee" />
           </Key>
           <Property Name="IdCommittee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Committee" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NameCommittee" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="IdStaff" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CommitteePayment">
@@ -180,18 +180,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Committee_Staff">
-          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
-          <End Role="Committee" Type="Self.Committee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Staff">
-              <PropertyRef Name="IdStaff" />
-            </Principal>
-            <Dependent Role="Committee">
-              <PropertyRef Name="IdStaff" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CommitteePayment_Staff">
           <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
           <End Role="CommitteePayment" Type="Self.CommitteePayment" Multiplicity="*" />
@@ -249,6 +237,18 @@
             </Principal>
             <Dependent Role="Solutions">
               <PropertyRef Name="IdMeetings" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Committee">
+          <End Role="Committee" Type="Self.Committee" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Committee">
+              <PropertyRef Name="IdCommittee" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IdCommittee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -359,10 +359,6 @@
             <End Role="Committee" EntitySet="Committee" />
             <End Role="Budget" EntitySet="Budget" />
           </AssociationSet>
-          <AssociationSet Name="FK_Committee_Staff" Association="Self.FK_Committee_Staff">
-            <End Role="Staff" EntitySet="Staff" />
-            <End Role="Committee" EntitySet="Committee" />
-          </AssociationSet>
           <AssociationSet Name="FK_CommitteePayment_Staff" Association="Self.FK_CommitteePayment_Staff">
             <End Role="Staff" EntitySet="Staff" />
             <End Role="CommitteePayment" EntitySet="CommitteePayment" />
@@ -382,6 +378,10 @@
           <AssociationSet Name="FK_Solutions_Meetings" Association="Self.FK_Solutions_Meetings">
             <End Role="Meetings" EntitySet="Meetings" />
             <End Role="Solutions" EntitySet="Solutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Committee" Association="Self.FK_Staff_Committee">
+            <End Role="Committee" EntitySet="Committee" />
+            <End Role="Staff" EntitySet="Staff" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_Departament" Association="Self.FK_Staff_Departament">
             <End Role="Departament" EntitySet="Departament" />
@@ -434,12 +434,12 @@
             <PropertyRef Name="IdCommittee" />
           </Key>
           <Property Name="IdCommittee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Committee1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameCommittee" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdStaff" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Budget" Relationship="Self.FK_Budget_Committee" FromRole="Committee" ToRole="Budget" />
-          <NavigationProperty Name="Staff" Relationship="Self.FK_Committee_Staff" FromRole="Committee" ToRole="Staff" />
           <NavigationProperty Name="Meetings" Relationship="Self.FK_Meetings_Committee" FromRole="Committee" ToRole="Meetings" />
           <NavigationProperty Name="SocialPrograms" Relationship="Self.FK_SocialPrograms_Committee" FromRole="Committee" ToRole="SocialPrograms" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Committee" FromRole="Committee" ToRole="Staff" />
         </EntityType>
         <EntityType Name="CommitteePayment">
           <Key>
@@ -534,7 +534,7 @@
           <Property Name="IdCommittee" Type="Int32" />
           <Property Name="PhotoStaff" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="AppealsAndComplaints" Relationship="Self.FK_AppealsAndComplaints_Staff" FromRole="Staff" ToRole="AppealsAndComplaints" />
-          <NavigationProperty Name="Committee" Relationship="Self.FK_Committee_Staff" FromRole="Staff" ToRole="Committee" />
+          <NavigationProperty Name="Committee" Relationship="Self.FK_Staff_Committee" FromRole="Staff" ToRole="Committee" />
           <NavigationProperty Name="CommitteePayment" Relationship="Self.FK_CommitteePayment_Staff" FromRole="Staff" ToRole="CommitteePayment" />
           <NavigationProperty Name="Departament" Relationship="Self.FK_Staff_Departament" FromRole="Staff" ToRole="Departament" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Staff_Gender" FromRole="Staff" ToRole="Gender" />
@@ -606,18 +606,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Committee_Staff">
-          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
-          <End Role="Committee" Type="Self.Committee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Staff">
-              <PropertyRef Name="IdStaff" />
-            </Principal>
-            <Dependent Role="Committee">
-              <PropertyRef Name="IdStaff" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Meetings_Committee">
           <End Role="Committee" Type="Self.Committee" Multiplicity="1" />
           <End Role="Meetings" Type="Self.Meetings" Multiplicity="*" />
@@ -639,6 +627,18 @@
             </Principal>
             <Dependent Role="SocialPrograms">
               <PropertyRef Name="IdCommitte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Committee">
+          <End Role="Committee" Type="Self.Committee" Multiplicity="0..1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Committee">
+              <PropertyRef Name="IdCommittee" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IdCommittee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -754,10 +754,6 @@
             <End Role="Committee" EntitySet="Committee" />
             <End Role="Budget" EntitySet="Budget" />
           </AssociationSet>
-          <AssociationSet Name="FK_Committee_Staff" Association="Self.FK_Committee_Staff">
-            <End Role="Staff" EntitySet="Staff" />
-            <End Role="Committee" EntitySet="Committee" />
-          </AssociationSet>
           <AssociationSet Name="FK_Meetings_Committee" Association="Self.FK_Meetings_Committee">
             <End Role="Committee" EntitySet="Committee" />
             <End Role="Meetings" EntitySet="Meetings" />
@@ -765,6 +761,10 @@
           <AssociationSet Name="FK_SocialPrograms_Committee" Association="Self.FK_SocialPrograms_Committee">
             <End Role="Committee" EntitySet="Committee" />
             <End Role="SocialPrograms" EntitySet="SocialPrograms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Committee" Association="Self.FK_Staff_Committee">
+            <End Role="Committee" EntitySet="Committee" />
+            <End Role="Staff" EntitySet="Staff" />
           </AssociationSet>
           <AssociationSet Name="FK_CommitteePayment_Staff" Association="Self.FK_CommitteePayment_Staff">
             <End Role="Staff" EntitySet="Staff" />
@@ -869,7 +869,7 @@
             <EntityTypeMapping TypeName="DBModel.Committee">
               <MappingFragment StoreEntitySet="Committee">
                 <ScalarProperty Name="IdCommittee" ColumnName="IdCommittee" />
-                <ScalarProperty Name="Committee1" ColumnName="Committee" />
+                <ScalarProperty Name="NameCommittee" ColumnName="NameCommittee" />
                 <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
               </MappingFragment>
             </EntityTypeMapping>

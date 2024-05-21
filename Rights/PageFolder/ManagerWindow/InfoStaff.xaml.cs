@@ -1,9 +1,7 @@
 ﻿using Rights.DataFolder;
 using Rights.Helpers;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,15 +15,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Rights.WindowFolder.OtherWindows
+namespace Rights.PageFolder.ManagerWindow
 {
     /// <summary>
-    /// Логика взаимодействия для StaffWindow.xaml
+    /// Логика взаимодействия для InfoStaff.xaml
     /// </summary>
-    public partial class StaffWindow : Window
+    public partial class InfoStaff : Window
     {
         private Staff _staff;
-        public StaffWindow(Staff staff)
+        public InfoStaff(Staff staff)
         {
             InitializeComponent();
             DataContext = _staff = staff;
@@ -40,7 +38,7 @@ namespace Rights.WindowFolder.OtherWindows
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }       
+            }
         }
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -77,22 +75,11 @@ namespace Rights.WindowFolder.OtherWindows
 
         private void ConfigureWithUserAccess()
         {
-            // like "admin"
-            string[] allowedRoles = { "Менеджер", "Директор", "Президент" };
-
-            if (!allowedRoles.Contains(App.CurrentUser.Role.NameRole))
-            {
-                // Прячем кнопки
-                ChangeStaffBtn.Visibility = ChangePhotoStaffBtn.Visibility = Visibility.Collapsed;
 
                 VisualHelper.MakeOnlyReadableControls(this);
 
-                TitleTb.Text = "Информация о сотруднике";
-            }
-            else
-            {
-                TitleTb.Text = "Изменить сотрудника";
-            }
+                TitleTb.Text = "Информация сотрудника";
+    
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

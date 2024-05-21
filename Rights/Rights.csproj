@@ -164,6 +164,9 @@
     <Compile Include="PageFolder\ManagerWindow\EditStaff.xaml.cs">
       <DependentUpon>EditStaff.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\ManagerWindow\InfoStaff.xaml.cs">
+      <DependentUpon>InfoStaff.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowFolder\AdminFolder\AdminMainWindow.xaml.cs">
       <DependentUpon>AdminMainWindow.xaml</DependentUpon>
     </Compile>
@@ -178,9 +181,6 @@
     </Compile>
     <Compile Include="WindowFolder\MessageBoxCustom.xaml.cs">
       <DependentUpon>MessageBoxCustom.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WindowFolder\OtherWindows\StaffWindow.xaml.cs">
-      <DependentUpon>StaffWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowFolder\PresidentFolder\PresidentMainWindow.xaml.cs">
       <DependentUpon>PresidentMainWindow.xaml</DependentUpon>
@@ -241,6 +241,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\ManagerWindow\EditStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\ManagerWindow\InfoStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -320,10 +324,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WindowFolder\OtherWindows\StaffWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="WindowFolder\PresidentFolder\PresidentMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -355,8 +355,9 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
-    <Content Include="ResourceFolder\скрипт.sql" />
+    <Resource Include="ResourceFolder\LogoImage.ico" />
     <Resource Include="LogoImage.ico" />
+    <Content Include="ResourceFolder\скрипт.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -75,22 +75,9 @@ namespace Rights.PageFolder.ManagerWindow
 
         private void ConfigureWithUserAccess()
         {
-            // like 
 
-            if (App.CurrentUser.Role.NameRole != "Менеджер")
-            {
-                // Прячем кнопки
-                ChangeStaffBtn.Visibility = ChangePhotoStaffBtn.Visibility = Visibility.Collapsed;
-
-                VisualHelper.MakeOnlyReadableControls(this);
-
-                TitleTb.Text = "Информация о сотруднике";
-
-            }
-            else
-            {
                 TitleTb.Text = "Изменить сотрудника";
-            }
+
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

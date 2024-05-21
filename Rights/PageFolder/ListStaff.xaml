@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Rights.PageFolder"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
-      Title="MainWindow"
+      Title="Список сотрудников"
       Height="868"
       Loaded="Page_Loaded"
       Width="1158">
@@ -113,7 +113,6 @@
 
                             <Grid x:Name="StaffGridInfo"
                                   Height="160"
-                                  MouseLeftButtonDown="StaffGridInfo_MouseLeftButtonDown"
                                   Margin="0 0 23 22"
                                   Width="510">
                                 <Grid.ContextMenu>
