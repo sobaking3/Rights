@@ -36,7 +36,7 @@ namespace Rights.PageFolder.ManagerWindow
         {
             InitializeComponent();
             RoleCb.ItemsSource = DBEntities.GetContext()
-          .Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Администратор"
+          .Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Админ"
           || r.NameRole == "Директор" || r.NameRole == "Менеджер" || r.NameRole == "Президент"))
           .ToList();
             GenderCb.ItemsSource = DBEntities.GetContext().Gender.ToList();

@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Width="1229"
-        Height="617"
+        Height="617" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
         Style="{StaticResource WindowCorneredGeneral}"
         Title="StaffWindow">
@@ -214,10 +214,10 @@
                                            MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <ComboBox Width="220"
-                                          SelectedItem="{Binding Staff.Role}"
+                                          SelectedItem="{Binding User.Role}"
                                           SelectedValuePath="IdRole"
                                           DisplayMemberPath="NameRole"
-                                          materialDesign:HintAssist.Hint="Роль"
+                                          materialDesign:HintAssist.Hint="Должность"
                                           x:Name="RoleCb"
                                           Style="{StaticResource ComboBoxField}" />
                             </StackPanel>
