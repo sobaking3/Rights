@@ -25,6 +25,13 @@ namespace Rights.WindowFolder.ManagerFolder
         {
             InitializeComponent();
             EmpName.Text = App.GetCurrentstaffInitials();
+
+            if(App.CurrentStaff.PhotoStaff != null)
+            {
+                EmpImage.ImageSource = ImageClass.ConvertByteArrayToImage(App.CurrentStaff.PhotoStaff);
+            }
+
+            //EmpImage.ImageSource 
         }
 
        
@@ -36,7 +43,7 @@ namespace Rights.WindowFolder.ManagerFolder
 
         private void CommitteList_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new ListCommitte());
         }
 
         private void DepartmentList_Click(object sender, RoutedEventArgs e)

@@ -55,6 +55,7 @@ namespace Rights.PageFolder
 
             }
         }
+  
         public Role SelectedRole
         {
             get => _selectedRole;
@@ -115,7 +116,6 @@ namespace Rights.PageFolder
             UpdateStaffList();
             DepartamentFilterCb.ItemsSource = DBEntities.GetContext().Departament.ToList();
             RoleFilterCb.ItemsSource = DBEntities.GetContext().Role.ToList();
-
         }
 
         private void EditM1_Click(object sender, RoutedEventArgs e)
@@ -159,24 +159,6 @@ namespace Rights.PageFolder
             }
         }
        
-        //private void DeleteUser(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-                
-        //        Grid grid = sender as Grid;
-        //        if ((sender as FrameworkElement).DataContext is User user)
-        //        {
-
-        //            DBEntities.GetContext().User.Remove(user);
-        //            DBEntities.GetContext().SaveChanges();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MBClass.ErrorMB(ex);
-        //    }
-        //}
 
         private void InfoM1_Click(object sender, RoutedEventArgs e)
         {

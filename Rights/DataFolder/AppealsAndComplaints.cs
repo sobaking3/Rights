@@ -16,7 +16,7 @@ namespace Rights.DataFolder
     {
         public int IdAppeal { get; set; }
         public Nullable<int> IdStaff { get; set; }
-        public string Date { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public string Discription { get; set; }
         public Nullable<int> IdStatus { get; set; }
     

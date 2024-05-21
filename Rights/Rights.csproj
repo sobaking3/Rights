@@ -116,6 +116,8 @@
     <Compile Include="DataFolder\Departament.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataFolder\EntityExtensions\Committee.cs" />
+    <Compile Include="DataFolder\EntityExtensions\Staff.cs" />
     <Compile Include="DataFolder\Gender.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -155,6 +157,9 @@
     <Compile Include="Helpers\OpenFileDialogImageHelper.cs" />
     <Compile Include="Helpers\VisualHelper.cs" />
     <Compile Include="Helpers\WindowHelper.cs" />
+    <Compile Include="PageFolder\ListCommitte.xaml.cs">
+      <DependentUpon>ListCommitte.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\ListStaff.xaml.cs">
       <DependentUpon>ListStaff.xaml</DependentUpon>
     </Compile>
@@ -231,6 +236,10 @@
     <Page Include="Converters\Include.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageFolder\ListCommitte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\ListStaff.xaml">
       <SubType>Designer</SubType>
@@ -345,6 +354,8 @@
     <Resource Include="ResourceFolder\MainBack2.png" />
     <Resource Include="ResourceFolder\Close.png" />
     <Resource Include="ResourceFolder\Minus.png" />
+    <Resource Include="ResourceFolder\LogoImage.ico" />
+    <Resource Include="LogoImage.ico" />
     <Content Include="DataFolder\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModel.edmx</DependentUpon>
@@ -355,8 +366,6 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
-    <Resource Include="ResourceFolder\LogoImage.ico" />
-    <Resource Include="LogoImage.ico" />
     <Content Include="ResourceFolder\скрипт.sql" />
   </ItemGroup>
   <ItemGroup>

@@ -20,6 +20,7 @@ namespace Rights
     public partial class App : Application
     {
         public static User CurrentUser { get; set; }
+        public static Staff CurrentStaff => CurrentUser?.Staff.FirstOrDefault();
         public byte[] PhotoStaff { get; set; }
 
 

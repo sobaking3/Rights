@@ -21,7 +21,7 @@ namespace Rights.DataFolder
         }
     
         public int IdMeetings { get; set; }
-        public string MeetingsDate { get; set; }
+        public System.DateTime MeetingsDate { get; set; }
         public string Discription { get; set; }
         public int IdCommittee { get; set; }
     
