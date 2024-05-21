@@ -136,7 +136,7 @@
                                         x:Name="CommitteList"
                                         Click="CommitteList_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Newspaper"
+                                        <materialDesign:PackIcon Kind="Handshake"
                                                                  Margin="10 0 10 0"
                                                                  Height="25"
                                                                  Width="25" />
@@ -149,7 +149,7 @@
                                         Margin="10 0 20 10" Click="DepartmentList_Click"
                                         Height="50">
                                     <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Shop"
+                                        <materialDesign:PackIcon Kind="ManMan"
                                                                  Margin="10 0 10 0"
                                                                  Height="25"
                                                                  Width="25" />
@@ -164,7 +164,7 @@
                                         Height="50">
 
                                     <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Newspaper"
+                                        <materialDesign:PackIcon Kind="OfficeBuilding"
                                                                  Margin="10 0 10 0"
                                                                  Height="25"
                                                                  Width="25" />
@@ -193,11 +193,25 @@
                                         Click="MeetingsList_Click"
                                         Height="50">
                                     <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Car"
+                                        <materialDesign:PackIcon Kind="Tab"
                                                                  Margin="10 0 10 0"
                                                                  Height="25"
                                                                  Width="25" />
                                         <TextBlock Text="Собрания" />
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        x:Name="AppealsList"
+                                        Click="AppealsList_Click"
+                                        Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Warning"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                        <TextBlock Text="Жалобы и обращения" />
                                     </StackPanel>
                                 </Button>
                             </StackPanel>

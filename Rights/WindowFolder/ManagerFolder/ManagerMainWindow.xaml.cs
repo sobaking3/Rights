@@ -38,12 +38,12 @@ namespace Rights.WindowFolder.ManagerFolder
 
         private void ListStaffBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new ListStaff());
+            MainFrame.Navigate(new PageFolder.ManagerWindow.ListStaff());
         }
 
         private void CommitteList_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new ListCommitte());
+            MainFrame.Navigate(new PageFolder.ManagerWindow.ListCommitte());
         }
 
         private void DepartmentList_Click(object sender, RoutedEventArgs e)
@@ -100,6 +100,11 @@ namespace Rights.WindowFolder.ManagerFolder
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             WindowTransitionHelper.OpenWindow(this, this);
+        }
+
+        private void AppealsList_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

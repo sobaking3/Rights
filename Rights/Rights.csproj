@@ -172,6 +172,12 @@
     <Compile Include="PageFolder\ManagerWindow\InfoStaff.xaml.cs">
       <DependentUpon>InfoStaff.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\ManagerWindow\ListCommitte.xaml.cs">
+      <DependentUpon>ListCommitte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\ManagerWindow\ListStaff.xaml.cs">
+      <DependentUpon>ListStaff.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowFolder\AdminFolder\AdminMainWindow.xaml.cs">
       <DependentUpon>AdminMainWindow.xaml</DependentUpon>
     </Compile>
@@ -254,6 +260,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\ManagerWindow\InfoStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\ManagerWindow\ListCommitte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\ManagerWindow\ListStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -344,6 +358,10 @@
     <Resource Include="ResourceFolder\Profile_Image.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PageFolder\AdminWindow\" />
+    <Folder Include="PageFolder\DirectorWindow\" />
+    <Folder Include="PageFolder\EmployeeWindow\" />
+    <Folder Include="PageFolder\PresidentWindow\" />
     <Folder Include="WindowFolder\UtilsFolder\" />
   </ItemGroup>
   <ItemGroup>
