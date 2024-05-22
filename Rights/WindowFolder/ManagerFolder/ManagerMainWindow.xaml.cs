@@ -63,7 +63,7 @@ namespace Rights.WindowFolder.ManagerFolder
 
         private void MeetingsList_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new PageFolder.ManagerWindow.ListMeetings());
         }
 
         private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
@@ -104,7 +104,7 @@ namespace Rights.WindowFolder.ManagerFolder
 
         private void AppealsList_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new PageFolder.ManagerWindow.ListAppeals());
         }
     }
 }

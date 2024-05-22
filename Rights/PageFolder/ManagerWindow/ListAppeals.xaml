@@ -1,12 +1,12 @@
-﻿<Page x:Class="Rights.PageFolder.ManagerWindow.ListSocialPrograms"
+﻿<Page x:Class="Rights.PageFolder.ManagerWindow.ListAppeals"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Rights.PageFolder.ManagerWindow"
-       mc:Ignorable="d" 
+      mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      Title="Список соц. программ"
+      Title="Список жалоб и обращений"
       Height="868"
       Loaded="Page_Loaded"
       Width="1158">
@@ -43,12 +43,12 @@
 
 
 
-                <Button x:Name="AddSocialProgramsBtn"
+                <Button x:Name="AddAppealsBtn"
                         Height="42"
                         Width="72" 
                         Content="{materialDesign:PackIcon Kind=Plus, Size=24}"
                         Style="{StaticResource ButtonIconGeneral}"
-                        Click="AddSocialProgramsBtn_Click"/>
+                        Click="AddAppealsBtn_Click"/>
             </StackPanel>
 
             <Border CornerRadius="10"
@@ -123,13 +123,23 @@
                                     </Grid.ColumnDefinitions>
 
                                     <TextBlock Style="{StaticResource TextBlockHeader3}"
-                                               VerticalAlignment="Center"
-                                               TextWrapping="Wrap"
-                                               TextAlignment="Left"
-                                               FontStyle="Italic"
-                                               TextDecorations="Underline"
-                                               Text="{Binding ProgramName, TargetNullValue=Отсутствует, FallbackValue=Ошибка}" />
+                                   VerticalAlignment="Center"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Left"
+                                   FontStyle="Italic"
+                                   TextDecorations="Underline"
+                                   Text="{Binding Staff.NotFullName, 
+                                   TargetNullValue=Отсутствует, FallbackValue=Ошибка, StringFormat={}Отправитель: {0}}" />
 
+                                    <TextBlock 
+                                            Style="{StaticResource TextBlockBody2}"
+                                            Grid.Row="1" 
+                                            VerticalAlignment="Center"
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Left"
+                                            FontStyle="Italic" Margin="0 -50 0 0"
+                                            TextDecorations="Underline"
+                                               Text="{Binding Status.StatusName, TargetNullValue=Отсутствует, FallbackValue=Ошибка, StringFormat={}Статус: {0}}" />
 
 
                                     <TextBlock
@@ -138,20 +148,23 @@
                                             VerticalAlignment="Center"
                                             TextWrapping="Wrap"
                                             TextAlignment="Left"
-                                            FontStyle="Italic" Margin="-25 0 0 -5"
+                                            FontStyle="Italic" Margin="40 5  0 0"
                                             TextDecorations="Underline"
-                                        Text="{Binding Committee.NameCommittee, TargetNullValue=Отсутствует, FallbackValue=Ошибка,StringFormat={}Комитет: {0}}" />
+                                        Text="{Binding Date, 
+                                   StringFormat='{}Дата: {0:dd MMMM yyyy}', 
+                                   TargetNullValue=Отсутствует, 
+                                    FallbackValue=Ошибка, ConverterCulture=ru}"  />
 
 
 
 
                                     <TextBlock Style="{StaticResource TextBlockBody2}"
-                                               Margin="0 0 0 0" Grid.ColumnSpan="3" 
+                                               Margin="0 0 0 10" 
                                                VerticalAlignment="Bottom"
-                                               Grid.Row="1" x:Name="StaffCountTb"
+                                               Grid.Row="1" Grid.ColumnSpan="3" x:Name="StaffCountTb"
                                                TextWrapping="Wrap" 
                                                TextAlignment="Left"
-                                               Text="{Binding ProgramDiscription, TargetNullValue=Отсутствует, FallbackValue=Ошибка, StringFormat={}Описание: {0}}" />
+                                               Text="{Binding Discription, TargetNullValue=Отсутствует, FallbackValue=Ошибка, StringFormat={}Описание: {0}}" />
                                 </Grid>
 
                             </Grid>

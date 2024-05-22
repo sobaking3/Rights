@@ -105,7 +105,7 @@ namespace Rights.PageFolder
                 query = query.Where(x => x.User.IdRole == _selectedRole.IdRole);
             }
 
-            List<Staff> result = query.ToList();
+            List<Staff> result = query.Where(x => x.User.Role.NameRole != "Директор").ToList();
 
             StaffListItemsControl.ItemsSource = result;
         }

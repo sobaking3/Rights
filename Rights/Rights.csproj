@@ -173,11 +173,17 @@
     <Compile Include="PageFolder\ManagerWindow\InfoStaff.xaml.cs">
       <DependentUpon>InfoStaff.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\ManagerWindow\ListAppeals.xaml.cs">
+      <DependentUpon>ListAppeals.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\ManagerWindow\ListCommitte.xaml.cs">
       <DependentUpon>ListCommitte.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\ManagerWindow\ListDepartment.xaml.cs">
       <DependentUpon>ListDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\ManagerWindow\ListMeetings.xaml.cs">
+      <DependentUpon>ListMeetings.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\ManagerWindow\ListOrganization.xaml.cs">
       <DependentUpon>ListOrganization.xaml</DependentUpon>
@@ -273,11 +279,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageFolder\ManagerWindow\ListAppeals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFolder\ManagerWindow\ListCommitte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\ManagerWindow\ListDepartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\ManagerWindow\ListMeetings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

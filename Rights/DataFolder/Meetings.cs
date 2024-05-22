@@ -24,8 +24,10 @@ namespace Rights.DataFolder
         public System.DateTime MeetingsDate { get; set; }
         public string Discription { get; set; }
         public int IdCommittee { get; set; }
+        public Nullable<int> IdStatus { get; set; }
     
         public virtual Committee Committee { get; set; }
+        public virtual Status Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Solutions> Solutions { get; set; }
     }

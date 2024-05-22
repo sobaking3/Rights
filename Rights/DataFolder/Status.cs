@@ -18,6 +18,7 @@ namespace Rights.DataFolder
         public Status()
         {
             this.AppealsAndComplaints = new HashSet<AppealsAndComplaints>();
+            this.Meetings = new HashSet<Meetings>();
             this.Organizations = new HashSet<Organizations>();
         }
     
@@ -26,6 +27,8 @@ namespace Rights.DataFolder
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AppealsAndComplaints> AppealsAndComplaints { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Meetings> Meetings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Organizations> Organizations { get; set; }
     }

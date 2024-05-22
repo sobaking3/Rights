@@ -66,6 +66,7 @@
           <Property Name="MeetingsDate" Type="date" Nullable="false" />
           <Property Name="Discription" Type="nvarchar" MaxLength="100" />
           <Property Name="IdCommittee" Type="int" Nullable="false" />
+          <Property Name="IdStatus" Type="int" />
         </EntityType>
         <EntityType Name="Organizations">
           <Key>
@@ -88,9 +89,9 @@
           <Key>
             <PropertyRef Name="IdPrograms" />
           </Key>
-          <Property Name="IdPrograms" Type="int" Nullable="false" />
-          <Property Name="ProgramName" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="ProgramDiscription" Type="nvarchar" MaxLength="150" />
+          <Property Name="IdPrograms" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProgramDiscription" Type="nvarchar" MaxLength="300" />
           <Property Name="IdCommitte" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Solutions">
@@ -201,6 +202,18 @@
             </Principal>
             <Dependent Role="Meetings">
               <PropertyRef Name="IdCommittee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetings_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="IdStatus" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="IdStatus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -367,6 +380,10 @@
             <End Role="Committee" EntitySet="Committee" />
             <End Role="Meetings" EntitySet="Meetings" />
           </AssociationSet>
+          <AssociationSet Name="FK_Meetings_Status" Association="Self.FK_Meetings_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
           <AssociationSet Name="FK_Organizations_Status" Association="Self.FK_Organizations_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="Organizations" EntitySet="Organizations" />
@@ -476,7 +493,9 @@
           <Property Name="MeetingsDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Discription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IdCommittee" Type="Int32" Nullable="false" />
+          <Property Name="IdStatus" Type="Int32" />
           <NavigationProperty Name="Committee" Relationship="Self.FK_Meetings_Committee" FromRole="Meetings" ToRole="Committee" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Meetings_Status" FromRole="Meetings" ToRole="Status" />
           <NavigationProperty Name="Solutions" Relationship="Self.FK_Solutions_Meetings" FromRole="Meetings" ToRole="Solutions" />
         </EntityType>
         <EntityType Name="Organizations">
@@ -502,9 +521,9 @@
           <Key>
             <PropertyRef Name="IdPrograms" />
           </Key>
-          <Property Name="IdPrograms" Type="Int32" Nullable="false" />
-          <Property Name="ProgramName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProgramDiscription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IdPrograms" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProgramDiscription" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="IdCommitte" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Committee" Relationship="Self.FK_SocialPrograms_Committee" FromRole="SocialPrograms" ToRole="Committee" />
         </EntityType>
@@ -547,6 +566,7 @@
           <Property Name="IdStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StatusName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AppealsAndComplaints" Relationship="Self.FK_AppealsAndComplaints_Status" FromRole="Status" ToRole="AppealsAndComplaints" />
+          <NavigationProperty Name="Meetings" Relationship="Self.FK_Meetings_Status" FromRole="Status" ToRole="Meetings" />
           <NavigationProperty Name="Organizations" Relationship="Self.FK_Organizations_Status" FromRole="Status" ToRole="Organizations" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -678,6 +698,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Meetings_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="IdStatus" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Solutions_Meetings">
           <End Role="Meetings" Type="Self.Meetings" Multiplicity="1" />
           <End Role="Solutions" Type="Self.Solutions" Multiplicity="*" />
@@ -777,6 +809,10 @@
           <AssociationSet Name="FK_Staff_Gender" Association="Self.FK_Staff_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetings_Status" Association="Self.FK_Meetings_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Meetings" EntitySet="Meetings" />
           </AssociationSet>
           <AssociationSet Name="FK_Solutions_Meetings" Association="Self.FK_Solutions_Meetings">
             <End Role="Meetings" EntitySet="Meetings" />
@@ -908,6 +944,7 @@
                 <ScalarProperty Name="MeetingsDate" ColumnName="MeetingsDate" />
                 <ScalarProperty Name="Discription" ColumnName="Discription" />
                 <ScalarProperty Name="IdCommittee" ColumnName="IdCommittee" />
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
