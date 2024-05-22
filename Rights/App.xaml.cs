@@ -29,6 +29,11 @@ namespace Rights
             return Application.Current.MainWindow;
         };
 
+        public static int GetCurrentstaffId()
+        {
+            Staff staff = App.CurrentUser.Staff.FirstOrDefault();
+            return staff.IdStaff;
+        }
         public static string GetCurrentstaffInitials()
         {
             if (CurrentUser == null)
@@ -41,7 +46,7 @@ namespace Rights
                 return "Сотрудник";
             }
             return $"{staff.LastName} {staff.FirstName[0]}." +
-                (string.IsNullOrEmpty(staff.MiddleName) ? string.Empty : staff.LastName[0] + ".");
+                (string.IsNullOrEmpty(staff.MiddleName) ? string.Empty : staff.MiddleName[0] + ".");
         }    
 
         public App()

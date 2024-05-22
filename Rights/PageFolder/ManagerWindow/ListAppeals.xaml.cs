@@ -2,6 +2,7 @@
 using Rights.DataFolder;
 using Rights.Helpers;
 using Rights.PageFolder.ManagerWindow;
+using Rights.PageFolder.WindowForAll;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,7 +74,8 @@ namespace Rights.PageFolder.ManagerWindow
 
         private void AddAppealsBtn_Click(object sender, RoutedEventArgs e)
         {
-            MBClass.ErrorMB("Для добавления ж, вы должны быть президентом");
+            new AddAppeal().ShowDialog();
+            UpdateStaffList();
         }
     }
 }
