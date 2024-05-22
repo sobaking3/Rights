@@ -39,7 +39,7 @@ namespace Rights.PageFolder.WindowForAll
         {
             if (ElementsToolsClass.AllFieldsFilled(this))
             {
-                Staff staff = App.CurrentUser.Staff.FirstOrDefault();
+                Staff staff = App.CurrentStaff;
                 var AppealsAndComplaints = new AppealsAndComplaints()
                 {
 
@@ -48,11 +48,12 @@ namespace Rights.PageFolder.WindowForAll
                     Discription = DiscriptionTb.Text,
                     IdStatus = 2,
                 };
-            DBEntities.GetContext().AppealsAndComplaints.Add(AppealsAndComplaints);
-            DBEntities.GetContext().SaveChanges();
+                DBEntities.GetContext().AppealsAndComplaints.Add(AppealsAndComplaints);
+                DBEntities.GetContext().SaveChanges();
+            }
         }
     
-}
+
 
         private void AddStaffBtn_Click(object sender, RoutedEventArgs e)
         {
