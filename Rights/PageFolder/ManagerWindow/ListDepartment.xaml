@@ -11,7 +11,7 @@
       Loaded="Page_Loaded"
       Width="1158">
 
-    <Border CornerRadius="14 14 14 0"
+    <Border CornerRadius="14 14 14 14"
             Background="White">
         <Grid Margin="18 23 29 28">
             <Grid.RowDefinitions>
