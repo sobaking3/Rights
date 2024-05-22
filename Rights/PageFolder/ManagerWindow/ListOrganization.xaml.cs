@@ -17,12 +17,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Rights.PageFolder.ManagerWindow
 {
     /// <summary>
-    /// Логика взаимодействия для ListCommitte.xaml
+    /// Логика взаимодействия для ListOrganization.xaml
     /// </summary>
-    public partial class ListCommitte : Page
+    public partial class ListOrganization : Page
     {
         private string _searchText;
 
@@ -41,25 +42,25 @@ namespace Rights.PageFolder.ManagerWindow
         }
 
         private List<FrameworkElement> _onLoadingBlockingControls = new List<FrameworkElement>();
-        public ListCommitte()
+        public ListOrganization()
         {
             InitializeComponent();
             DataContext = this;
             _onLoadingBlockingControls.Add(SearchStaffByFullNameTb);
-            _onLoadingBlockingControls.Add(AddCommitteeBtn);
+            _onLoadingBlockingControls.Add(AddOrganizationBtn);
         }
 
         private void UpdateStaffList()
         {
-            var query = DBEntities.GetContext().Committee.Select(x => x);
+            var query = DBEntities.GetContext().Organizations.Select(x => x);
 
             if (!string.IsNullOrEmpty(_searchText))
             {
-                query = query.Where(x => (x.NameCommittee).Contains(_searchText));
+                query = query.Where(x => (x.NameOrganization).Contains(_searchText));
             }
 
 
-            List<Committee> result = query.ToList();
+            List<Organizations> result = query.ToList();
 
             StaffListItemsControl.ItemsSource = result;
         }
@@ -70,9 +71,9 @@ namespace Rights.PageFolder.ManagerWindow
             UpdateStaffList();
         }
 
-        private void AddCommitteeBtn_Click(object sender, RoutedEventArgs e)
+        private void AddOrganizationBtn_Click(object sender, RoutedEventArgs e)
         {
-            MBClass.ErrorMB("Для добавления комитета, обратитесь к вышестоящим лицам");
+            MBClass.ErrorMB("Для добавления отдела, обратитесь к вышестоящим лицам");
         }
     }
 }

@@ -48,7 +48,7 @@ namespace Rights.WindowFolder.ManagerFolder
 
         private void DepartmentList_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new PageFolder.ManagerWindow.ListDepartment());
         }
 
         private void OrganizationsList_Click(object sender, RoutedEventArgs e)

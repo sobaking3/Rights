@@ -116,7 +116,9 @@ namespace Rights.PageFolder.ManagerWindow
         {
             UpdateStaffList();
             DepartamentFilterCb.ItemsSource = DBEntities.GetContext().Departament.ToList();
-            RoleFilterCb.ItemsSource = DBEntities.GetContext().Role.ToList();
+            RoleFilterCb.ItemsSource = DBEntities.GetContext().Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Админ"
+           || r.NameRole == "Директор" || r.NameRole == "Менеджер" || r.NameRole == "Президент"))
+           .ToList();
         }
 
         private void EditM1_Click(object sender, RoutedEventArgs e)
