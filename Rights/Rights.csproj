@@ -405,7 +405,6 @@
     <Folder Include="PageFolder\DirectorWindow\" />
     <Folder Include="PageFolder\EmployeeWindow\" />
     <Folder Include="PageFolder\PresidentWindow\" />
-    <Folder Include="WindowFolder\UtilsFolder\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ResourceFolder\LogoImage.png" />
