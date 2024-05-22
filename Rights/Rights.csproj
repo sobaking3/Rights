@@ -182,6 +182,9 @@
     <Compile Include="PageFolder\ManagerWindow\ListOrganization.xaml.cs">
       <DependentUpon>ListOrganization.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\ManagerWindow\ListSocialPrograms.xaml.cs">
+      <DependentUpon>ListSocialPrograms.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\ManagerWindow\ListStaff.xaml.cs">
       <DependentUpon>ListStaff.xaml</DependentUpon>
     </Compile>
@@ -279,6 +282,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\ManagerWindow\ListOrganization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\ManagerWindow\ListSocialPrograms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

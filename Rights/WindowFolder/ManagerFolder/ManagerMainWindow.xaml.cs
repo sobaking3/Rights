@@ -53,12 +53,12 @@ namespace Rights.WindowFolder.ManagerFolder
 
         private void OrganizationsList_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new PageFolder.ManagerWindow.ListOrganization());
         }
 
         private void SocialProgramsList_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new PageFolder.ManagerWindow.ListSocialPrograms());
         }
 
         private void MeetingsList_Click(object sender, RoutedEventArgs e)

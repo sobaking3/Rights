@@ -4,6 +4,7 @@ using Rights.Helpers;
 using Rights.PageFolder.ManagerWindow;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -21,9 +23,9 @@ using System.Windows.Shapes;
 namespace Rights.PageFolder.ManagerWindow
 {
     /// <summary>
-    /// Логика взаимодействия для ListOrganization.xaml
+    /// Логика взаимодействия для ListSocialPrograms.xaml
     /// </summary>
-    public partial class ListOrganization : Page
+    public partial class ListSocialPrograms : Page
     {
         private string _searchText;
 
@@ -42,25 +44,25 @@ namespace Rights.PageFolder.ManagerWindow
         }
 
         private List<FrameworkElement> _onLoadingBlockingControls = new List<FrameworkElement>();
-        public ListOrganization()
+        public ListSocialPrograms()
         {
             InitializeComponent();
             DataContext = this;
             _onLoadingBlockingControls.Add(SearchStaffByFullNameTb);
-            _onLoadingBlockingControls.Add(AddOrganizationBtn);
+            _onLoadingBlockingControls.Add(AddSocialProgramsBtn);
         }
 
         private void UpdateStaffList()
         {
-            var query = DBEntities.GetContext().Organizations.Select(x => x);
+            var query = DBEntities.GetContext().SocialPrograms.Select(x => x);
 
             if (!string.IsNullOrEmpty(_searchText))
             {
-                query = query.Where(x => (x.NameOrganization).Contains(_searchText));
+                query = query.Where(x => (x.ProgramName).Contains(_searchText));
             }
 
 
-            List<Organizations> result = query.ToList();
+            List<SocialPrograms> result = query.ToList();
 
             StaffListItemsControl.ItemsSource = result;
         }
@@ -71,9 +73,9 @@ namespace Rights.PageFolder.ManagerWindow
             UpdateStaffList();
         }
 
-        private void AddOrganizationBtn_Click(object sender, RoutedEventArgs e)
+        private void AddSocialProgramsBtn_Click(object sender, RoutedEventArgs e)
         {
-            MBClass.ErrorMB("Для добавления организации, обратитесь к вышестоящим лицам");
+            MBClass.ErrorMB("Для добавления соц. программы, обратитесь к вышестоящим лицам");
         }
     }
 }
