@@ -4,9 +4,359 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rights.WindowFolder.PresidentFolder"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="PresidentMainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="ManagerMainWindow" 
+        Height="1024" Width="1440"
+        MinHeight="1024" MinWidth="1440"
+        MaxHeight="1024" MaxWidth="1440"
+        Loaded="Window_Loaded"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Background="Transparent">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+
+    <Border CornerRadius="30"
+            MouseDown="Border_MouseDown"
+           MouseLeftButtonDown="Border_MouseLeftButtonDown">
+
+        <Border CornerRadius="20"
+                BorderThickness="2"
+                Background="White">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--Left Menu-->
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0"
+                            Background="#353D68"
+                            Margin="247,0,-1186,0"
+                            CornerRadius="0 16 0 0">
+
+                        <TextBlock Background="Transparent"
+                                   Margin="0,20,132,10">
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="RIGHTS"
+                                       LineHeight="30"
+                                       LineStackingStrategy="BlockLineHeight"
+                                       TextWrapping="Wrap"
+                                       Foreground="White"
+                                       FontSize="32"
+                                       FontFamily="Montserrat"
+                                       FontWeight="ExtraBold"
+                                       Height="30"  Margin="0 10 0 0"
+                                       Width="117" />
+                        </StackPanel>
+                    </TextBlock>
+                    </Border>
+
+                    <Button HorizontalAlignment="Left"
+                            Margin="20 28 0 35"
+                            Style="{StaticResource topButton}">
+                        Width="25"
+                                        Height="25" Foreground="#747474" />
+                    </Button>
+
+                    <Border Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Background="#353D68"
+                            CornerRadius="16, 0, 0, 8">
+                        <DockPanel>
+                            <Border Width="160"
+                                    Height="160"
+                                    Padding="3"
+                                    Background="White"
+                                    CornerRadius="100"
+                                    DockPanel.Dock="Top"
+                                    HorizontalAlignment="Center"
+                                    Margin="20 30 15 0">
+                                <Ellipse x:Name="Ecl">
+                                    <Ellipse.Fill>
+                                        <ImageBrush x:Name="EmpImage" ImageSource="/ResourceFolder/Profile_Image.png"
+                                                    Stretch="UniformToFill" />
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Border>
+                            <TextBlock x:Name="EmpName"
+                                       Foreground="White"
+                                       FontSize="26"
+                                       Margin="5 10 0 10"
+                                       FontWeight="SemiBold"
+                                       Text=""
+                                       DockPanel.Dock="Top"
+                                       TextAlignment="Center" />
+                            <TextBlock Text="Президент"
+                                       Foreground="LightGray"
+                                       FontSize="17"
+                                       Margin="0 00 0 20"
+                                       FontWeight="SemiBold"
+                                       DockPanel.Dock="Top"
+                                       TextAlignment="Center" />
+
+                            <!--Menu Button-->
+
+                            <StackPanel DockPanel.Dock="Top"
+                                        Width="260"
+                                        Height="477" Margin="0,0,-10,0">
+                                <Button x:Name="ListStaffBtn"
+                                        Style="{StaticResource menuButton}"
+                                        Click="ListStaffBtn_Click"
+                                        Height="50"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10">
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Users"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                        <TextBlock Text="Список сотрудников" />
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        Height="50"
+                                        x:Name="CommitteList"
+                                        Click="CommitteList_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Handshake"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                        <TextBlock Text="Список комитетов" />
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch" x:Name="DepartmentList"
+                                        Margin="10 0 20 10" Click="DepartmentList_Click"
+                                        Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ManMan"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                        <TextBlock Text="Список отделов" />
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource menuButton}"
+                                        x:Name="OrganizationsList"
+                                        Click="OrganizationsList_Click"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        Height="50">
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="OfficeBuilding"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                        <TextBlock Text="Список организаций" />
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        x:Name="SocialProgramsList"
+                                        Click="SocialProgramsList_Click"
+                                        Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Newspaper"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                        <TextBlock Text="Соц. программы" />
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        x:Name="MeetingsList"
+                                        Click="MeetingsList_Click"
+                                        Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Tab"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                        <TextBlock Text="Собрания" />
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        x:Name="AppealsList"
+                                        Click="AppealsList_Click"
+                                        Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Warning"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                        <TextBlock Text="Жалобы и обращения" />
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        x:Name="BudgetList"
+                                        Click="BudgetList_Click"
+                                        Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Money"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                        <TextBlock Text="Бюджет" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+
+                            <Border CornerRadius="0, 20, 0, 8"
+                                    Background="#102559" Margin="0,204,0,0">
+
+                                <Button Style="{StaticResource menuLogOutButton}"
+                                        VerticalAlignment="Bottom"
+                                        Margin="0 0 0 0"
+                                        
+                                        Height="50"
+                                        Cursor="Hand"
+                                        x:Name="ExitBtn"
+                                        Click="ExitBtn_Click"
+                                        HorizontalAlignment="Stretch">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Logout"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                        <TextBlock Text="Выйти из аккаунта" />
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+                        </DockPanel>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="1"
+                      Margin="30 20 20 20">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="28" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="28" />
+                        <ColumnDefinition Width="5" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Button Name="MinimizeBtn" BorderBrush="Black" Background="#00000000" 
+                Foreground="#00000000" 
+                Click="MinimizeBtn_Click"
+                Grid.Column="1" Margin="0,0,3,1">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Image Source="/Rights;component/ResourceFolder/Minus.png" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button Name="CloseBtn" BorderBrush="Black" Background="#00000000" 
+                Foreground="#00000000" 
+                Click="CloseBtn_Click" Width="28"
+                            Height="28"
+                Grid.Column="3" >
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Image Source="/Rights;component/ResourceFolder/Close.png" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <!--<Button x:Name="CloseBtn"
+                            Background="Transparent"
+                            Foreground="White"
+                            FontSize="28"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="3"
+                            Content="X"
+                            Click="CloseBtn_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background"
+                                        Value="#28AEED" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseDirectlyOver"
+                                             Value="True">
+                                        <Setter Property="Background"
+                                                Value="Transparent" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="28"
+                                        Height="28"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>-->
+
+                    <!--TopButtons-->
+                </Grid>
+                <Border Grid.Column="1" 
+                        Margin="5,100,-10,10"
+                        CornerRadius="30 30 30 30">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Rights;component/ResourceFolder/MainBack2.png"
+                        Stretch="Fill" />
+                    </Border.Background>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Label Style="{DynamicResource LogoLabel}"
+                           Foreground="White"
+                           FontFamily="Montserrat"
+                           FontSize="28"
+                           Content="{Binding Content.Title, ElementName=MainFrame}"
+                           Margin="10,-180,114,0" />
+                        <Frame x:Name="MainFrame" 
+                           NavigationUIVisibility="Hidden"
+                           Margin="0,10,0,14" 
+                           Grid.RowSpan="2" Background="Transparent" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Border>
 </Window>

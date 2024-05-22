@@ -19,8 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
-namespace Rights.PageFolder.ManagerWindow
+namespace Rights.PageFolder.PresidentWindow
 {
     /// <summary>
     /// Логика взаимодействия для ListStaff.xaml
@@ -83,8 +82,7 @@ namespace Rights.PageFolder.ManagerWindow
 
         private void AddStaffBtn_Click(object sender, RoutedEventArgs e)
         {
-            WindowHelper.ShowDialogWithBlur(this, new ManagerWindow.AddStaff());
-            
+            WindowHelper.ShowDialogWithBlur(this, new PresidentWindow.AddStaff());
             UpdateStaffList();
         }
 
@@ -107,8 +105,7 @@ namespace Rights.PageFolder.ManagerWindow
                 query = query.Where(x => x.User.IdRole == _selectedRole.IdRole);
             }
 
-            List<Staff> result = query.Where(x => x.User.Role.NameRole != "Директор" &&
-                    x.User.Role.NameRole != "Директор" && x.User.Role.NameRole != "Менеджер" && x.User.Role.NameRole != "Президент").ToList();
+            List<Staff> result = query.Where(x => x.User.Role.NameRole != "Президент").ToList();
 
             StaffListItemsControl.ItemsSource = result;
         }
@@ -118,8 +115,7 @@ namespace Rights.PageFolder.ManagerWindow
         {
             UpdateStaffList();
             DepartamentFilterCb.ItemsSource = DBEntities.GetContext().Departament.ToList();
-            RoleFilterCb.ItemsSource = DBEntities.GetContext().Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Админ"
-           || r.NameRole == "Директор" || r.NameRole == "Менеджер" || r.NameRole == "Президент"))
+            RoleFilterCb.ItemsSource = DBEntities.GetContext().Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Президент"))
            .ToList();
         }
 
@@ -128,7 +124,7 @@ namespace Rights.PageFolder.ManagerWindow
             Grid grid = sender as Grid;
             if ((sender as FrameworkElement).DataContext is Staff staff)
             {
-                WindowHelper.ShowDialogWithBlur(this, new ManagerWindow.EditStaff(staff));
+                WindowHelper.ShowDialogWithBlur(this, new PresidentWindow.EditStaff(staff));
 
                 UpdateStaffList();
             }
@@ -171,7 +167,7 @@ namespace Rights.PageFolder.ManagerWindow
             Grid grid = sender as Grid;
             if ((sender as FrameworkElement).DataContext is Staff staff)
             {
-                WindowHelper.ShowDialogWithBlur(this, new ManagerWindow.InfoStaff(staff));
+                WindowHelper.ShowDialogWithBlur(this, new PresidentWindow.InfoStaff(staff));
 
                 UpdateStaffList();
             }

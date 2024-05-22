@@ -1,5 +1,4 @@
-﻿using Rights.ClassFolder;
-using Rights.DataFolder;
+﻿using Rights.DataFolder;
 using Rights.Helpers;
 using System;
 using System.Collections.Generic;
@@ -16,21 +15,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Rights.PageFolder.ManagerWindow
+
+namespace Rights.PageFolder.PresidentWindow
 {
     /// <summary>
-    /// Логика взаимодействия для EditStaff.xaml
+    /// Логика взаимодействия для InfoStaff.xaml
     /// </summary>
-    public partial class EditStaff : Window
+    public partial class InfoStaff : Window
     {
         private Staff _staff;
-        public EditStaff(Staff staff)
+        public InfoStaff(Staff staff)
         {
             InitializeComponent();
             DataContext = _staff = staff;
             RoleCb.ItemsSource = DBEntities.GetContext()
-          .Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Админ"
-          || r.NameRole == "Директор" || r.NameRole == "Менеджер" || r.NameRole == "Президент"))
+          .Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Президент"))
           .ToList();
             GenderCb.ItemsSource = DBEntities.GetContext().Gender.ToList();
             DepartamentCb.ItemsSource = DBEntities.GetContext().Departament.ToList();
@@ -41,11 +40,11 @@ namespace Rights.PageFolder.ManagerWindow
             try
             {
                 DBEntities.GetContext().SaveChanges();
-                MBClass.InfoMB("Изменения сохранены!");
+                MessageBox.Show("Изменения сохранены!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MBClass.ErrorMB(ex);
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -84,7 +83,9 @@ namespace Rights.PageFolder.ManagerWindow
         private void ConfigureWithUserAccess()
         {
 
-                TitleTb.Text = "Изменить сотрудника";
+            VisualHelper.MakeOnlyReadableControls(this);
+
+            TitleTb.Text = "Информация сотрудника";
 
         }
 

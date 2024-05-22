@@ -16,7 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Rights.PageFolder.ManagerWindow
+namespace Rights.PageFolder.PresidentWindow
 {
     /// <summary>
     /// Логика взаимодействия для EditStaff.xaml
@@ -29,8 +29,7 @@ namespace Rights.PageFolder.ManagerWindow
             InitializeComponent();
             DataContext = _staff = staff;
             RoleCb.ItemsSource = DBEntities.GetContext()
-          .Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Админ"
-          || r.NameRole == "Директор" || r.NameRole == "Менеджер" || r.NameRole == "Президент"))
+          .Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Президент"))
           .ToList();
             GenderCb.ItemsSource = DBEntities.GetContext().Gender.ToList();
             DepartamentCb.ItemsSource = DBEntities.GetContext().Departament.ToList();
@@ -84,7 +83,7 @@ namespace Rights.PageFolder.ManagerWindow
         private void ConfigureWithUserAccess()
         {
 
-                TitleTb.Text = "Изменить сотрудника";
+            TitleTb.Text = "Изменить сотрудника";
 
         }
 

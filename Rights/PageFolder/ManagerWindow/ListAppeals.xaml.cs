@@ -74,7 +74,7 @@ namespace Rights.PageFolder.ManagerWindow
 
         private void AddAppealsBtn_Click(object sender, RoutedEventArgs e)
         {
-            new AddAppeal().ShowDialog();
+            WindowHelper.ShowDialogWithBlur(this, new WindowForAll.AddAppeal());
             UpdateStaffList();
         }
     }

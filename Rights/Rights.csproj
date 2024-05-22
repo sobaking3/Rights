@@ -194,6 +194,18 @@
     <Compile Include="PageFolder\ManagerWindow\ListStaff.xaml.cs">
       <DependentUpon>ListStaff.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\PresidentWindow\AddStaff.xaml.cs">
+      <DependentUpon>AddStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\EditStaff.xaml.cs">
+      <DependentUpon>EditStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\InfoStaff.xaml.cs">
+      <DependentUpon>InfoStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\ListStaff.xaml.cs">
+      <DependentUpon>ListStaff.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\WindowForAll\AddAppeal.xaml.cs">
       <DependentUpon>AddAppeal.xaml</DependentUpon>
     </Compile>
@@ -310,6 +322,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageFolder\PresidentWindow\AddStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\EditStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\InfoStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\ListStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFolder\WindowForAll\AddAppeal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -404,7 +432,6 @@
     <Folder Include="PageFolder\AdminWindow\" />
     <Folder Include="PageFolder\DirectorWindow\" />
     <Folder Include="PageFolder\EmployeeWindow\" />
-    <Folder Include="PageFolder\PresidentWindow\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ResourceFolder\LogoImage.png" />

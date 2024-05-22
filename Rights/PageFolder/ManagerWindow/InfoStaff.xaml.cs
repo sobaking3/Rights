@@ -1,4 +1,5 @@
-﻿using Rights.DataFolder;
+﻿using Rights.ClassFolder;
+using Rights.DataFolder;
 using Rights.Helpers;
 using System;
 using System.Collections.Generic;
@@ -40,11 +41,11 @@ namespace Rights.PageFolder.ManagerWindow
             try
             {
                 DBEntities.GetContext().SaveChanges();
-                MessageBox.Show("Изменения сохранены!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MBClass.InfoMB("Изменения сохранены!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MBClass.ErrorMB(ex);
             }
         }
         private void BackBtn_Click(object sender, RoutedEventArgs e)
