@@ -203,6 +203,9 @@
     <Compile Include="PageFolder\PresidentWindow\AddOrganization.xaml.cs">
       <DependentUpon>AddOrganization.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\PresidentWindow\AddSocialPrograms.xaml.cs">
+      <DependentUpon>AddSocialPrograms.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\PresidentWindow\AddStaff.xaml.cs">
       <DependentUpon>AddStaff.xaml</DependentUpon>
     </Compile>
@@ -214,6 +217,9 @@
     </Compile>
     <Compile Include="PageFolder\PresidentWindow\EditOrganization.xaml.cs">
       <DependentUpon>EditOrganization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\EditSocialPrograms.xaml.cs">
+      <DependentUpon>EditSocialPrograms.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\PresidentWindow\EditStaff.xaml.cs">
       <DependentUpon>EditStaff.xaml</DependentUpon>
@@ -229,6 +235,9 @@
     </Compile>
     <Compile Include="PageFolder\PresidentWindow\ListOrganization.xaml.cs">
       <DependentUpon>ListOrganization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\ListSocialPrograms.xaml.cs">
+      <DependentUpon>ListSocialPrograms.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\PresidentWindow\ListStaff.xaml.cs">
       <DependentUpon>ListStaff.xaml</DependentUpon>
@@ -361,6 +370,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageFolder\PresidentWindow\AddSocialPrograms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFolder\PresidentWindow\AddStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -374,6 +387,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\PresidentWindow\EditOrganization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\EditSocialPrograms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -394,6 +411,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\PresidentWindow\ListOrganization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\ListSocialPrograms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

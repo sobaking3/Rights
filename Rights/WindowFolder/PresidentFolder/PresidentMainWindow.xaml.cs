@@ -58,12 +58,17 @@ namespace Rights.WindowFolder.PresidentFolder
 
         private void SocialProgramsList_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new PageFolder.ManagerWindow.ListSocialPrograms());
+            MainFrame.Navigate(new PageFolder.PresidentWindow.ListSocialPrograms());
         }
 
         private void MeetingsList_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new PageFolder.ManagerWindow.ListMeetings());
+        }
+
+        private void BudgetList_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
@@ -105,11 +110,6 @@ namespace Rights.WindowFolder.PresidentFolder
         private void AppealsList_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new PageFolder.ManagerWindow.ListAppeals());
-        }
-
-        private void BudgetList_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
