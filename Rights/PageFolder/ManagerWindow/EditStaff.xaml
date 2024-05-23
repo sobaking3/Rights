@@ -81,7 +81,7 @@
                                 <TextBlock Text="Фамилия"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220" x:Name="LastNameTb"
+                                         Width="220" x:Name="LastNameTb" MaxLength="30"
                                          materialDesign:HintAssist.Hint="Фамилия"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
@@ -90,7 +90,7 @@
                                 <TextBlock Text="Имя"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220" x:Name="FirstNameTb"
+                                         Width="220" x:Name="FirstNameTb" MaxLength="30"
                                          materialDesign:HintAssist.Hint="Имя"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
@@ -100,7 +100,7 @@
                                 <TextBlock Text="Отчество"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220" x:Name="MiddleNameTb"
+                                         Width="220" x:Name="MiddleNameTb" MaxLength="30"
                                          materialDesign:HintAssist.Hint="Отчество"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
@@ -171,7 +171,7 @@
                                 <TextBlock Text="Логин"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding User.Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220" x:Name="LoginTb"
+                                         Width="220" x:Name="LoginTb" MaxLength="30"
                                          materialDesign:HintAssist.Hint="Введите логин"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
@@ -180,7 +180,7 @@
                                 <TextBlock Text="Пароль"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding User.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220" x:Name="PasswordTb"
+                                         Width="220" x:Name="PasswordTb" MaxLength="30"
                                          materialDesign:HintAssist.Hint="Придумайте пароль"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
@@ -204,7 +204,7 @@
                                            MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220" x:Name="PhoneNumberTb"
+                                         Width="220" x:Name="PhoneNumberTb" MaxLength="30"
                                          materialDesign:HintAssist.Hint="Введите телефон"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>

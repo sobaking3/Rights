@@ -43,17 +43,17 @@ namespace Rights.WindowFolder.PresidentFolder
 
         private void CommitteList_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new PageFolder.ManagerWindow.ListCommitte());
+            MainFrame.Navigate(new PageFolder.PresidentWindow.ListCommittee());
         }
 
         private void DepartmentList_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new PageFolder.ManagerWindow.ListDepartment());
+            MainFrame.Navigate(new PageFolder.PresidentWindow.ListDepartment());
         }
 
         private void OrganizationsList_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new PageFolder.ManagerWindow.ListOrganization());
+            MainFrame.Navigate(new PageFolder.PresidentWindow.ListOrganization());
         }
 
         private void SocialProgramsList_Click(object sender, RoutedEventArgs e)

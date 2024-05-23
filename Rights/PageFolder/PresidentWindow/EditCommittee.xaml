@@ -1,21 +1,21 @@
-﻿<Window x:Class="Rights.PageFolder.WindowForAll.AddAppeal"
+﻿<Window x:Class="Rights.PageFolder.PresidentWindow.EditCommittee"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Rights.PageFolder.WindowForAll" 
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Rights.PageFolder.PresidentWindow"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Width="700"
-        Height="617" WindowStartupLocation="CenterScreen"
+        Width="335"
+        Height="417" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
         Style="{StaticResource WindowCorneredGeneral}"
         Title="StaffWindow">
     <Border Background="White"
             MouseLeftButtonDown="Border_MouseLeftButtonDown"
-            CornerRadius="10">
+            CornerRadius="10" Margin="0,0,5,130">
         <!--<Image Source="{Binding PhotoStaff, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="100"/>-->
-        <Grid Margin="25 20">
+        <Grid Margin="25,20,15,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -30,7 +30,7 @@
                         x:Name="BackBtn"
                         Content="{materialDesign:PackIcon Kind=KeyboardReturn, Size=24}"
                         Click="BackBtn_Click" />
-                <TextBlock Text="текст"
+                <TextBlock Text="текст" 
                            x:Name="TitleTb"
                            Style="{StaticResource TextBlockHeader1}" />
             </StackPanel>
@@ -46,7 +46,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!--Информация о сотруднике-->
-                <Grid>
+                <Grid Margin="0,0,0,0">
                     <Grid.RowDefinitions>
                         <!--Личная информация-->
                         <RowDefinition Height="Auto" />
@@ -59,13 +59,13 @@
                     </Grid.RowDefinitions>
 
                     <!--Личная информация-->
-                    <StackPanel>
+                    <StackPanel Margin="0,0,9,0">
                         <TextBlock Text="Данные"
-                                   Margin="0 0 0 24"
+                                   Margin="0,-5,524,24"
                                    Style="{StaticResource TextBlockHeader2}" />
 
                         <WrapPanel Orientation="Vertical"
-                                   Height="414" Margin="0,0,0,0" >
+                                   Height="249" Margin="0,0,0,0"  >
                             <WrapPanel.Resources>
                                 <Style TargetType="StackPanel">
                                     <Setter Property="VerticalAlignment"
@@ -74,12 +74,27 @@
                                             Value="0 12 100 0" />
                                 </Style>
                             </WrapPanel.Resources>
-                            <StackPanel Orientation="Horizontal"
-                                        Height="326">
-                                <TextBox Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="654" x:Name="DiscriptionTb" MaxLength="300"
-                                         materialDesign:HintAssist.Hint="Описание"
+                            <StackPanel Margin="-100 -10 0 0" Orientation="Horizontal"
+                                        Height="26" Width="350">
+                                <TextBlock Text="Название" Width="200"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <TextBox Text="{Binding NameCommittee, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="180" x:Name="CommitteeNameTb" MaxLength="30" 
+                                         materialDesign:HintAssist.Hint="Название"
                                          Style="{StaticResource TextBoxField}" />
+                                
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Height="26" Width="350">
+                                <TextBlock Text="Директор" Width="200"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                                <ComboBox Width="180"
+                                          SelectedItem="{Binding Director.Staff}"
+                                          SelectedValuePath="IdStaff"
+                                          DisplayMemberPath="FullName"
+                                          materialDesign:HintAssist.Hint="Директор"
+                                          x:Name="StaffCb"
+                                          Style="{StaticResource ComboBoxField}" />
                             </StackPanel>
 
                         </WrapPanel>
@@ -92,14 +107,13 @@
 
 
 
-                    <Button Content="Добавить"
-                            x:Name="AddStaffBtn"
-                            Grid.Row="3"
-                            Margin="0 -150 150 0"
-                            Width="350"
+                    <Button Content="Изменить"
+                            x:Name="EditCommitteeBtn"
+                            Margin="7,-9,535,14"
+                            Width="249"
                             Height="42"
                             Style="{StaticResource ButtonGeneral}"
-                            Click="AddStaffBtn_Click" />
+                            Click="EditCommitteeBtn_Click" />
                 </Grid>
             </Grid>
         </Grid>

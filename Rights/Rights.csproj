@@ -194,14 +194,38 @@
     <Compile Include="PageFolder\ManagerWindow\ListStaff.xaml.cs">
       <DependentUpon>ListStaff.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\PresidentWindow\AddCommittee.xaml.cs">
+      <DependentUpon>AddCommittee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\AddDepartment.xaml.cs">
+      <DependentUpon>AddDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\AddOrganization.xaml.cs">
+      <DependentUpon>AddOrganization.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\PresidentWindow\AddStaff.xaml.cs">
       <DependentUpon>AddStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\EditCommittee.xaml.cs">
+      <DependentUpon>EditCommittee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\EditDepartment.xaml.cs">
+      <DependentUpon>EditDepartment.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\PresidentWindow\EditStaff.xaml.cs">
       <DependentUpon>EditStaff.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\PresidentWindow\InfoStaff.xaml.cs">
       <DependentUpon>InfoStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\ListCommittee.xaml.cs">
+      <DependentUpon>ListCommittee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\ListDepartment.xaml.cs">
+      <DependentUpon>ListDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\ListOrganization.xaml.cs">
+      <DependentUpon>ListOrganization.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\PresidentWindow\ListStaff.xaml.cs">
       <DependentUpon>ListStaff.xaml</DependentUpon>
@@ -322,7 +346,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageFolder\PresidentWindow\AddCommittee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\AddDepartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\AddOrganization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFolder\PresidentWindow\AddStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\EditCommittee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\EditDepartment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -331,6 +375,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\PresidentWindow\InfoStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\ListCommittee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\ListDepartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\ListOrganization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
