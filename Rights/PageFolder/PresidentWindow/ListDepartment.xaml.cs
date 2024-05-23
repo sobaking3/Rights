@@ -101,7 +101,8 @@ namespace Rights.PageFolder.PresidentWindow
 
         private void AddDepartmentBtn_Click(object sender, RoutedEventArgs e)
         {
-            MBClass.ErrorMB("Для добавления отдела, обратитесь к вышестоящим лицам");
+            WindowHelper.ShowDialogWithBlur(this, new PresidentWindow.AddDepartment());
+            UpdateStaffList();
         }
 
         private void EditM1_Click(object sender, RoutedEventArgs e)

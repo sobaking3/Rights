@@ -95,7 +95,13 @@
                                   Height="160"
                                   Margin="0 0 23 22"
                                   Width="510">
+                                <Grid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Удалить" x:Name="DeleteM1" Click="DeleteM1_Click"/>
+                                        <MenuItem Header="Изменить" x:Name="EditM1" Click="EditM1_Click"/>
 
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
                                 <Grid.Background>
                                     <SolidColorBrush Color="#353D68"
                                                      Opacity=".12" />
@@ -155,9 +161,9 @@
 
 
                                     <TextBlock Style="{StaticResource TextBlockBody2}"
-                                               Margin="0 0 0 15"
-                                               VerticalAlignment="Bottom"
-                                               Grid.Row="1" x:Name="StaffCountTb"
+                                               Margin="0 -40 0 15"
+                                               VerticalAlignment="Bottom" Grid.ColumnSpan="3"
+                                               Grid.Row="2" x:Name="StaffCountTb"
                                                TextWrapping="Wrap" 
                                                TextAlignment="Left"
                                                Text="{Binding Description, TargetNullValue=Отсутствует, FallbackValue=Ошибка, StringFormat={}Описание: {0}}" />

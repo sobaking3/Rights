@@ -79,7 +79,7 @@
                                 <TextBlock Text="Название" Width="200"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="180" x:Name="CommitteeNameTb" MaxLength="30" 
+                                         Width="180" x:Name="CommitteeNameTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden" 
                                          materialDesign:HintAssist.Hint="Название"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>

@@ -40,6 +40,44 @@ namespace Rights.PageFolder.PresidentWindow
 
             }
         }
+        private void DeleteM1_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if ((sender as FrameworkElement).DataContext is Organizations organizations)
+                {
+                    if (organizations == null)
+                    {
+                        MBClass.ErrorMB("Организация не выбрана");
+                    }
+                    else
+                    {
+                        if (MBClass.QuestionMB($"Удалить отдел " +
+                        $"с названием {organizations.NameOrganization}?"))
+                        {
+                            DBEntities.GetContext().Organizations.Remove(organizations);
+                            DBEntities.GetContext().SaveChanges();
+                            MBClass.InfoMB("Отдел удален");
+                            UpdateStaffList();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
+        }
+        private void EditM1_Click(object sender, RoutedEventArgs e)
+        {
+            Grid grid = sender as Grid;
+            if ((sender as FrameworkElement).DataContext is Organizations organizations)
+            {
+                WindowHelper.ShowDialogWithBlur(this, new PresidentWindow.EditOrganization(organizations));
+
+                UpdateStaffList();
+            }
+        }
 
         private List<FrameworkElement> _onLoadingBlockingControls = new List<FrameworkElement>();
         public ListOrganization()
@@ -73,7 +111,8 @@ namespace Rights.PageFolder.PresidentWindow
 
         private void AddOrganizationBtn_Click(object sender, RoutedEventArgs e)
         {
-            MBClass.ErrorMB("Для добавления организации, обратитесь к вышестоящим лицам");
+            WindowHelper.ShowDialogWithBlur(this, new PresidentWindow.AddOrganization());
+            UpdateStaffList();
         }
     }
 }

@@ -77,8 +77,8 @@
                             <StackPanel Orientation="Horizontal"
                                         Height="326">
                                 <TextBox Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="654" x:Name="DiscriptionTb" MaxLength="300"
-                                         materialDesign:HintAssist.Hint="Описание"
+                                         Width="654" x:Name="DiscriptionTb" MaxLength="300" materialDesign:TextBlockAssist.AutoToolTip="True"
+                                         materialDesign:HintAssist.Hint="Описание" TextWrapping="Wrap"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
 

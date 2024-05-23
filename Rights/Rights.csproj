@@ -212,6 +212,9 @@
     <Compile Include="PageFolder\PresidentWindow\EditDepartment.xaml.cs">
       <DependentUpon>EditDepartment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\PresidentWindow\EditOrganization.xaml.cs">
+      <DependentUpon>EditOrganization.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\PresidentWindow\EditStaff.xaml.cs">
       <DependentUpon>EditStaff.xaml</DependentUpon>
     </Compile>
@@ -367,6 +370,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\PresidentWindow\EditDepartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\EditOrganization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

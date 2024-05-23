@@ -82,7 +82,7 @@
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                          Width="220" x:Name="LastNameTb" MaxLength="30"
-                                         materialDesign:HintAssist.Hint="Фамилия"
+                                         materialDesign:HintAssist.Hint="Фамилия" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"
@@ -91,7 +91,7 @@
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                          Width="220" x:Name="FirstNameTb" MaxLength="30"
-                                         materialDesign:HintAssist.Hint="Имя"
+                                         materialDesign:HintAssist.Hint="Имя" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
 
@@ -101,7 +101,7 @@
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                          Width="220" x:Name="MiddleNameTb" MaxLength="30"
-                                         materialDesign:HintAssist.Hint="Отчество"
+                                         materialDesign:HintAssist.Hint="Отчество" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
 
@@ -172,7 +172,7 @@
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding User.Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                          Width="220" x:Name="LoginTb" MaxLength="30"
-                                         materialDesign:HintAssist.Hint="Введите логин"
+                                         materialDesign:HintAssist.Hint="Введите логин" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"
@@ -180,7 +180,7 @@
                                 <TextBlock Text="Пароль"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding User.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         Width="220" x:Name="PasswordTb" MaxLength="30"
+                                         Width="220" x:Name="PasswordTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Придумайте пароль"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
@@ -205,7 +205,7 @@
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                          Width="220" x:Name="PhoneNumberTb" MaxLength="30"
-                                         materialDesign:HintAssist.Hint="Введите телефон"
+                                         materialDesign:HintAssist.Hint="Введите телефон" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"
