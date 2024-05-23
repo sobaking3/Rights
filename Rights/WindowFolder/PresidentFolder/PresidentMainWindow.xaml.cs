@@ -68,7 +68,7 @@ namespace Rights.WindowFolder.PresidentFolder
 
         private void BudgetList_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new PageFolder.PresidentWindow.ListBudget());
         }
 
         private void MinimizeBtn_Click(object sender, RoutedEventArgs e)

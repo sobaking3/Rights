@@ -17,9 +17,9 @@ namespace Rights.DataFolder
         public int IdBudget { get; set; }
         public Nullable<int> IdCommitte { get; set; }
         public int Year { get; set; }
-        public string Amount { get; set; }
-        public string UsageMoney { get; set; }
-        public string UnUsageMoney { get; set; }
+        public int Amount { get; set; }
+        public int UsageMoney { get; set; }
+        public int UnUsageMoney { get; set; }
     
         public virtual Committee Committee { get; set; }
     }

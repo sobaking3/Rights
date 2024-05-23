@@ -14,12 +14,6 @@ namespace Rights.DataFolder
     
     public partial class Meetings
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Meetings()
-        {
-            this.Solutions = new HashSet<Solutions>();
-        }
-    
         public int IdMeetings { get; set; }
         public System.DateTime MeetingsDate { get; set; }
         public string Discription { get; set; }
@@ -28,7 +22,5 @@ namespace Rights.DataFolder
     
         public virtual Committee Committee { get; set; }
         public virtual Status Status { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Solutions> Solutions { get; set; }
     }
 }

@@ -30,14 +30,12 @@ namespace Rights.DataFolder
         public virtual DbSet<AppealsAndComplaints> AppealsAndComplaints { get; set; }
         public virtual DbSet<Budget> Budget { get; set; }
         public virtual DbSet<Committee> Committee { get; set; }
-        public virtual DbSet<CommitteePayment> CommitteePayment { get; set; }
         public virtual DbSet<Departament> Departament { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Meetings> Meetings { get; set; }
         public virtual DbSet<Organizations> Organizations { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<SocialPrograms> SocialPrograms { get; set; }
-        public virtual DbSet<Solutions> Solutions { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

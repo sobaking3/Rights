@@ -4,33 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="06034711906d4dea806c0860443d32c5" Name="Diagram1">
-        <EntityTypeShape EntityType="DBModel.AppealsAndComplaints" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Budget" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Committee" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.CommitteePayment" Width="1.5" PointX="8.25" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Departament" Width="1.5" PointX="3.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Gender" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Meetings" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Organizations" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Role" Width="1.5" PointX="1.5" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.SocialPrograms" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Solutions" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Staff" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Status" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="3.75" PointY="17.25" IsExpanded="true" />
+      <Diagram DiagramId="983cf134f1324aeea3222c4e188ec363" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.AppealsAndComplaints" Width="1.5" PointX="8.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Budget" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Committee" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Departament" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Gender" Width="1.5" PointX="3.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Meetings" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Organizations" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Role" Width="1.5" PointX="1.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.SocialPrograms" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Staff" Width="1.5" PointX="6" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Status" Width="1.5" PointX="6" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="3.75" PointY="15.375" IsExpanded="true" />
         <AssociationConnector Association="DBModel.FK_AppealsAndComplaints_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_AppealsAndComplaints_Status" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Budget_Committee" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Meetings_Committee" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_SocialPrograms_Committee" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Staff_Committee1" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_CommitteePayment_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Staff_Departament" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Staff_Gender" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Meetings_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Solutions_Meetings" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Organizations_Status" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Staff_User1" ManuallyRouted="false" />

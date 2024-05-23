@@ -94,9 +94,6 @@
     <Compile Include="DataFolder\Committee.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataFolder\CommitteePayment.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataFolder\ContextClass.cs" />
     <Compile Include="DataFolder\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -132,9 +129,6 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\SocialPrograms.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataFolder\Solutions.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\sp_helpdiagramdefinition_Result.cs">
@@ -194,6 +188,9 @@
     <Compile Include="PageFolder\ManagerWindow\ListStaff.xaml.cs">
       <DependentUpon>ListStaff.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\PresidentWindow\AddBudget.xaml.cs">
+      <DependentUpon>AddBudget.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\PresidentWindow\AddCommittee.xaml.cs">
       <DependentUpon>AddCommittee.xaml</DependentUpon>
     </Compile>
@@ -232,6 +229,9 @@
     </Compile>
     <Compile Include="PageFolder\PresidentWindow\InfoStaff.xaml.cs">
       <DependentUpon>InfoStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\ListBudget.xaml.cs">
+      <DependentUpon>ListBudget.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\PresidentWindow\ListCommittee.xaml.cs">
       <DependentUpon>ListCommittee.xaml</DependentUpon>
@@ -367,6 +367,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageFolder\PresidentWindow\AddBudget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFolder\PresidentWindow\AddCommittee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -416,6 +420,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\PresidentWindow\InfoStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\ListBudget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
