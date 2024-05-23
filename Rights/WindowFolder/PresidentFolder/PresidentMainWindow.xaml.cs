@@ -63,7 +63,7 @@ namespace Rights.WindowFolder.PresidentFolder
 
         private void MeetingsList_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new PageFolder.ManagerWindow.ListMeetings());
+            MainFrame.Navigate(new PageFolder.PresidentWindow.ListMeeting());
         }
 
         private void BudgetList_Click(object sender, RoutedEventArgs e)
