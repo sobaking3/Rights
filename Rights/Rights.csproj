@@ -152,12 +152,6 @@
     <Compile Include="Helpers\OpenFileDialogImageHelper.cs" />
     <Compile Include="Helpers\VisualHelper.cs" />
     <Compile Include="Helpers\WindowHelper.cs" />
-    <Compile Include="PageFolder\ListCommitte.xaml.cs">
-      <DependentUpon>ListCommitte.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PageFolder\ListStaff.xaml.cs">
-      <DependentUpon>ListStaff.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PageFolder\ManagerWindow\AddStaff.xaml.cs">
       <DependentUpon>AddStaff.xaml</DependentUpon>
     </Compile>
@@ -321,14 +315,6 @@
     <Page Include="Converters\Include.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PageFolder\ListCommitte.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PageFolder\ListStaff.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\ManagerWindow\AddStaff.xaml">
       <SubType>Designer</SubType>

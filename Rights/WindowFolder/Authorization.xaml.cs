@@ -74,8 +74,7 @@ namespace Rights
                                 case 1:
                                     //CTRL+K + C
                                     // ctrl+k + u
-                                    //window = new WindowFolder.PresidentFolder.PresidentMainWindow();
-                                    window = new GOODDESIGNWINDOW();
+                                    window = new WindowFolder.PresidentFolder.PresidentMainWindow();
                                     break;
 
                                 case 2:

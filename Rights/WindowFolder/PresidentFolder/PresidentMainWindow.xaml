@@ -41,9 +41,9 @@
             <StackPanel Grid.Row="0" HorizontalAlignment="Right"
                         Orientation="Horizontal"
                         Margin="0 22 22 0">
-                <Button Name="MinimizeBtn" Background="Transparent" BorderBrush="Transparent"
+                <Button Name="MinimizeBtn" 
                 Foreground="White" Content="{materialDesign:PackIcon Kind=Minimize,Size=32}"
-                           
+                           Padding="0" Style="{StaticResource MaterialDesignFlatButton}"
                 Click="MinimizeBtn_Click">
                 </Button>
 
@@ -51,8 +51,8 @@
                         x:Name="FullSizeWindowBtn" Padding="0" Margin="16 0 0 0"
                         Foreground="White" Style="{StaticResource MaterialDesignFlatButton}" Click="FullSizeWindowBtn_Click"/>
 
-                <Button Name="CloseBtn" Background="Transparent" BorderBrush="Transparent"
-                Foreground="White" Content="{materialDesign:PackIcon Kind=Close,Size=32}" Margin="16 0 0 0"
+                <Button Name="CloseBtn"  Style="{StaticResource MaterialDesignFlatButton}"
+                Foreground="White" Content="{materialDesign:PackIcon Kind=Close,Size=32}" Margin="16 0 0 0" Padding="0"
                 Click="CloseBtn_Click">
                 </Button>
 
