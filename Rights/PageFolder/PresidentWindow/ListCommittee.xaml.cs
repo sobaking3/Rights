@@ -107,8 +107,8 @@ namespace Rights.PageFolder.PresidentWindow
 
         private void EditM1_Click(object sender, RoutedEventArgs e)
         {
-            Grid grid = sender as Grid;
-            if ((sender as FrameworkElement).DataContext is Committee committee)
+            //Grid grid = sender as Grid;
+            if ((sender as FrameworkElement).DataContext is Committee committee && committee != null)
             {
                 WindowHelper.ShowDialogWithBlur(this, new PresidentWindow.EditCommittee(committee));
 

@@ -263,6 +263,9 @@
     <Compile Include="WindowFolder\EmployeeFolder\EmployeeMainWindow.xaml.cs">
       <DependentUpon>EmployeeMainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowFolder\GOODDESIGNWINDOW.xaml.cs">
+      <DependentUpon>GOODDESIGNWINDOW.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowFolder\ManagerFolder\ManagerMainWindow.xaml.cs">
       <DependentUpon>ManagerMainWindow.xaml</DependentUpon>
     </Compile>
@@ -522,6 +525,10 @@
     <Page Include="WindowFolder\EmployeeFolder\EmployeeMainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WindowFolder\GOODDESIGNWINDOW.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowFolder\ManagerFolder\ManagerMainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

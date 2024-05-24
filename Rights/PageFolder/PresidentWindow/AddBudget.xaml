@@ -4,9 +4,130 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rights.PageFolder.PresidentWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AddBudget" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Width="729"
+        Height="617" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        Style="{StaticResource WindowCorneredGeneral}"
+        Title="StaffWindow">
+    <Border Background="White"
+            MouseLeftButtonDown="Border_MouseLeftButtonDown"
+            CornerRadius="10" Margin="0,0,369,175">
+        <!--<Image Source="{Binding PhotoStaff, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="100"/>-->
+        <Grid Margin="25 20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0 0 0 20">
+                <Button Style="{StaticResource ButtonIconGeneral}"
+                        Height="41"
+                        Width="100"
+                        Margin="0 0 30 0"
+                        x:Name="BackBtn"
+                        Content="{materialDesign:PackIcon Kind=KeyboardReturn, Size=24}"
+                        Click="BackBtn_Click" />
+                <TextBlock Text="текст"
+                           x:Name="TitleTb"
+                           Style="{StaticResource TextBlockHeader1}" />
+            </StackPanel>
+            <Separator Width="1177"
+                       Background="{StaticResource PrimaryBrush}"
+                       Margin="0 0 0 20"
+                       Grid.Row="1" />
+            <Grid VerticalAlignment="Stretch"
+                  Grid.Row="2" Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <!--Информация о сотруднике-->
+                    <ColumnDefinition Width="807" />
+
+                </Grid.ColumnDefinitions>
+
+                <!--Информация о сотруднике-->
+                <Grid Margin="0,0,0,-202">
+                    <Grid.RowDefinitions>
+                        <!--Личная информация-->
+                        <RowDefinition Height="Auto" />
+                        <!--Сепаратор-->
+                        <RowDefinition Height="40" />
+                        <!--Данные-->
+                        <RowDefinition Height="Auto" />
+                        <!--Кнопка сохранить-->
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!--Личная информация-->
+                    <StackPanel>
+                        <TextBlock Text="Данные записи бюджета"
+                                   Margin="0 0 0 24"
+                                   Style="{StaticResource TextBlockHeader2}" />
+
+
+                        <StackPanel Orientation="Horizontal"
+                                        Height="26" Margin="0 0 0 20" >
+                            <TextBlock Text="Комитет"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                            <ComboBox Width="220"
+                                          SelectedItem="{Binding Committee}"
+                                          SelectedValuePath="IdCommittee"
+                                          DisplayMemberPath="NameCommittee"
+                                          materialDesign:HintAssist.Hint="Комитет"
+                                          x:Name="CommitteeCb"
+                                          Style="{StaticResource ComboBoxField}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                        Height="26" Margin="0 0 0 20">
+                            <TextBlock Text="Год"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                            <TextBox Text="{Binding ProgramName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="220" x:Name="YearTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
+                                         materialDesign:HintAssist.Hint="Год"
+                                         Style="{StaticResource TextBoxField}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                        Height="26" Margin="0 0 0 20">
+                            <TextBlock Text="Деньги"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                            <TextBox Text="{Binding ProgramName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="220" x:Name="MoneyTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
+                                         materialDesign:HintAssist.Hint="Бюджет за год"
+                                         Style="{StaticResource TextBoxField}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                        Height="26" Margin="0 0 0 20">
+                            <TextBlock Text="Расходы"
+                                           Style="{StaticResource TextBlockFieldName}" />
+                            <TextBox Text="{Binding ProgramName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="220" x:Name="MinusMoneyTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
+                                         materialDesign:HintAssist.Hint="Расходы за год"
+                                         Style="{StaticResource TextBoxField}" />
+                        </StackPanel>
+
+
+
+
+
+                    </StackPanel>
+
+                    <!--Данные-->
+                    <StackPanel Grid.Row="2"/>
+
+                    <Button Content="Добавить"
+                            x:Name="AddBudgetBtn"
+                            Grid.Row="1"
+                            Margin="37,8,534,229"
+                            Width="236"
+                            Height="42"
+                            Style="{StaticResource ButtonGeneral}"
+                            Click="AddBudgetBtn_Click" Grid.RowSpan="3" />
+                </Grid>
+
+
+            </Grid>
+        </Grid>
+
+    </Border>
 </Window>

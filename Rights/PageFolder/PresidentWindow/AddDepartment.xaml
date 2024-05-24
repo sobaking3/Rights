@@ -88,7 +88,7 @@
                                 <TextBlock Text="Директор" Width="200"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <ComboBox Width="180"
-                                          SelectedItem="{Binding Staff.FullName}"
+                                          SelectedItem="{Binding Director, TargetNullValue=Отсутствует, FallbackValue=Ошибка}"
                                           SelectedValuePath="IdStaff"
                                           DisplayMemberPath="FullName"
                                           materialDesign:HintAssist.Hint="Директор"

@@ -1,6 +1,5 @@
 ﻿using MaterialDesignThemes.Wpf;
 using Rights.ClassFolder;
-using Rights.PageFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +14,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Rights.WindowFolder.PresidentFolder
+namespace Rights.WindowFolder
 {
     /// <summary>
-    /// Логика взаимодействия для PresidentMainWindow.xaml
+    /// Логика взаимодействия для GOODDESIGNWINDOW.xaml
     /// </summary>
-    public partial class PresidentMainWindow : Window
+    public partial class GOODDESIGNWINDOW : Window
     {
-        public PresidentMainWindow()
+        public GOODDESIGNWINDOW()
         {
             InitializeComponent();
             EmpName.Text = App.GetCurrentstaffInitials();
@@ -112,6 +111,7 @@ namespace Rights.WindowFolder.PresidentFolder
         {
             MainFrame.Navigate(new PageFolder.ManagerWindow.ListAppeals());
         }
+
         private void FullSizeWindowBtn_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Normal)

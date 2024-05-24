@@ -8,7 +8,7 @@
       mc:Ignorable="d"
       Height="868"
       Width="1158"
-      Title="Список пластинок">
+      Title="Бюджет">
 
     <Border CornerRadius="14 14 14 14"
             Background="White">
@@ -27,7 +27,7 @@
                 <StackPanel Orientation="Horizontal"
                             Margin="0 0 26 0">
                     <TextBox x:Name="SearchStaffByFullNameTb"
-                             Height="42"
+                             Height="42" TextChanged="SearchTb_TextChanged"
                              materialDesign:TextFieldAssist.HasClearButton="True"
                              Width="1011"
                              Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -114,19 +114,19 @@
                     </DataGrid.Resources>
                     <DataGrid.Columns>
 
-                        <DataGridTextColumn Header="Комитет" 
+                        <DataGridTextColumn Header="               Комитет" 
                                             Binding="{Binding Committee.NameCommittee}"
-                                            Width="200" />
-                        <DataGridTextColumn Header="Год    "
+                                            Width="220" />
+                        <DataGridTextColumn Header="          Год"
                                             Binding="{Binding Year}"
                                             Width="150" />
-                        <DataGridTextColumn Header="Количество денег"
+                        <DataGridTextColumn Header="   Количество денег"
                                             Binding="{Binding Amount, StringFormat={}{0} руб.}"
                                             Width="190" />
-                        <DataGridTextColumn Header="Использованные средства"
+                        <DataGridTextColumn Header="     Использованные средства"
                                             Binding="{Binding UsageMoney, StringFormat={}{0} руб.}"
                                             Width="280" />
-                        <DataGridTextColumn Header="Не использованные средства"
+                        <DataGridTextColumn Header="  Не использованные средства"
                                             Binding="{Binding UnUsageMoney, StringFormat={}{0} руб.}"
                                             Width="280" />
 

@@ -7,12 +7,11 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
       Title="Список сотрудников"
-      Height="868"
-      Loaded="Page_Loaded"
-      Width="1158">
+      Height="Auto"
+      Loaded="Page_Loaded">
 
     <Border CornerRadius="14 14 14 14"
-            Background="White">
+            Background="Transparent">
         <Grid Margin="18 23 29 28">
             <Grid.RowDefinitions>
                 <!--Строка с поиском и фильтрацией-->

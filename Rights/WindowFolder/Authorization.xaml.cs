@@ -1,5 +1,6 @@
 ﻿using Rights.ClassFolder;
 using Rights.DataFolder;
+using Rights.WindowFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,7 +72,10 @@ namespace Rights
                             switch (user.IdRole)
                             {
                                 case 1:
-                                    window = new WindowFolder.PresidentFolder.PresidentMainWindow();
+                                    //CTRL+K + C
+                                    // ctrl+k + u
+                                    //window = new WindowFolder.PresidentFolder.PresidentMainWindow();
+                                    window = new GOODDESIGNWINDOW();
                                     break;
 
                                 case 2:

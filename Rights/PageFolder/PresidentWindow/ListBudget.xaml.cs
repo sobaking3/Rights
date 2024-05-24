@@ -38,7 +38,7 @@ namespace Rights.PageFolder.PresidentWindow
 
         private void AddBudgetBtn_Click(object sender, RoutedEventArgs e)
         {
-            //new AddBudget().ShowDialog();
+            new AddBudget().ShowDialog();
             UpdateList();
         }
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
