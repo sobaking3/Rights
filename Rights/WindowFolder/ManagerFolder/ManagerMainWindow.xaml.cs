@@ -1,4 +1,5 @@
-﻿using Rights.ClassFolder;
+﻿using MaterialDesignThemes.Wpf;
+using Rights.ClassFolder;
 using Rights.PageFolder;
 using System;
 using System.Collections.Generic;
@@ -105,6 +106,19 @@ namespace Rights.WindowFolder.ManagerFolder
         private void AppealsList_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new PageFolder.ManagerWindow.ListAppeals());
+        }
+        private void FullSizeWindowBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
+            {
+                WindowState = WindowState.Maximized;
+                (FullSizeWindowBtn.Content as PackIcon).Kind = PackIconKind.WindowRestore;
+            }
+            else
+            {
+                WindowState = WindowState.Normal;
+                (FullSizeWindowBtn.Content as PackIcon).Kind = PackIconKind.CropSquare;
+            }
         }
     }
 }

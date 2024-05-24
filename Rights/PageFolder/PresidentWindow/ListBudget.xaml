@@ -11,7 +11,7 @@
       Title="Бюджет">
 
     <Border CornerRadius="14 14 14 14"
-            Background="White">
+            Background="Transparent">
         <Grid Margin="18 23 29 28">
             <Grid.RowDefinitions>
                 <!--Строка с поиском и фильтрацией-->

@@ -40,6 +40,7 @@ namespace Rights.PageFolder.PresidentWindow
         {
             if (ElementsToolsClass.AllFieldsFilled(this))
             {
+
                 var Budget = new Budget()
                 {
                     Year = Convert.ToInt32(YearTb.Text),
@@ -55,6 +56,8 @@ namespace Rights.PageFolder.PresidentWindow
 
         private void AddBudgetBtn_Click(object sender, RoutedEventArgs e)
         {
+            int amount = Convert.ToInt32(MoneyTb.Text);
+            int usedMoney = Convert.ToInt32(MinusMoneyTb.Text);
             var budget = DBEntities.GetContext().Budget.FirstOrDefault(u =>
     u.Committee.NameCommittee == CommitteeCb.Text &&
     u.Year.ToString() == YearTb.Text);
@@ -65,6 +68,13 @@ namespace Rights.PageFolder.PresidentWindow
 
                 CommitteeCb.Focus();
                 YearTb.Focus();
+            }
+
+            else if (usedMoney > amount)
+            {
+                // Выводим сообщение об ошибке, если сумма использованных денег больше доступной
+                MBClass.ErrorMB("Сумма использованных денег не может быть больше общей суммы бюджета.");
+                return;
             }
             else if (ElementsToolsClass.AllFieldsFilled(this))
             {
