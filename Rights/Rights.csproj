@@ -203,6 +203,9 @@
     <Compile Include="PageFolder\PresidentWindow\AddStaff.xaml.cs">
       <DependentUpon>AddStaff.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\PresidentWindow\EditBudget.xaml.cs">
+      <DependentUpon>EditBudget.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\PresidentWindow\EditCommittee.xaml.cs">
       <DependentUpon>EditCommittee.xaml</DependentUpon>
     </Compile>
@@ -381,6 +384,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\PresidentWindow\AddStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\EditBudget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

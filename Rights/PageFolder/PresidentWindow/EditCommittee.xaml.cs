@@ -33,15 +33,6 @@ namespace Rights.PageFolder.PresidentWindow
         {
             InitializeComponent();
             DataContext = _committee = committee;
-            //StaffCb.ItemsSource = DBEntities.GetContext()
-            //.Staff.Except(DBEntities.GetContext().Staff.Where(r => r.User.Role.NameRole == "Админ"
-            //|| r.User.Role.NameRole == "Член союза"
-            //|| r.User.Role.NameRole == "Юрист"
-            //|| r.User.Role.NameRole == "Менеджер"
-            //|| r.User.Role.NameRole == "Президент"))
-            //.ToList();
-
-            //BRUH BRUH BRUH
             StaffCb.ItemsSource = DBEntities.GetContext().Staff.Where(x => x.User.Role.NameRole == "Директор" 
             || x.User.Role.NameRole == "Президент").ToList();
 

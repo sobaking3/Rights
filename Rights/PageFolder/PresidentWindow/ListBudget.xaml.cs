@@ -1,5 +1,6 @@
 ﻿using Rights.ClassFolder;
 using Rights.DataFolder;
+using Rights.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace Rights.PageFolder.PresidentWindow
 
         private void AddBudgetBtn_Click(object sender, RoutedEventArgs e)
         {
-            new AddBudget().ShowDialog();
+            WindowHelper.ShowDialogWithBlur(this, new PresidentWindow.AddBudget());
             UpdateList();
         }
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
@@ -82,7 +83,10 @@ namespace Rights.PageFolder.PresidentWindow
 
         private void EditM1_Click(object sender, RoutedEventArgs e)
         {
+            Budget budget = ListBudgetDG.SelectedItem as Budget;
+            WindowHelper.ShowDialogWithBlur(this, new PresidentWindow.EditBudget(budget));
 
+                UpdateList();
         }
     }
 }

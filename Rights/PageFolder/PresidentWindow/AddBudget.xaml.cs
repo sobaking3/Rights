@@ -108,7 +108,7 @@ namespace Rights.PageFolder.PresidentWindow
         private void ConfigureWithUserAccess()
         {
 
-            TitleTb.Text = "Добавить запись";
+            TitleTb.Text = "Добавить";
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

@@ -1,10 +1,10 @@
-﻿<Window x:Class="Rights.PageFolder.PresidentWindow.AddBudget"
+﻿<Window x:Class="Rights.PageFolder.PresidentWindow.EditBudget"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rights.PageFolder.PresidentWindow"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Width="729"
         Height="617" WindowStartupLocation="CenterScreen"
@@ -82,7 +82,7 @@
                                         Height="26" Margin="0 0 0 20">
                             <TextBlock Text="Год"
                                            Style="{StaticResource TextBlockFieldName}" />
-                            <TextBox Text="{Binding Year, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            <TextBox Text="{Binding Year, Mode=TwoWay}"
                                          Width="220" x:Name="YearTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Год"
                                          Style="{StaticResource TextBoxField}" />
@@ -91,7 +91,7 @@
                                         Height="26" Margin="0 0 0 20">
                             <TextBlock Text="Деньги"
                                            Style="{StaticResource TextBlockFieldName}" />
-                            <TextBox Text="{Binding Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            <TextBox Text="{Binding Amount, Mode=TwoWay}"
                                          Width="220" x:Name="MoneyTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Бюджет за год"
                                          Style="{StaticResource TextBoxField}" />
@@ -100,7 +100,7 @@
                                         Height="26" Margin="0 0 0 20">
                             <TextBlock Text="Расходы"
                                            Style="{StaticResource TextBlockFieldName}" />
-                            <TextBox Text="{Binding UsageMoney, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            <TextBox Text="{Binding UsageMoney, Mode=TwoWay}"
                                          Width="220" x:Name="MinusMoneyTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Расходы за год"
                                          Style="{StaticResource TextBoxField}" />
@@ -115,14 +115,14 @@
                     <!--Данные-->
                     <StackPanel Grid.Row="2"/>
 
-                    <Button Content="Добавить"
-                            x:Name="AddBudgetBtn"
+                    <Button Content="Изменить"
+                            x:Name="EditBudgetBtn"
                             Grid.Row="1"
                             Margin="37,8,534,229"
                             Width="236"
                             Height="42"
                             Style="{StaticResource ButtonGeneral}"
-                            Click="AddBudgetBtn_Click" Grid.RowSpan="3" />
+                            Click="EditBudgetBtn_Click" Grid.RowSpan="3" />
                 </Grid>
 
 
