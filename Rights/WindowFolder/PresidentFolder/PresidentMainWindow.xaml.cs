@@ -110,7 +110,7 @@ namespace Rights.WindowFolder.PresidentFolder
 
         private void AppealsList_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new PageFolder.ManagerWindow.ListAppeals());
+            MainFrame.Navigate(new PageFolder.PresidentWindow.ListAppealsAdmin());
         }
         private void FullSizeWindowBtn_Click(object sender, RoutedEventArgs e)
         {

@@ -250,7 +250,7 @@
                         <Button Style="{StaticResource menuLogOutButton}"
                                         VerticalAlignment="Center"
                                         Cursor="Hand"
-                                        x:Name="ExitBtn"
+                                        x:Name="ExitBtn" Width="250"
                                         Click="ExitBtn_Click">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Logout"

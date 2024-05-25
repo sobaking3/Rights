@@ -165,11 +165,8 @@
         <Setter Property="Foreground"
                 Value="White" />
         <Setter Property="FocusVisualStyle"
-                Value="{x:Null}" />
-        <Setter Property="Margin"
-                Value="15 3" />
         <Setter Property="Height"
-                Value="50" />
+                Value="55" />
         <Setter Property="FontSize"
                 Value="18" />
         <Setter Property="HorizontalAlignment"
@@ -178,7 +175,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}"
-                            CornerRadius="0 30 0 20">
+                            CornerRadius="0 0 0 14">
                         <ContentPresenter HorizontalAlignment="Left"
                                           VerticalAlignment="Center" />
                     </Border>

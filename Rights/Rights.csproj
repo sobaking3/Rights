@@ -203,6 +203,9 @@
     <Compile Include="PageFolder\PresidentWindow\AddStaff.xaml.cs">
       <DependentUpon>AddStaff.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\PresidentWindow\EditAppealStatus.xaml.cs">
+      <DependentUpon>EditAppealStatus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\PresidentWindow\EditBudget.xaml.cs">
       <DependentUpon>EditBudget.xaml</DependentUpon>
     </Compile>
@@ -226,6 +229,9 @@
     </Compile>
     <Compile Include="PageFolder\PresidentWindow\InfoStaff.xaml.cs">
       <DependentUpon>InfoStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PresidentWindow\ListAppealsAdmin.xaml.cs">
+      <DependentUpon>ListAppealsAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\PresidentWindow\ListBudget.xaml.cs">
       <DependentUpon>ListBudget.xaml</DependentUpon>
@@ -387,6 +393,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageFolder\PresidentWindow\EditAppealStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFolder\PresidentWindow\EditBudget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -416,6 +426,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\PresidentWindow\InfoStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PresidentWindow\ListAppealsAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

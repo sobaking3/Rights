@@ -80,7 +80,7 @@
                                         Height="26">
                                 <TextBlock Text="Фамилия"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox Text="{Binding MiddleName, Mode=TwoWay}"
                                          Width="220" x:Name="LastNameTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Фамилия"
                                          Style="{StaticResource TextBoxField}" />
@@ -89,7 +89,7 @@
                                         Height="26">
                                 <TextBlock Text="Имя"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox Text="{Binding FirstName, Mode=TwoWay}"
                                          Width="220" x:Name="FirstNameTb" MaxLength="30"
                                          materialDesign:HintAssist.Hint="Имя" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          Style="{StaticResource TextBoxField}" />
@@ -99,7 +99,7 @@
                                         Height="26">
                                 <TextBlock Text="Отчество"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox Text="{Binding LastName, Mode=TwoWay}"
                                          Width="220" x:Name="MiddleNameTb" MaxLength="30"
                                          materialDesign:HintAssist.Hint="Отчество" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          Style="{StaticResource TextBoxField}" />
@@ -124,7 +124,7 @@
                                 <TextBlock Text="Дата рождения"
                                            MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <DatePicker SelectedDate="{Binding DateOfBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue=Не выбрана}"
+                                <DatePicker SelectedDate="{Binding DateOfBirth, Mode=TwoWay, TargetNullValue=Не выбрана}"
                                             Width="220" x:Name="DateOfBirthDP"
                                             materialDesign:HintAssist.Hint="Дата рождения"
                                             Style="{StaticResource DatePickerField}" />
@@ -134,7 +134,7 @@
                                 <TextBlock Text="Дата устройства"
                                            MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <DatePicker SelectedDate="{Binding WorkStartDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue=Не выбрана}"
+                                <DatePicker SelectedDate="{Binding WorkStartDate, Mode=TwoWay,  TargetNullValue=Не выбрана}"
                                             Width="220" x:Name="WorkStartDateDP"
                                             materialDesign:HintAssist.Hint="Дата устройства"
                                             Style="{StaticResource DatePickerField}" />
@@ -170,7 +170,7 @@
                                         Height="26">
                                 <TextBlock Text="Логин"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding User.Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox Text="{Binding User.Login, Mode=TwoWay}"
                                          Width="220" x:Name="LoginTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Введите логин"
                                          Style="{StaticResource TextBoxField}" />
@@ -179,7 +179,7 @@
                                         Height="26">
                                 <TextBlock Text="Пароль"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding User.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox Text="{Binding User.Password, Mode=TwoWay}"
                                          Width="220" x:Name="PasswordTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Придумайте пароль"
                                          Style="{StaticResource TextBoxField}" />
@@ -203,7 +203,7 @@
                                 <TextBlock Text="Номер телефона"
                                            MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox Text="{Binding Number, Mode=TwoWay}"
                                          Width="220" x:Name="PhoneNumberTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Введите телефон"
                                          Style="{StaticResource TextBoxField}" />

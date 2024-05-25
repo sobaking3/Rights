@@ -82,7 +82,7 @@
                                         Height="26" Margin="0 0 0 20">
                             <TextBlock Text="Год"
                                            Style="{StaticResource TextBlockFieldName}" />
-                            <TextBox Text="{Binding Year, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            <TextBox Text="{Binding Year, Mode=TwoWay}"
                                          Width="220" x:Name="YearTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Год"
                                          Style="{StaticResource TextBoxField}" />
@@ -91,7 +91,7 @@
                                         Height="26" Margin="0 0 0 20">
                             <TextBlock Text="Деньги"
                                            Style="{StaticResource TextBlockFieldName}" />
-                            <TextBox Text="{Binding Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            <TextBox Text="{Binding Amount, Mode=TwoWay}"
                                          Width="220" x:Name="MoneyTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Бюджет за год"
                                          Style="{StaticResource TextBoxField}" />
@@ -100,7 +100,7 @@
                                         Height="26" Margin="0 0 0 20">
                             <TextBlock Text="Расходы"
                                            Style="{StaticResource TextBlockFieldName}" />
-                            <TextBox Text="{Binding UsageMoney, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            <TextBox Text="{Binding UsageMoney, Mode=TwoWay}"
                                          Width="220" x:Name="MinusMoneyTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Расходы за год"
                                          Style="{StaticResource TextBoxField}" />

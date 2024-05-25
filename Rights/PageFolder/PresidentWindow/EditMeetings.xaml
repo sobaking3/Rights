@@ -79,7 +79,7 @@
                                         Height="26" Margin="0 0 0 0">
                                 <TextBlock Text="Дата"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <DatePicker SelectedDate="{Binding MeetingsDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue=Не выбрана}"
+                                <DatePicker SelectedDate="{Binding MeetingsDate, Mode=TwoWay, TargetNullValue=Не выбрана}"
                                             Width="220" x:Name="MeetingsDateDP"
                                             materialDesign:HintAssist.Hint="Дата собрания"
                                             Style="{StaticResource DatePickerField}" />
@@ -131,7 +131,7 @@
                             Height="42"
                             Style="{StaticResource ButtonGeneral}"
                             Click="EditMeetingBtn_Click" />
-                    <TextBox Text="{Binding Discription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    <TextBox Text="{Binding Discription, Mode=TwoWay}"
                                          x:Name="DescriptionTb" MaxLength="180"
                                          materialDesign:HintAssist.Hint="Описание"  TextWrapping="Wrap"
                                          Style="{StaticResource TextBoxField}" Margin="6,158,140,72" Grid.RowSpan="4" />

@@ -79,7 +79,7 @@
                                         Height="26" Margin="0 0 0 0">
                                 <TextBlock Text="Имя"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding ProgramName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox Text="{Binding ProgramName, Mode=TwoWay}"
                                          Width="220" x:Name="NameSocialProgramsTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Наименование соц. программы"
                                          Style="{StaticResource TextBoxField}" />
@@ -119,7 +119,7 @@
                             Height="42"
                             Style="{StaticResource ButtonGeneral}"
                             Click="AddSocialProgramsBtn_Click" />
-                    <TextBox Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    <TextBox Text="{Binding Description, Mode=TwoWay}"
                                          x:Name="DescriptionTb" MaxLength="180" Width="540"
                                          materialDesign:HintAssist.Hint="Описание"  TextWrapping="Wrap"
                                          Style="{StaticResource TextBoxField}" Margin="1,0,256,72" Grid.Row="1" Grid.RowSpan="3" />

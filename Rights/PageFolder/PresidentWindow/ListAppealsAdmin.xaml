@@ -1,11 +1,11 @@
-﻿<Page x:Class="Rights.PageFolder.ManagerWindow.ListAppeals"
+﻿<Page x:Class="Rights.PageFolder.PresidentWindow.ListAppealsAdmin"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Rights.PageFolder.ManagerWindow"
-      mc:Ignorable="d" 
+      xmlns:local="clr-namespace:Rights.PageFolder.PresidentWindow"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
       Title="Список жалоб и обращений"
       Height="868"
       Loaded="Page_Loaded"
@@ -26,11 +26,11 @@
             <!--Разметка строки с поиском и фильтрацией-->
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal"
-                            Margin="0 0 26 0">
+                            Margin="0 0 0 0">
                     <TextBox x:Name="SearchStaffByFullNameTb"
                              Height="42"
                              materialDesign:TextFieldAssist.HasClearButton="True"
-                             Width="1011"
+                             Width="427"
                              Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              materialDesign:HintAssist.Hint="Поиск"
                              Style="{StaticResource TextBoxSearch}">
@@ -41,30 +41,19 @@
 
 
 
+                <ComboBox x:Name="StatusFilterCb"
+                          Margin="380 0 16 0"
+                          Width="272"
+                          Height="42"
+                          materialDesign:TextFieldAssist.HasClearButton="True"
+                          SelectedItem="{Binding SelectedStatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          DisplayMemberPath="StatusName"
+                          SelectedValuePath="IdStatus"
+                          materialDesign:HintAssist.Hint="Статус"
+                          Style="{StaticResource ComboBoxGeneral}">
+                </ComboBox>
 
-
-                <Button x:Name="AddAppealsBtn"
-                        Height="42"
-                        Width="72" 
-                        Content="{materialDesign:PackIcon Kind=Plus, Size=24}"
-                        Style="{StaticResource ButtonIconGeneral}"
-                        Click="AddAppealsBtn_Click"/>
             </StackPanel>
-
-            <Border CornerRadius="10"
-                    BorderThickness="1"
-                    BorderBrush="Transparent"
-                    Background="White"
-                    Grid.Row="2">
-                <Border.Effect>
-
-                    <DropShadowEffect Opacity="0.15"
-                                      Color="Black"
-                                      ShadowDepth="10"
-                                      BlurRadius="15"
-                                      Direction="135" />
-                </Border.Effect>
-            </Border>
 
             <Border CornerRadius="10"
                     BorderThickness="1"
@@ -97,7 +86,7 @@
                                   Width="510">
                                 <Grid.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Удалить" x:Name="DeleteM1" Click="DeleteM1_Click"/>
+                                        <MenuItem Header="Изменить статус" x:Name="EditM1" Click="EditM1_Click"/>
                                     </ContextMenu>
                                 </Grid.ContextMenu>
                                 <Grid.Background>
@@ -181,6 +170,7 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
             </ScrollViewer>
+
         </Grid>
     </Border>
 </Page>

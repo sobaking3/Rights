@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Rights.WindowFolder.ManagerFolder"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="PresidentMainWindow" 
+        Title="ManagerMainWindow" 
         WindowState="Normal"
         Height="1024" Width="1440"
         MinHeight="1024" MinWidth="1440"
@@ -235,7 +235,7 @@
 
                         <Button Style="{StaticResource menuLogOutButton}"
                                         VerticalAlignment="Center"
-                                        Cursor="Hand"
+                                        Cursor="Hand" Width="250"
                                         x:Name="ExitBtn"
                                         Click="ExitBtn_Click">
                             <StackPanel Orientation="Horizontal">
