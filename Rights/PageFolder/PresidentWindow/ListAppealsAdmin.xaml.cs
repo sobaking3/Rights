@@ -88,7 +88,7 @@ namespace Rights.PageFolder.PresidentWindow
             UpdateStaffList();
             StatusFilterCb.ItemsSource = DBEntities.GetContext().Status.Where(x => x.StatusName == "Заявка решена"
           || x.StatusName == "В процессе" || x.StatusName == "Заявка приостановлена" || x.StatusName == "Заявка отклонена"
-          || x.StatusName == "Заявка удалена отправителем").ToList();
+          || x.StatusName == "Заявка удалена").ToList();
         }
 
         private void EditM1_Click(object sender, RoutedEventArgs e)
@@ -101,5 +101,42 @@ namespace Rights.PageFolder.PresidentWindow
                 UpdateStaffList();
             }
         }
+
+        private void DeleteM1_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if ((sender as FrameworkElement).DataContext is AppealsAndComplaints appealsAndComplaints)
+                {
+                    if (appealsAndComplaints == null)
+                    {
+                        MBClass.ErrorMB("Запись не выбрана");
+                    }
+                    else
+                    {
+                        // Проверка IdStatus
+                        if (appealsAndComplaints.IdStatus == 9 || appealsAndComplaints.IdStatus == 1)
+                        {
+                            if (MBClass.QuestionMB($"Удалить запись?"))
+                            {
+                                DBEntities.GetContext().AppealsAndComplaints.Remove(appealsAndComplaints);
+                                DBEntities.GetContext().SaveChanges();
+                                MBClass.InfoMB("Запись удалена");
+                                UpdateStaffList();
+                            }
+                        }
+                        else
+                        {
+                            MBClass.ErrorMB("Нельзя удалить запись, если она не была удалена пользователем или решена.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
+        }
+
     }
 }

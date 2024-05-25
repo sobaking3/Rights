@@ -38,7 +38,7 @@ namespace Rights.PageFolder.PresidentWindow
             || r.StatusName == "Заявка отклонена"
             || r.StatusName == "Договор в силе"
             || r.StatusName == "Договор рассторгнут"
-            || r.StatusName == "Заявка удалена отправителем"
+            || r.StatusName == "Заявка удалена"
             ))
             .ToList();
             CommitteeCb.ItemsSource = DBEntities.GetContext().Committee.ToList();

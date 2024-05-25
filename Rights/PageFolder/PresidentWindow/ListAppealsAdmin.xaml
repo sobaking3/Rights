@@ -87,6 +87,7 @@
                                 <Grid.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Header="Изменить статус" x:Name="EditM1" Click="EditM1_Click"/>
+                                        <MenuItem Header="Удалить запись" x:Name="DeleteM1" Click="DeleteM1_Click"/>
                                     </ContextMenu>
                                 </Grid.ContextMenu>
                                 <Grid.Background>
@@ -130,7 +131,7 @@
                                             VerticalAlignment="Center"
                                             TextWrapping="Wrap"
                                             TextAlignment="Left"
-                                            FontStyle="Italic" Margin="0 -50 0 0"
+                                            FontStyle="Italic" Margin="0 -40 0 0"
                                             TextDecorations="Underline"
                                                Text="{Binding Status.StatusName, TargetNullValue=Отсутствует, FallbackValue=Ошибка, StringFormat={}Статус: {0}}" />
 
@@ -152,9 +153,9 @@
 
 
                                     <TextBlock Style="{StaticResource TextBlockBody2}"
-                                               Margin="0 0 0 10" 
+                                               Margin="0 -40 10 10"  
                                                VerticalAlignment="Bottom"
-                                               Grid.Row="1" Grid.ColumnSpan="3" x:Name="StaffCountTb"
+                                               Grid.Row="2" Grid.ColumnSpan="3" x:Name="StaffCountTb"
                                                TextWrapping="Wrap" 
                                                TextAlignment="Left"
                                                Text="{Binding Discription, TargetNullValue=Отсутствует, FallbackValue=Ошибка, StringFormat={}Описание: {0}}" />

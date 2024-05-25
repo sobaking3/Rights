@@ -35,6 +35,7 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+            
             <materialDesign:Card  x:Name="cardHeader"
                                   Grid.Row="0"
                                   Padding="10"
@@ -43,6 +44,7 @@
                                   Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                                   Visibility="Visible"
                                   Grid.ColumnSpan="2">
+                
                 <StackPanel>
                     <TextBlock x:Name="txtTitle"
                                Foreground="White"
@@ -59,11 +61,10 @@
                          Grid.Column="1">
                 <Button x:Name="btnClose"
                         Click="btnClose_Click"
-                        Width="35"
-                        Height="35"
-                        Background="White"
-                        Foreground="#353D68">
-                    <materialDesign:PackIcon Kind="Close" />
+                        Width="35" Content="{materialDesign:PackIcon Kind=Close,Size=32}"
+                        Height="35" Grid.Column="1"
+                        Background="Transparent"
+                        Foreground="White">
                 </Button>
             </StackPanel>
             <Grid Grid.ColumnSpan="2"
