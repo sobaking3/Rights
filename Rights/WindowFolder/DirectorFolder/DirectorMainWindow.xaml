@@ -4,9 +4,286 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rights.WindowFolder.DirectorFolder"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="DirectorMainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="DirectorMainWindow" 
+        WindowState="Normal"
+        Height="1024" Width="1440"
+        MinHeight="1024" MinWidth="1440"
+        Loaded="Window_Loaded"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen"
+        Background="Transparent">
+    <Border CornerRadius="14"
+            Background="{StaticResource FillBorder}"
+            MouseDown="Border_MouseDown"
+           MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Лого + название-->
+            <StackPanel Grid.Row="0"
+                        Orientation="Horizontal"
+                        Margin="16 17 0 0"
+                        HorizontalAlignment="Left">
+                <Image Height="35" Width="35"
+                       Margin="0 0 12 0"
+                    Source="/Rights;component/ResourceFolder/LogoImage.png"/>
+                <TextBlock Text="RIGHTS" VerticalAlignment="Center"
+                           FontWeight="ExtraBold" FontSize="32"
+                           Foreground="White"/>
+            </StackPanel>
+
+            <!--Кнопки закрытия и открытия окна-->
+            <StackPanel Grid.Row="0" HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                        Margin="0 22 22 0">
+                <Button Name="MinimizeBtn" 
+                Foreground="White" Content="{materialDesign:PackIcon Kind=Minimize,Size=32}"
+                           Padding="0" Style="{StaticResource MaterialDesignFlatButton}"
+                Click="MinimizeBtn_Click">
+                </Button>
+
+                <Button Content="{materialDesign:PackIcon Kind=CropSquare,Size=32}" 
+                        x:Name="FullSizeWindowBtn" Padding="0" Margin="16 0 0 0"
+                        Foreground="White" Style="{StaticResource MaterialDesignFlatButton}" Click="FullSizeWindowBtn_Click"/>
+
+                <Button Name="CloseBtn"  Style="{StaticResource MaterialDesignFlatButton}"
+                Foreground="White" Content="{materialDesign:PackIcon Kind=Close,Size=32}" Margin="16 0 0 0" Padding="0"
+                Click="CloseBtn_Click">
+                </Button>
+
+
+            </StackPanel>
+
+            <!--Меню и основная часть-->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Меню-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <!--Photo-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Staff name-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Role name-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Buttons-->
+                        <RowDefinition Height="*"/>
+                        <!--Exit button-->
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!--Фотка-->
+                    <Border
+                        Margin="0 16 0 0"
+                        Height="160"
+                        Width="160"
+                        BorderBrush="White"
+                        BorderThickness="1.5"
+                                    Padding="3"
+                            VerticalAlignment="Center"
+                                    CornerRadius="100"
+                                    DockPanel.Dock="Top"
+                                    HorizontalAlignment="Center">
+                        <Border.Background>
+                            <ImageBrush x:Name="EmpImage" ImageSource="/ResourceFolder/Profile_Image.png"
+                                                    Stretch="UniformToFill" />
+                        </Border.Background>
+                    </Border>
+
+                    <!--Имя сотрудника-->
+                    <TextBlock x:Name="EmpName"
+                               Grid.Row="1"
+                               Margin="0 18 0 0"
+                                       Foreground="White"
+                                       FontSize="26"
+                                       FontWeight="SemiBold"
+                                       Text="Тут будет имя"
+                               VerticalAlignment="Center"
+                                       TextAlignment="Center" />
+
+                    <!--Роль-->
+                    <TextBlock Text="Директор"
+                                       Foreground="LightGray"
+                                       FontSize="17"
+                               Grid.Row="2"
+                               Margin="0 18 0 22"
+                               VerticalAlignment="Center"
+                                       FontWeight="SemiBold"
+                                       TextAlignment="Center" />
+
+                    <!--Кнопки-->
+                    <StackPanel Grid.Row="3">
+                        <Button x:Name="ListStaffBtn"
+                                        Style="{StaticResource menuButton}"
+                                        Click="ListStaffBtn_Click"
+                                        Height="50"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10">
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Users"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                <TextBlock Text="Список сотрудников" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        Height="50"
+                                        x:Name="CommitteList"
+                                        Click="CommitteList_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Handshake"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                <TextBlock Text="Список комитетов" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch" x:Name="DepartmentList"
+                                        Margin="10 0 20 10" Click="DepartmentList_Click"
+                                        Height="50">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ManMan"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                <TextBlock Text="Список отделов" />
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource menuButton}"
+                                        x:Name="OrganizationsList"
+                                        Click="OrganizationsList_Click"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        Height="50">
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="OfficeBuilding"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                <TextBlock Text="Список организаций" />
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        x:Name="SocialProgramsList"
+                                        Click="SocialProgramsList_Click"
+                                        Height="50">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Newspaper"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                <TextBlock Text="Соц. программы" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        x:Name="MeetingsList"
+                                        Click="MeetingsList_Click"
+                                        Height="50">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Tab"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                <TextBlock Text="Собрания" />
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        x:Name="AppealsList"
+                                        Click="AppealsList_Click"
+                                        Height="50">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Warning"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                <TextBlock Text="Жалобы, обращения" />
+                            </StackPanel>
+                        </Button>
+                        
+                    </StackPanel>
+
+                    <!--Кнопка выхода-->
+                    <Border CornerRadius="0 0 0 14"
+                            Grid.Row="4"
+                            Height="55"
+                            VerticalAlignment="Center"
+                            Background="#102559">
+
+                        <Button Style="{StaticResource menuLogOutButton}"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"
+                                        x:Name="ExitBtn" Width="250"
+                                        Click="ExitBtn_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Logout"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                <TextBlock Text="Выйти из аккаунта" />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+                </Grid>
+
+                <!--Основная часть-->
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="{Binding Content.Title, ElementName=MainFrame}"
+                               
+                               Height="40"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               FontSize="32"
+                               Margin="0 0 0 30"/>
+                    <Border CornerRadius="14 0 14 0"
+                            Grid.Row="1"
+                            Background="White">
+                        <Grid>
+                            <Image Opacity="0.5"
+                                            Stretch="Uniform"
+                                   Margin="150"
+                    Source="/Rights;component/ResourceFolder/LogoImage.png"/>
+                            <Frame
+                                VerticalContentAlignment="Top"
+                            Margin="28"
+                                VerticalAlignment="Top"
+                            x:Name="MainFrame" 
+                           NavigationUIVisibility="Hidden"/>
+
+                        </Grid>
+
+                    </Border>
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Border>
 </Window>

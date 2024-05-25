@@ -19,7 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Rights.PageFolder.PresidentWindow
+namespace Rights.PageFolder.DirectorWindow
 {
     /// <summary>
     /// Логика взаимодействия для ListStaff.xaml
@@ -82,7 +82,7 @@ namespace Rights.PageFolder.PresidentWindow
 
         private void AddStaffBtn_Click(object sender, RoutedEventArgs e)
         {
-            WindowHelper.ShowDialogWithBlur(this, new PresidentWindow.AddStaff());
+            WindowHelper.ShowDialogWithBlur(this, new DirectorWindow.AddStaff());
             UpdateStaffList();
         }
 
@@ -105,8 +105,8 @@ namespace Rights.PageFolder.PresidentWindow
                 query = query.Where(x => x.User.IdRole == _selectedRole.IdRole);
             }
 
-            List<Staff> result = query.Where(x => x.User.Role.NameRole == "Админ"
-          || x.User.Role.NameRole != "Президент").ToList();
+            List<Staff> result = query.Where(x => x.User.Role.NameRole != "Админ" &&
+                    x.User.Role.NameRole != "Директор" && x.User.Role.NameRole != "Президент").ToList();
 
             StaffListItemsControl.ItemsSource = result;
         }
@@ -116,7 +116,8 @@ namespace Rights.PageFolder.PresidentWindow
         {
             UpdateStaffList();
             DepartamentFilterCb.ItemsSource = DBEntities.GetContext().Departament.ToList();
-            RoleFilterCb.ItemsSource = DBEntities.GetContext().Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Президент"))
+            RoleFilterCb.ItemsSource = DBEntities.GetContext().Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Президент" 
+            || r.NameRole == "Директор" || r.NameRole == "Админ"))
            .ToList();
         }
 
@@ -125,7 +126,7 @@ namespace Rights.PageFolder.PresidentWindow
             Grid grid = sender as Grid;
             if ((sender as FrameworkElement).DataContext is Staff staff)
             {
-                WindowHelper.ShowDialogWithBlur(this, new PresidentWindow.EditStaff(staff));
+                WindowHelper.ShowDialogWithBlur(this, new DirectorWindow.EditStaff(staff));
 
                 UpdateStaffList();
             }

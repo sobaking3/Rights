@@ -107,7 +107,7 @@ namespace Rights.PageFolder.ManagerWindow
                 query = query.Where(x => x.User.IdRole == _selectedRole.IdRole);
             }
 
-            List<Staff> result = query.Where(x => x.User.Role.NameRole != "Директор" &&
+            List<Staff> result = query.Where(x => x.User.Role.NameRole != "Админ" &&
                     x.User.Role.NameRole != "Директор" && x.User.Role.NameRole != "Менеджер" && x.User.Role.NameRole != "Президент").ToList();
 
             StaffListItemsControl.ItemsSource = result;
