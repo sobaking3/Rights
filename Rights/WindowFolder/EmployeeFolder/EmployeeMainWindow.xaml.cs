@@ -37,20 +37,11 @@ namespace Rights.WindowFolder.EmployeeFolder
 
 
 
-        private void ListStaffBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new PageFolder.ManagerWindow.ListStaff());
-        }
-
         private void CommitteList_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new PageFolder.ManagerWindow.ListCommitte());
         }
 
-        private void DepartmentList_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new PageFolder.ManagerWindow.ListDepartment());
-        }
 
         private void OrganizationsList_Click(object sender, RoutedEventArgs e)
         {

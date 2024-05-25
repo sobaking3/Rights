@@ -25,18 +25,18 @@
 
             <!--Разметка строки с поиском и фильтрацией-->
             <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Horizontal"
-                            Margin="0 0 26 0">
-                    <TextBox x:Name="SearchStaffByFullNameTb"
-                             Height="42"
-                             materialDesign:TextFieldAssist.HasClearButton="True"
-                             Width="1011"
-                             Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                             materialDesign:HintAssist.Hint="Поиск"
-                             Style="{StaticResource TextBoxSearch}">
-                    </TextBox>
-
-                    <Button Style="{StaticResource TextBoxSearchButton}" />
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox x:Name="StatusFilterCb"
+                          Margin="380 0 16 0"
+                          Width="272"
+                          Height="42"
+                          materialDesign:TextFieldAssist.HasClearButton="True"
+                          SelectedItem="{Binding SelectedStatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          DisplayMemberPath="StatusName"
+                          SelectedValuePath="IdStatus"
+                          materialDesign:HintAssist.Hint="Статус"
+                          Style="{StaticResource ComboBoxGeneral}">
+                    </ComboBox>
                 </StackPanel>
 
 

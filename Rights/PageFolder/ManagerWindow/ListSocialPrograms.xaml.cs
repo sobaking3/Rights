@@ -49,7 +49,6 @@ namespace Rights.PageFolder.ManagerWindow
             InitializeComponent();
             DataContext = this;
             _onLoadingBlockingControls.Add(SearchStaffByFullNameTb);
-            _onLoadingBlockingControls.Add(AddSocialProgramsBtn);
         }
 
         private void UpdateStaffList()
@@ -71,11 +70,6 @@ namespace Rights.PageFolder.ManagerWindow
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateStaffList();
-        }
-
-        private void AddSocialProgramsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MBClass.ErrorMB("Для добавления соц. программы, обратитесь к вышестоящим лицам");
         }
     }
 }

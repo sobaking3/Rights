@@ -47,7 +47,6 @@ namespace Rights.PageFolder.ManagerWindow
             InitializeComponent();
             DataContext = this;
             _onLoadingBlockingControls.Add(SearchStaffByFullNameTb);
-            _onLoadingBlockingControls.Add(AddOrganizationBtn);
         }
 
         private void UpdateStaffList()
@@ -69,11 +68,6 @@ namespace Rights.PageFolder.ManagerWindow
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateStaffList();
-        }
-
-        private void AddOrganizationBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MBClass.ErrorMB("Для добавления организации, обратитесь к вышестоящим лицам");
         }
     }
 }

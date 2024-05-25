@@ -140,18 +140,7 @@
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton}"
-                                        HorizontalAlignment="Stretch" x:Name="DepartmentList"
-                                        Margin="10 0 20 10" Click="DepartmentList_Click"
-                                        Height="50">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ManMan"
-                                                                 Margin="10 0 10 0"
-                                                                 Height="25"
-                                                                 Width="25" />
-                                <TextBlock Text="Список отделов" />
-                            </StackPanel>
-                        </Button>
+                        
                         <Button Style="{StaticResource menuButton}"
                                         x:Name="OrganizationsList"
                                         Click="OrganizationsList_Click"

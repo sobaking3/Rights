@@ -25,12 +25,11 @@
 
             <!--Разметка строки с поиском и фильтрацией-->
             <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Horizontal"
-                            Margin="0 0 26 0">
+                <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="SearchStaffByFullNameTb"
                              Height="42"
                              materialDesign:TextFieldAssist.HasClearButton="True"
-                             Width="1011"
+                             Width="1110"
                              Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              materialDesign:HintAssist.Hint="Поиск"
                              Style="{StaticResource TextBoxSearch}">
@@ -39,16 +38,6 @@
                     <Button Style="{StaticResource TextBoxSearchButton}" />
                 </StackPanel>
 
-
-
-
-
-                <Button x:Name="AddDepartmentBtn"
-                        Height="42"
-                        Width="72" 
-                        Content="{materialDesign:PackIcon Kind=Plus, Size=24}"
-                        Style="{StaticResource ButtonIconGeneral}"
-                        Click="AddDepartmentBtn_Click"/>
             </StackPanel>
 
             <Border CornerRadius="10"

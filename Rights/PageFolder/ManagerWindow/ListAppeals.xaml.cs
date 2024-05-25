@@ -26,29 +26,28 @@ namespace Rights.PageFolder.ManagerWindow
     /// </summary>
     public partial class ListAppeals : Page
     {
-        private string _searchText;
+        public Status _selectedStatus;
 
-        public string SearchText
+        public Status SelectedStatus
         {
-            get => _searchText;
+            get => _selectedStatus;
             set
             {
-                if (!object.Equals(value, _searchText))
+                if (!object.Equals(value, _selectedStatus))
                 {
-                    _searchText = value;
+                    _selectedStatus = value;
                     UpdateStaffList();
                 }
 
             }
         }
-
         private List<FrameworkElement> _onLoadingBlockingControls = new List<FrameworkElement>();
         public ListAppeals()
         {
             InitializeComponent();
             DataContext = this;
-            _onLoadingBlockingControls.Add(SearchStaffByFullNameTb);
             _onLoadingBlockingControls.Add(AddAppealsBtn);
+            _onLoadingBlockingControls.Add(StatusFilterCb);
         }
 
         private void UpdateStaffList()
@@ -62,13 +61,10 @@ namespace Rights.PageFolder.ManagerWindow
 
             query = query.Where(x => x.IdStatus != 9);
 
-
-
-            if (!string.IsNullOrEmpty(_searchText))
+            if (_selectedStatus != null)
             {
-                query = query.Where(x => (x.Staff.MiddleName + " " + x.Staff.FirstName + " " + x.Staff.LastName).Contains(_searchText));
+                query = query.Where(x => x.IdStatus == _selectedStatus.IdStatus);
             }
-
 
             List<AppealsAndComplaints> result = query.ToList();
 
@@ -79,6 +75,8 @@ namespace Rights.PageFolder.ManagerWindow
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateStaffList();
+            StatusFilterCb.ItemsSource = DBEntities.GetContext().Status.Where(x => x.StatusName == "Заявка решена"
+          || x.StatusName == "В процессе" || x.StatusName == "Заявка приостановлена" || x.StatusName == "Заявка отклонена").ToList();
         }
 
         private void AddAppealsBtn_Click(object sender, RoutedEventArgs e)
