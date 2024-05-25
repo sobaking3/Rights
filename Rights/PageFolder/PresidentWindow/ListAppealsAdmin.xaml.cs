@@ -86,9 +86,9 @@ namespace Rights.PageFolder.PresidentWindow
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateStaffList();
-            StatusFilterCb.ItemsSource = DBEntities.GetContext().Status.Where(x => x.StatusName == "Жалоба решена"
-          || x.StatusName == "В процессе" || x.StatusName == "Приостановлена" || x.StatusName == "Отклонена" 
-          || x.StatusName == "Жалоба удалена отправителем").ToList();
+            StatusFilterCb.ItemsSource = DBEntities.GetContext().Status.Where(x => x.StatusName == "Заявка решена"
+          || x.StatusName == "В процессе" || x.StatusName == "Заявка приостановлена" || x.StatusName == "Заявка отклонена"
+          || x.StatusName == "Заявка удалена отправителем").ToList();
         }
 
         private void EditM1_Click(object sender, RoutedEventArgs e)

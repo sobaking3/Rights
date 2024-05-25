@@ -221,7 +221,7 @@
                                                                  Margin="10 0 10 0"
                                                                  Height="25"
                                                                  Width="25" />
-                                <TextBlock Text="Жалобы и обращения" />
+                                <TextBlock Text="Жалобы, обращения" />
                             </StackPanel>
                         </Button>
                         <Button Style="{StaticResource menuButton}"

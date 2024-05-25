@@ -32,12 +32,14 @@ namespace Rights.PageFolder.PresidentWindow
         {
             InitializeComponent();
             StatusCb.ItemsSource = DBEntities.GetContext()
-            .Status.Except(DBEntities.GetContext().Status.Where(r => r.StatusName == "Жалоба решена"
+            .Status.Except(DBEntities.GetContext().Status.Where(r => r.StatusName == "Заявка решена"
             || r.StatusName == "В процессе"
-            || r.StatusName == "Приостановлена"
-            || r.StatusName == "Отклонена"
+            || r.StatusName == "Заявка приостановлена"
+            || r.StatusName == "Заявка отклонена"
             || r.StatusName == "Договор в силе"
-            || r.StatusName == "Договор рассторгнут"))
+            || r.StatusName == "Договор рассторгнут"
+            || r.StatusName == "Заявка удалена отправителем"
+            ))
             .ToList();
             CommitteeCb.ItemsSource = DBEntities.GetContext().Committee.ToList();
         }

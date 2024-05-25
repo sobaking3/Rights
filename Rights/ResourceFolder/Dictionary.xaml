@@ -164,7 +164,6 @@
                 Value="Transparent" />
         <Setter Property="Foreground"
                 Value="White" />
-        <Setter Property="FocusVisualStyle"
         <Setter Property="Height"
                 Value="55" />
         <Setter Property="FontSize"

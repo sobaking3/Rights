@@ -123,21 +123,7 @@
 
                     <!--Кнопки-->
                     <StackPanel Grid.Row="3">
-                        <Button x:Name="ListStaffBtn"
-                                        Style="{StaticResource menuButton}"
-                                        Click="ListStaffBtn_Click"
-                                        Height="50"
-                                        HorizontalAlignment="Stretch"
-                                        Margin="10 0 20 10">
-
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Users"
-                                                                 Margin="10 0 10 0"
-                                                                 Height="25"
-                                                                 Width="25" />
-                                <TextBlock Text="Список сотрудников" />
-                            </StackPanel>
-                        </Button>
+                       
 
                         <Button Style="{StaticResource menuButton}"
                                         HorizontalAlignment="Stretch"
@@ -212,16 +198,16 @@
                         </Button>
                         <Button Style="{StaticResource menuButton}"
                                         HorizontalAlignment="Stretch"
-                                        Margin="10 0 20 10"
+                                        Margin="10 0 20 10" Width="240"
                                         x:Name="AppealsList"
                                         Click="AppealsList_Click"
                                         Height="50">
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Width="230" >
                                 <materialDesign:PackIcon Kind="Warning"
                                                                  Margin="10 0 10 0"
                                                                  Height="25"
                                                                  Width="25" />
-                                <TextBlock Text="Жалобы и обращения" />
+                                <TextBlock><Run Text="Жалобы, обращения"/></TextBlock>
                             </StackPanel>
                         </Button>
                     </StackPanel>

@@ -33,8 +33,8 @@ namespace Rights.PageFolder.PresidentWindow
         {
             InitializeComponent();
             DataContext = _appealsAndComplaints = appealsAndComplaints;
-            StatusCb.ItemsSource = DBEntities.GetContext().Status.Where(x => x.StatusName == "Жалоба решена"
-          || x.StatusName == "В процессе" || x.StatusName == "Приостановлена" || x.StatusName == "Отклонена").ToList();
+            StatusCb.ItemsSource = DBEntities.GetContext().Status.Where(x => x.StatusName == "Заявка решена"
+          || x.StatusName == "В процессе" || x.StatusName == "Заявка приостановлена" || x.StatusName == "Заявка отклонена").ToList();
 
         }
 
