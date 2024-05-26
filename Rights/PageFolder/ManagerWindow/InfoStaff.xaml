@@ -226,7 +226,7 @@
                                 <TextBlock Text="Комитет"
                                            MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <ComboBox Width="220"
+                                <ComboBox Width="Auto"
                                           SelectedItem="{Binding Committee}"
                                           SelectedValuePath="IdCommittee"
                                           DisplayMemberPath="NameCommittee"
