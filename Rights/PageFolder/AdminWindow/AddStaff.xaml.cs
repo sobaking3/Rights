@@ -18,7 +18,7 @@ using Microsoft.Win32;
 using Rights.ClassFolder;
 using System.Data.Entity.Validation;
 
-namespace Rights.PageFolder.DirectorWindow
+namespace Rights.PageFolder.AdminWindow
 {
     /// <summary>
     /// Логика взаимодействия для AddStaff.xaml
@@ -35,10 +35,7 @@ namespace Rights.PageFolder.DirectorWindow
         public AddStaff()
         {
             InitializeComponent();
-            RoleCb.ItemsSource = DBEntities.GetContext()
-            .Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Админ"
-          || r.NameRole == "Президент" || r.NameRole == "Директор"))
-            .ToList();
+            RoleCb.ItemsSource = DBEntities.GetContext().Role.ToList();
             GenderCb.ItemsSource = DBEntities.GetContext().Gender.ToList();
             DepartamentCb.ItemsSource = DBEntities.GetContext().Departament.ToList();
             CommitteeCb.ItemsSource = DBEntities.GetContext().Committee.ToList();

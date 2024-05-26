@@ -1,0 +1,204 @@
+﻿<Page x:Class="Rights.PageFolder.AdminWindow.ListStaff"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rights.PageFolder.AdminWindow"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      Title="Список сотрудников"
+      Height="868"
+      Width="1158"
+      Loaded="Page_Loaded">
+
+    <Border CornerRadius="14 14 14 14"
+            Background="Transparent">
+        <Grid Margin="18 23 29 28">
+            <Grid.RowDefinitions>
+                <!--Строка с поиском и фильтрацией-->
+                <RowDefinition Height="42" />
+                <!--Пустота-->
+                <RowDefinition Height="19" />
+                <!--Список-->
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--Разметка строки с поиском и фильтрацией-->
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 0 26 0">
+                    <TextBox x:Name="SearchStaffByFullNameTb"
+                             Height="42"
+                             materialDesign:TextFieldAssist.HasClearButton="True"
+                             Width="427"
+                             Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             materialDesign:HintAssist.Hint="Поиск"
+                             Style="{StaticResource TextBoxSearch}">
+                    </TextBox>
+
+                    <Button Style="{StaticResource TextBoxSearchButton}" />
+                </StackPanel>
+
+                <ComboBox x:Name="DepartamentFilterCb"
+                          Margin="0 0 26 0"
+                          Width="272"
+                          Height="42"
+                          materialDesign:TextFieldAssist.HasClearButton="True"
+                          SelectedItem="{Binding SelectedDepartament, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          DisplayMemberPath="NameDepartament"
+                          SelectedValuePath="IdDepartament"
+                          materialDesign:HintAssist.Hint="Отдел"
+                          Style="{StaticResource ComboBoxGeneral}">
+                </ComboBox>
+
+                <ComboBox x:Name="RoleFilterCb"
+                          Margin="0 0 16 0"
+                          Width="272"
+                          Height="42"
+                          materialDesign:TextFieldAssist.HasClearButton="True"
+                          SelectedItem="{Binding SelectedRole, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          DisplayMemberPath="NameRole"
+                          SelectedValuePath="IdRole"
+                          materialDesign:HintAssist.Hint="Должность"
+                          Style="{StaticResource ComboBoxGeneral}">
+                </ComboBox>
+
+                <Button x:Name="AddStaffBtn"
+                        Height="42"
+                        Width="72"
+                        Content="{materialDesign:PackIcon Kind=Plus, Size=24}"
+                        Style="{StaticResource ButtonIconGeneral}"
+                        Click="AddStaffBtn_Click"/>
+            </StackPanel>
+
+            <Border CornerRadius="10"
+                    BorderThickness="1"
+                    BorderBrush="Transparent"
+                    Background="White"
+                    Grid.Row="2">
+                <Border.Effect>
+
+                    <DropShadowEffect Opacity="0.15"
+                                      Color="Black"
+                                      ShadowDepth="10"
+                                      BlurRadius="15"
+                                      Direction="135" />
+                </Border.Effect>
+            </Border>
+
+            <Border CornerRadius="10"
+                    BorderThickness="1"
+                    BorderBrush="Transparent"
+                    Background="White"
+                    Grid.Row="2">
+                <Border.Effect>
+
+                    <DropShadowEffect Opacity="0.15"
+                                      Color="Black"
+                                      ShadowDepth="10"
+                                      BlurRadius="15"
+                                      Direction="315" />
+                </Border.Effect>
+            </Border>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          x:Name="LoadingResult"
+                          Grid.Row="2">
+                <ItemsControl x:Name="StaffListItemsControl"
+                              Margin="13 20">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+
+
+
+                            <Grid x:Name="StaffGridInfo"
+                                  Height="160"
+                                  Margin="0 0 23 22"
+                                  Width="510">
+                                <Grid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Информация" x:Name="InfoM1" Click="InfoM1_Click"/>
+                                        <MenuItem Header="Удалить" x:Name="DeleteM1" Click="DeleteM1_Click"/>
+                                        <MenuItem Header="Изменить" x:Name="EditM1" Click="EditM1_Click"/>
+
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
+                                <Grid.Background>
+                                    <SolidColorBrush Color="#353D68"
+                                                     Opacity=".12" />
+                                </Grid.Background>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="165" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <!--Фотка-->
+                                <Border Grid.Column="0">
+                                    <Border.Background>
+                                        <SolidColorBrush Color="#353D68"
+                                                         Opacity="0.24" />
+                                    </Border.Background>
+                                    <Border BorderBrush="#CFD0DB"
+                                            Margin="8"
+                                            BorderThickness="4">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding PhotoStaff}" />
+                                        </Border.Background>
+                                    </Border>
+                                </Border>
+
+                                <Grid Grid.Column="1"
+                                      Margin="8 0 0 0">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock
+                                            Style="{StaticResource TextBlockHeader3}"
+                                               Margin="0 8 0 0"
+                                               VerticalAlignment="Top"
+                                               TextWrapping="Wrap"
+                                               TextAlignment="Left">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0} {1} {2}">
+                                                <Binding Path="MiddleName" />
+                                                <Binding Path="FirstName" />
+                                                <Binding Path="LastName" />
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+
+                                    <TextBlock Style="{StaticResource TextBlockBody2}"
+                                               VerticalAlignment="Center"
+                                               Grid.Row="1"
+                                               TextWrapping="Wrap"
+                                               TextAlignment="Left"
+                                               FontStyle="Italic"
+                                               TextDecorations="Underline"
+                                               Text="{Binding User.Role.NameRole, TargetNullValue=Отсутствует, FallbackValue=Отсутствует}" />
+
+                                    <TextBlock Style="{StaticResource TextBlockBody2}"
+                                               Margin="0 0 0 8"
+                                               VerticalAlignment="Bottom"
+                                               Grid.Row="2"
+                                               TextWrapping="Wrap"
+                                               TextAlignment="Left"
+                                               Text="{Binding Departament.NameDepartament, TargetNullValue=Отсутствует, FallbackValue=Отсутствует}" />
+                                </Grid>
+
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</Page>

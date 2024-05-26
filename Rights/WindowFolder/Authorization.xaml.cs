@@ -90,7 +90,11 @@ namespace Rights
                                     window = new WindowFolder.EmployeeFolder.EmployeeMainWindow();
                                     break;
 
-                                case 5:
+                                case 6:
+                                    window = new WindowFolder.AdminFolder.AdminMainWindow();
+                                    break;
+
+                                case 7:
                                     window = new WindowFolder.AdminFolder.AdminMainWindow();
                                     break;
                             }

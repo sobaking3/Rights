@@ -152,6 +152,18 @@
     <Compile Include="Helpers\OpenFileDialogImageHelper.cs" />
     <Compile Include="Helpers\VisualHelper.cs" />
     <Compile Include="Helpers\WindowHelper.cs" />
+    <Compile Include="PageFolder\AdminWindow\AddStaff.xaml.cs">
+      <DependentUpon>AddStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdminWindow\EditStaff.xaml.cs">
+      <DependentUpon>EditStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdminWindow\InfoStaff.xaml.cs">
+      <DependentUpon>InfoStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdminWindow\ListStaff.xaml.cs">
+      <DependentUpon>ListStaff.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\DirectorWindow\AddStaff.xaml.cs">
       <DependentUpon>AddStaff.xaml</DependentUpon>
     </Compile>
@@ -336,6 +348,22 @@
     <Page Include="Converters\Include.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageFolder\AdminWindow\AddStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\AdminWindow\EditStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\AdminWindow\InfoStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\AdminWindow\ListStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\DirectorWindow\AddStaff.xaml">
       <SubType>Designer</SubType>
@@ -584,7 +612,6 @@
     <Resource Include="ResourceFolder\Profile_Image.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PageFolder\AdminWindow\" />
     <Folder Include="PageFolder\EmployeeWindow\" />
   </ItemGroup>
   <ItemGroup>

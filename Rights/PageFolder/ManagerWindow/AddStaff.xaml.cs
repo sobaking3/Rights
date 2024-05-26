@@ -106,7 +106,7 @@ namespace Rights.PageFolder.ManagerWindow
                .Staff.FirstOrDefault(w => w.LastName == LastNameTb.Text
                && w.FirstName == FirstNameTb.Text && w.MiddleName == MiddleNameTb.Text) != null)
             {
-
+                MBClass.ErrorMB($"Такой сотрудник уже есть");
                 FirstNameTb.Focus();
                 LastNameTb.Focus();
                 MiddleNameTb.Focus();
