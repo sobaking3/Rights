@@ -102,7 +102,7 @@
             </Border>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto"
-                          x:Name="LoadingResult"
+                          x:Name="LoadingResult" BorderBrush="{StaticResource FillBorder}" BorderThickness="1"
                           Grid.Row="2">
                 <ItemsControl x:Name="StaffListItemsControl"
                               Margin="13 20">

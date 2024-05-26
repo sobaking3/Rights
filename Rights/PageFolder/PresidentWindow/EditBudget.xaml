@@ -11,7 +11,7 @@
         Loaded="Window_Loaded"
         Style="{StaticResource WindowCorneredGeneral}"
         Title="StaffWindow">
-    <Border Background="White"
+    <Border Background="White" BorderBrush="{StaticResource FillBorder}" BorderThickness="1"
             MouseLeftButtonDown="Border_MouseLeftButtonDown"
             CornerRadius="10" Margin="0,0,369,175">
         <!--<Image Source="{Binding PhotoStaff, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="100"/>-->
