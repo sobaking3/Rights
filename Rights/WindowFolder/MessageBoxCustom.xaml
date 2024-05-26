@@ -59,12 +59,8 @@
                          Margin="0,5,5,0"
                          VerticalAlignment="Top"
                          Grid.Column="1">
-                <Button x:Name="btnClose"
-                        Click="btnClose_Click"
-                        Width="35" Content="{materialDesign:PackIcon Kind=Close,Size=32}"
-                        Height="35" Grid.Column="1"
-                        Background="Transparent"
-                        Foreground="White">
+                <Button x:Name="btnClose" Click="btnClose_Click" Width="35" Height="35"  Background="{StaticResource FillBorder}" Foreground="{DynamicResource PrimaryHueDarkBrush}" Style="{StaticResource MaterialDesignFloatingActionDarkButton}" BorderBrush="White">
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" />
                 </Button>
             </StackPanel>
             <Grid Grid.ColumnSpan="2"
