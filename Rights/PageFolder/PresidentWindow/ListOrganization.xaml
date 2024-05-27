@@ -161,7 +161,7 @@
 
 
                                     <TextBlock Style="{StaticResource TextBlockBody2}"
-                                               Margin="0 -40 0 15"
+                                               Margin="0 -40 10 15"
                                                VerticalAlignment="Bottom" Grid.ColumnSpan="3"
                                                Grid.Row="2" x:Name="StaffCountTb"
                                                TextWrapping="Wrap" 

@@ -132,7 +132,7 @@
                             Style="{StaticResource ButtonGeneral}"
                             Click="EditMeetingBtn_Click" />
                     <TextBox Text="{Binding Discription, Mode=TwoWay}"
-                                         x:Name="DescriptionTb" MaxLength="180"
+                                         x:Name="DescriptionTb" MaxLength="100"
                                          materialDesign:HintAssist.Hint="Описание"  TextWrapping="Wrap"
                                          Style="{StaticResource TextBoxField}" Margin="6,158,140,72" Grid.RowSpan="4" />
                 </Grid>

@@ -46,6 +46,7 @@ namespace Rights.PageFolder.PresidentWindow
 
         private void MeetingsInfoAdd()
         {
+
             if (ElementsToolsClass.AllFieldsFilled(this))
             {
                 var Meetings = new Meetings()

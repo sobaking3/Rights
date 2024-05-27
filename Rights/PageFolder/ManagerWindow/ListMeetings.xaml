@@ -145,9 +145,9 @@
 
 
                                     <TextBlock Style="{StaticResource TextBlockBody2}"
-                                               Margin="0 0 0 0"
-                                               VerticalAlignment="Bottom"
-                                               Grid.Row="1" x:Name="StaffCountTb"
+                                               Margin="0 -30 0 25"
+                                               VerticalAlignment="Bottom" Grid.ColumnSpan="3"
+                                               Grid.Row="2" x:Name="StaffCountTb"
                                                TextWrapping="Wrap" 
                                                TextAlignment="Left"
                                                Text="{Binding Discription, TargetNullValue=Отсутствует, FallbackValue=Ошибка, StringFormat={}Описание: {0}}" />

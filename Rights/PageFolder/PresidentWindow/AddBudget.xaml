@@ -83,8 +83,8 @@
                             <TextBlock Text="Год"
                                            Style="{StaticResource TextBlockFieldName}" />
                             <TextBox Text="{Binding Year, Mode=TwoWay}"
-                                         Width="220" x:Name="YearTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
-                                         materialDesign:HintAssist.Hint="Год"
+                                         Width="220" x:Name="YearTb" MaxLength="4" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
+                                         materialDesign:HintAssist.Hint="Год" PreviewTextInput="YearTb_PreviewTextInput"
                                          Style="{StaticResource TextBoxField}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"
@@ -93,7 +93,7 @@
                                            Style="{StaticResource TextBlockFieldName}" />
                             <TextBox Text="{Binding Amount, Mode=TwoWay}"
                                          Width="220" x:Name="MoneyTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
-                                         materialDesign:HintAssist.Hint="Бюджет за год"
+                                         materialDesign:HintAssist.Hint="Бюджет за год" PreviewTextInput="MoneyTb_PreviewTextInput"
                                          Style="{StaticResource TextBoxField}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"
@@ -102,7 +102,7 @@
                                            Style="{StaticResource TextBlockFieldName}" />
                             <TextBox Text="{Binding UsageMoney, Mode=TwoWay}"
                                          Width="220" x:Name="MinusMoneyTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
-                                         materialDesign:HintAssist.Hint="Расходы за год"
+                                         materialDesign:HintAssist.Hint="Расходы за год" PreviewTextInput="MinusMoneyTb_PreviewTextInput"
                                          Style="{StaticResource TextBoxField}" />
                         </StackPanel>
 
