@@ -70,28 +70,28 @@ namespace Rights.PageFolder.PresidentWindow
         {
             if (_ctx.Meetings.FirstOrDefault(x => x.Committee.NameCommittee == _meetings2.Committee.NameCommittee && x.IdMeetings != _meetings2.IdMeetings && x.MeetingsDate == _meetings2.MeetingsDate) != null)
             {
-                 MBClass.ErrorMB("Собрание для этого комитета и в это время уже есть!");
-                 MeetingsDateDP.Focus();
-                    CommitteeCb.Focus();
-                    return;
-                }
-                else if (ElementsToolsClass.AllFieldsFilled(this))
+                MBClass.ErrorMB("Собрание для этого комитета и в это время уже есть!");
+                MeetingsDateDP.Focus();
+                CommitteeCb.Focus();
+                return;
+            }
+            else if (ElementsToolsClass.AllFieldsFilled(this))
+            {
+                try
                 {
-                    try
-                    {
-                        _ctx.Meetings.AddOrUpdate(_meetings2);
-                        _ctx.SaveChanges();
-                        MBClass.InfoMB("Изменения сохранены!");
-                    }
-                    catch (Exception ex)
-                    {
-                        MBClass.ErrorMB(ex);
-                    }
+                    _ctx.Meetings.AddOrUpdate(_meetings2);
+                    _ctx.SaveChanges();
+                    MBClass.InfoMB("Изменения сохранены!");
                 }
-                else
+                catch (Exception ex)
                 {
-                    MBClass.ErrorMB("Вы не ввели все нужные данные!");
+                    MBClass.ErrorMB(ex);
                 }
             }
+            else
+            {
+                MBClass.ErrorMB("Вы не ввели все нужные данные!");
+            }
+        }
     }
 }

@@ -84,7 +84,6 @@
                           x:Name="LoadingResult"
                           Grid.Row="2">
                 <DataGrid x:Name="ListBudgetDG" Background="White"
-                          AlternatingRowBackground="#D8D8D8"
                           AlternationCount="2" Foreground="Black"
                           AutoGenerateColumns="False"
                           ScrollViewer.VerticalScrollBarVisibility="Hidden"
