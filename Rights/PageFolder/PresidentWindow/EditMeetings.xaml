@@ -89,7 +89,7 @@
                                 <TextBlock Text="Статус"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <ComboBox Width="220"
-                                          SelectedItem="{Binding Status}"
+                                          SelectedValue="{Binding IdStatus, Mode=TwoWay}"
                                           SelectedValuePath="IdStatus"
                                           DisplayMemberPath="StatusName"
                                           materialDesign:HintAssist.Hint="Статус собрания"
@@ -107,7 +107,7 @@
                                 <TextBlock Text="Комитет"
                                            Style="{StaticResource TextBlockFieldName}" Height="26" />
                                 <ComboBox Width="200"
-                                          SelectedItem="{Binding Committee}"
+                                          SelectedValue="{Binding IdCommittee, Mode=TwoWay}"
                                           SelectedValuePath="IdCommittee"
                                           DisplayMemberPath="NameCommittee"
                                           materialDesign:HintAssist.Hint="Комитет"

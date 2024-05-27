@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using Rights.ClassFolder;
 using System.Data.Entity.Validation;
+using System.Data.Entity.Migrations;
 
 namespace Rights.PageFolder.PresidentWindow
 {
@@ -26,7 +27,7 @@ namespace Rights.PageFolder.PresidentWindow
     public partial class EditDepartment : Window
     {
         private Departament _departament = new Departament();
-
+        private DBEntities _ctx = DBEntities.GetContext();
 
         public EditDepartment(Departament departament)
         {
@@ -41,11 +42,30 @@ namespace Rights.PageFolder.PresidentWindow
         {
             try
             {
-                Staff newDirector = StaffCb.SelectedItem as Staff;
-                _departament.IdStaff = newDirector.IdStaff;
-                DBEntities.GetContext().SaveChanges();
-                _departament.UpdateDirector();
-                MBClass.InfoMB("Изменения сохранены!");
+                if (_ctx.Departament.FirstOrDefault(x => x.NameDepartament == _departament.NameDepartament && x.IdDepartament != _departament.IdDepartament) != null)
+                {
+                    MBClass.ErrorMB("Данный отдел уже есть!");
+                    return;
+                }
+                else if (ElementsToolsClass.AllFieldsFilled(this))
+                {
+                    try
+                    {
+                        Staff newDirector = StaffCb.SelectedItem as Staff;
+                        _departament.IdStaff = newDirector.IdStaff;
+                        DBEntities.GetContext().SaveChanges();
+                        _departament.UpdateDirector();
+                        MBClass.InfoMB("Изменения сохранены!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MBClass.ErrorMB(ex);
+                    }
+                }
+                else
+                {
+                    MBClass.ErrorMB("Вы не ввели все нужные данные!");
+                }
             }
             catch (Exception ex)
             {

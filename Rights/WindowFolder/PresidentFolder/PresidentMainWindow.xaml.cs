@@ -32,6 +32,8 @@ namespace Rights.WindowFolder.PresidentFolder
                 EmpImage.ImageSource = ImageClass.ConvertByteArrayToImage(App.CurrentStaff.PhotoStaff);
             }
 
+            //Opacity = 0;
+
             //EmpImage.ImageSource 
         }
 

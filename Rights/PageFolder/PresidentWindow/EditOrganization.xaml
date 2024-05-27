@@ -98,7 +98,7 @@
                                 <TextBlock Text="Статус"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <ComboBox Width="220"
-                                          SelectedItem="{Binding Status}"
+                                          SelectedValue="{Binding IdStatus, Mode=TwoWay}"
                                           SelectedValuePath="IdStatus"
                                           DisplayMemberPath="StatusName"
                                           materialDesign:HintAssist.Hint="Статус"

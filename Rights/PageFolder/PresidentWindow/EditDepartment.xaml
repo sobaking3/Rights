@@ -89,7 +89,7 @@
                                 <TextBlock Text="Директор" Width="200"
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <ComboBox Width="180"
-                                           SelectedItem="{Binding Director, Mode=OneTime}"
+                                          SelectedItem="{Binding Director, Mode=OneTime}"
                                           SelectedValuePath="IdStaff"
                                           DisplayMemberPath="FullName"
                                           materialDesign:HintAssist.Hint="Директор"

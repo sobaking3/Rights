@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using Rights.ClassFolder;
 using System.Data.Entity.Validation;
+using System.Data.Entity.Migrations;
 
 namespace Rights.PageFolder.PresidentWindow
 {
@@ -26,21 +27,19 @@ namespace Rights.PageFolder.PresidentWindow
     public partial class EditOrganization : Window
     {
         private Organizations _organizations = new Organizations();
-
+        private Organizations _organizations2 = new Organizations();
+        private DBEntities _ctx = DBEntities.GetContext();
 
         public EditOrganization(Organizations organizations)
         {
-            InitializeComponent();
-            DataContext = _organizations = organizations;
+            _organizations = organizations;
+            InitializeComponent();     
+            _organizations2 = DBEntities.GetContext().Organizations.FirstOrDefault(o => o.IdOrganization == organizations.IdOrganization);
+            DataContext = _organizations2;
             StatusCb.ItemsSource = DBEntities.GetContext()
-            .Status.Except(DBEntities.GetContext().Status.Where(r => r.StatusName == "Жалоба решена"
-            || r.StatusName == "В процессе"
-            || r.StatusName == "Приостановлена"
-            || r.StatusName == "Отклонена"
-            || r.StatusName == "Собрание закончено"
-            || r.StatusName == "Собрание в процессе"))
+            .Status.AsNoTracking().Where(r => r.StatusName == "Договор в силе"
+            || r.StatusName == "Договор рассторгнут")
             .ToList();
-
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -68,8 +67,28 @@ namespace Rights.PageFolder.PresidentWindow
         {
             try
             {
-                DBEntities.GetContext().SaveChanges();
-                MBClass.InfoMB("Изменения сохранены!");
+                if (_ctx.Organizations.FirstOrDefault(x => x.NameOrganization == _organizations2.NameOrganization && x.IdOrganization != _organizations2.IdOrganization) != null)
+                {
+                    MBClass.ErrorMB("Данная организация уже есть!");
+                    return;
+                }
+                else if (ElementsToolsClass.AllFieldsFilled(this))
+                {
+                    try
+                    {
+                        _ctx.Organizations.AddOrUpdate(_organizations2);
+                        _ctx.SaveChanges();
+                        MBClass.InfoMB("Изменения сохранены!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MBClass.ErrorMB(ex);
+                    }
+                }
+                else
+                {
+                    MBClass.ErrorMB("Вы не ввели все нужные данные!");
+                }  
             }
             catch (Exception ex)
             {

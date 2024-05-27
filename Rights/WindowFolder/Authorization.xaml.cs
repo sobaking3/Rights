@@ -64,7 +64,6 @@ namespace Rights
                     else
                     {
                         App.CurrentUser = user;
-                        Hide();
                         Window window = null;
                         
                         try
@@ -116,9 +115,10 @@ namespace Rights
                         if (window != null)
                         {
                             //Application.Current.MainWindow = window;
+                            Hide();
                             window.Show();
+                            Close();
                         }
-                        Close();
                     }
                 }
                 catch (Exception ex)

@@ -25,7 +25,7 @@ namespace Rights.PageFolder.PresidentWindow
     /// </summary>
     public partial class EditCommittee : Window
     {
-
+        private DBEntities _ctx = DBEntities.GetContext();
         private Committee _committee = new Committee();
 
 
@@ -42,16 +42,35 @@ namespace Rights.PageFolder.PresidentWindow
         {
             try
             {
-                Staff newDirector = StaffCb.SelectedItem as Staff;
-                _committee.IdStaff = newDirector.IdStaff;
-                DBEntities.GetContext().SaveChanges();
-                _committee.UpdateDirector();
-                MBClass.InfoMB("Изменения сохранены!");
+                if (_ctx.Committee.FirstOrDefault(x => x.NameCommittee == _committee.NameCommittee && x.IdCommittee != _committee.IdCommittee) != null)
+                {
+                    MBClass.ErrorMB("Данный комитет уже есть!");
+                    return;
+                }
+                else if (ElementsToolsClass.AllFieldsFilled(this))
+                {
+                    try
+                    {
+                        Staff newDirector = StaffCb.SelectedItem as Staff;
+                        _committee.IdStaff = newDirector.IdStaff;
+                        DBEntities.GetContext().SaveChanges();
+                        _committee.UpdateDirector();
+                        MBClass.InfoMB("Изменения сохранены!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MBClass.ErrorMB(ex);
+                    }
+                }
+                else
+                {
+                    MBClass.ErrorMB("Вы не ввели все нужные данные!");
+                }
             }
             catch (Exception ex)
             {
                 MBClass.ErrorMB(ex);
-            }
+            }     
         }
         
         private void BackBtn_Click(object sender, RoutedEventArgs e)

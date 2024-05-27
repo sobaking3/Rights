@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using Rights.ClassFolder;
 using System.Data.Entity.Validation;
+using System.Data.Entity.Migrations;
 
 namespace Rights.PageFolder.PresidentWindow
 {
@@ -60,7 +61,7 @@ namespace Rights.PageFolder.PresidentWindow
                 {
                     MBClass.ErrorMB(ex);
                 }
-            }    
+            }
         }
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -85,4 +86,7 @@ namespace Rights.PageFolder.PresidentWindow
 
 
     }
+
+
 }
+

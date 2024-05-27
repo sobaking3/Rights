@@ -17,30 +17,32 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using Rights.ClassFolder;
 using System.Data.Entity.Validation;
+using System.Data.Entity.Migrations;
 
 namespace Rights.PageFolder.PresidentWindow
 {
+    
     /// <summary>
     /// Логика взаимодействия для EditMeetings.xaml
     /// </summary>
     public partial class EditMeetings : Window
     {
         private Meetings _meetings = new Meetings();
+        private Meetings _meetings2 = new Meetings();
+        private DBEntities _ctx = DBEntities.GetContext();
 
 
         public EditMeetings(Meetings meetings)
         {
+            _meetings = meetings;
             InitializeComponent();
-            DataContext = _meetings = meetings;
+            _meetings2 = DBEntities.GetContext().Meetings.AsNoTracking().FirstOrDefault(o => o.IdMeetings == meetings.IdMeetings);
+            DataContext = _meetings2;
             StatusCb.ItemsSource = DBEntities.GetContext()
-            .Status.Except(DBEntities.GetContext().Status.Where(r => r.StatusName == "Жалоба решена"
-            || r.StatusName == "В процессе"
-            || r.StatusName == "Приостановлена"
-            || r.StatusName == "Отклонена"
-            || r.StatusName == "Договор в силе"
-            || r.StatusName == "Договор рассторгнут"))
+            .Status.AsNoTracking().Where(r => r.StatusName == "Собрание закончено"
+            || r.StatusName == "Собрание скоро" || r.StatusName == "В процессе")
             .ToList();
-            CommitteeCb.ItemsSource = DBEntities.GetContext().Committee.ToList();
+            CommitteeCb.ItemsSource = DBEntities.GetContext().Committee.AsNoTracking().ToList();
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -66,30 +68,30 @@ namespace Rights.PageFolder.PresidentWindow
 
         private void EditMeetingBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (DBEntities.GetContext().Meetings.FirstOrDefault(u =>
-               u.Committee.NameCommittee == CommitteeCb.Text & u.MeetingsDate == MeetingsDateDP.SelectedDate) != null)
+            if (_ctx.Meetings.FirstOrDefault(x => x.Committee.NameCommittee == _meetings2.Committee.NameCommittee && x.IdMeetings != _meetings2.IdMeetings && x.MeetingsDate == _meetings2.MeetingsDate) != null)
             {
-                MBClass.ErrorMB($"Собрание на эту дату и для этого комитета уже было создано");
-
-                MeetingsDateDP.Focus();
-                CommitteeCb.Focus();
-            }
-            else if (ElementsToolsClass.AllFieldsFilled(this))
-            {
-                try
-                {
-                    DBEntities.GetContext().SaveChanges();
-                    MBClass.InfoMB("Изменения сохранены!");
+                 MBClass.ErrorMB("Собрание для этого комитета и в это время уже есть!");
+                 MeetingsDateDP.Focus();
+                    CommitteeCb.Focus();
+                    return;
                 }
-                catch (Exception ex)
+                else if (ElementsToolsClass.AllFieldsFilled(this))
                 {
-                    MBClass.ErrorMB(ex);
+                    try
+                    {
+                        _ctx.Meetings.AddOrUpdate(_meetings2);
+                        _ctx.SaveChanges();
+                        MBClass.InfoMB("Изменения сохранены!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MBClass.ErrorMB(ex);
+                    }
+                }
+                else
+                {
+                    MBClass.ErrorMB("Вы не ввели все нужные данные!");
                 }
             }
-            else
-            {
-                MBClass.ErrorMB("Вы не ввели все нужные данные!");
-            }       
-        }
     }
 }
