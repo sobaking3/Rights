@@ -92,10 +92,13 @@ namespace Rights.PageFolder.PresidentWindow
         {
             var userAdd = new User()
             {
-                Login = LoginTb.Text,
-                Password = PasswordTb.Text,
+                Login = string.IsNullOrEmpty(LoginTb.Text) ? "Отсутствует" : LoginTb.Text,
+                Password = string.IsNullOrEmpty(PasswordTb.Text) ? "Отсутствует" : PasswordTb.Text,
                 IdRole = Int32.Parse(RoleCb.SelectedValue.ToString())
+                // Проверка на одновременное отсутствие логина и пароля
             };
+           
+
             DBEntities.GetContext().User.Add(userAdd);
             DBEntities.GetContext().SaveChanges();
             user.IdUser = userAdd.IdUser;
@@ -110,6 +113,7 @@ namespace Rights.PageFolder.PresidentWindow
                 FirstNameTb.Focus();
                 LastNameTb.Focus();
                 MiddleNameTb.Focus();
+                return;
             }
             else if (DBEntities.GetContext().Staff.FirstOrDefault(u =>
             u.Number == PhoneNumberTb.Text) != null)
@@ -117,6 +121,7 @@ namespace Rights.PageFolder.PresidentWindow
                 MBClass.ErrorMB($"Пользователь c номером {PhoneNumberTb.Text} уже создан");
 
                 PhoneNumberTb.Focus();
+                return;
             }
             else if (DBEntities.GetContext()
                         .User
@@ -125,6 +130,21 @@ namespace Rights.PageFolder.PresidentWindow
             {
                 MBClass.ErrorMB($"Пользователь {LoginTb.Text} уже создан");
                 LoginTb.Focus();
+                return;
+            }
+            if (!string.IsNullOrWhiteSpace(LoginTb.Text) && string.IsNullOrWhiteSpace(PasswordTb.Text))
+            {
+                MBClass.ErrorMB("Введите пароль!");
+                PasswordTb.Focus();
+                return;
+            }
+
+            // Проверка: если пароль введен, то логин обязателен
+            if (string.IsNullOrWhiteSpace(LoginTb.Text) && !string.IsNullOrWhiteSpace(PasswordTb.Text))
+            {
+                MBClass.ErrorMB("Введите логин!");
+                LoginTb.Focus();
+                return;
             }
             else if (ElementsToolsClass.AllFieldsFilled(this))
             {

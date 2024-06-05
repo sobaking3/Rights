@@ -27,7 +27,7 @@ namespace Rights.DataFolder
         public string Number { get; set; }
         public System.DateTime DateOfBirth { get; set; }
         public int IdGender { get; set; }
-        public int IdUser { get; set; }
+        public Nullable<int> IdUser { get; set; }
         public System.DateTime WorkStartDate { get; set; }
         public Nullable<int> IdDepartment { get; set; }
         public Nullable<int> IdCommittee { get; set; }

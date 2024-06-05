@@ -96,7 +96,7 @@
           <Property Name="Number" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
           <Property Name="IdGender" Type="int" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" />
           <Property Name="WorkStartDate" Type="date" Nullable="false" />
           <Property Name="IdDepartment" Type="int" />
           <Property Name="IdCommittee" Type="int" />
@@ -249,7 +249,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Staff_User1">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -476,7 +476,7 @@
           <Property Name="Number" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IdGender" Type="Int32" Nullable="false" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" />
           <Property Name="WorkStartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IdDepartment" Type="Int32" />
           <Property Name="IdCommittee" Type="Int32" />
@@ -651,7 +651,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Staff_User1">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">

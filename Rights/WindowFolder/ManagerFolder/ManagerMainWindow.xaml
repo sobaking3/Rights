@@ -239,10 +239,19 @@
                                         x:Name="ExitBtn"
                                         Click="ExitBtn_Click">
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Logout"
+                                <materialDesign:PackIcon Kind="Logout" 
                                                                  Margin="10 0 10 0"
-                                                                 Height="25"
-                                                                 Width="25" />
+                                                                 Height="25" 
+                                                                 Width="25" RenderTransformOrigin="0.5,0.5" >
+                                    <materialDesign:PackIcon.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </materialDesign:PackIcon.RenderTransform>
+                                </materialDesign:PackIcon>
                                 <TextBlock Text="Выйти из аккаунта" />
                             </StackPanel>
                         </Button>

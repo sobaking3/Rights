@@ -104,10 +104,10 @@ namespace Rights.PageFolder.AdminWindow
                && w.FirstName == FirstNameTb.Text && w.MiddleName == MiddleNameTb.Text) != null)
             {
                 MBClass.ErrorMB($"Такой сотрудник уже есть");
-
                 FirstNameTb.Focus();
                 LastNameTb.Focus();
                 MiddleNameTb.Focus();
+                return;
             }
             else if (DBEntities.GetContext().Staff.FirstOrDefault(u =>
             u.Number == PhoneNumberTb.Text) != null)
@@ -115,6 +115,7 @@ namespace Rights.PageFolder.AdminWindow
                 MBClass.ErrorMB($"Пользователь c номером {PhoneNumberTb.Text} уже создан");
 
                 PhoneNumberTb.Focus();
+                return;
             }
             else if (DBEntities.GetContext()
                         .User
@@ -123,6 +124,21 @@ namespace Rights.PageFolder.AdminWindow
             {
                 MBClass.ErrorMB($"Пользователь {LoginTb.Text} уже создан");
                 LoginTb.Focus();
+                return;
+            }
+            if (!string.IsNullOrWhiteSpace(LoginTb.Text) && string.IsNullOrWhiteSpace(PasswordTb.Text))
+            {
+                MBClass.ErrorMB("Введите пароль!");
+                PasswordTb.Focus();
+                return;
+            }
+
+            // Проверка: если пароль введен, то логин обязателен
+            if (string.IsNullOrWhiteSpace(LoginTb.Text) && !string.IsNullOrWhiteSpace(PasswordTb.Text))
+            {
+                MBClass.ErrorMB("Введите логин!");
+                LoginTb.Focus();
+                return;
             }
             else if (ElementsToolsClass.AllFieldsFilled(this))
             {

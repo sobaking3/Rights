@@ -170,7 +170,7 @@
                                         Height="26">
                                 <TextBlock Text="Логин"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding User.Login, Mode=TwoWay}"
+                                <TextBox Text="{Binding User.Login, Mode=TwoWay}" Tag="Optional"
                                          Width="220" x:Name="LoginTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Введите логин"
                                          Style="{StaticResource TextBoxField}" />
@@ -179,7 +179,7 @@
                                         Height="26">
                                 <TextBlock Text="Пароль"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding User.Password, Mode=TwoWay}"
+                                <TextBox Text="{Binding User.Password, Mode=TwoWay}" Tag="Optional"
                                          Width="220" x:Name="PasswordTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Придумайте пароль"
                                          Style="{StaticResource TextBoxField}" />
