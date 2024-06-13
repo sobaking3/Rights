@@ -80,7 +80,7 @@
                                         Height="26">
                                 <TextBlock Text="Фамилия"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                          Width="220" x:Name="LastNameTb"
                                          materialDesign:HintAssist.Hint="Фамилия"
                                          Style="{StaticResource TextBoxField}" />
@@ -99,7 +99,7 @@
                                         Height="26">
                                 <TextBlock Text="Отчество"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                          Width="220" x:Name="MiddleNameTb"
                                          materialDesign:HintAssist.Hint="Отчество"
                                          Style="{StaticResource TextBoxField}" />

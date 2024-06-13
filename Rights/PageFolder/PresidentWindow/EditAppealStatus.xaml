@@ -61,7 +61,7 @@
                     <!--Личная информация-->
                     <StackPanel Margin="0,0,9,0">
                         <TextBlock Text="Текущий статус"
-                                   Margin="0,-10,524,24"
+                                   Margin="0,0,524,24"
                                    Style="{StaticResource TextBlockHeader2}" />
 
                         <WrapPanel Orientation="Vertical"

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rights.PageFolder.PresidentWindow" 
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Width="1229"
         Height="617" WindowStartupLocation="CenterScreen"
@@ -80,7 +80,7 @@
                                         Height="26">
                                 <TextBlock Text="Фамилия"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding MiddleName, Mode=TwoWay}"
+                                <TextBox Text="{Binding LastName, Mode=TwoWay}"
                                          Width="220" x:Name="LastNameTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Фамилия"
                                          Style="{StaticResource TextBoxField}" />
@@ -99,7 +99,7 @@
                                         Height="26">
                                 <TextBlock Text="Отчество"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding LastName, Mode=TwoWay}"
+                                <TextBox Text="{Binding MiddleName, Mode=TwoWay}"
                                          Width="220" x:Name="MiddleNameTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Отчество"
                                          Style="{StaticResource TextBoxField}" />
@@ -203,10 +203,10 @@
                                 <TextBlock Text="Номер телефона"
                                            MinWidth="110"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding Number, Mode=TwoWay}"
+                                <xctk:MaskedTextBox Text="{Binding Number, Mode=TwoWay}"
                                          Width="220" x:Name="PhoneNumberTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Введите телефон"
-                                         Style="{StaticResource TextBoxField}" />
+                                         Style="{StaticResource TextBoxField}" Mask="+7(000)000-00-00"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"
                                         Height="26">

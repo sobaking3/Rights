@@ -164,9 +164,9 @@
                                                TextAlignment="Left">
                                         <TextBlock.Text>
                                             <MultiBinding StringFormat="{}{0} {1} {2}">
-                                                <Binding Path="MiddleName" />
-                                                <Binding Path="FirstName" />
                                                 <Binding Path="LastName" />
+                                                <Binding Path="FirstName" />
+                                                <Binding Path="MiddleName" />
                                             </MultiBinding>
                                         </TextBlock.Text>
                                     </TextBlock>

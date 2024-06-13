@@ -238,6 +238,20 @@
                                 <TextBlock Text="Бюджет" />
                             </StackPanel>
                         </Button>
+                        <Button Style="{StaticResource menuButton}"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="10 0 20 10"
+                                        x:Name="RoleList"
+                                        Click="RoleList_Click"
+                                        Height="50">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="BagChecked"
+                                                                 Margin="10 0 10 0"
+                                                                 Height="25"
+                                                                 Width="25" />
+                                <TextBlock Text="Должности" />
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
 
                     <!--Кнопка выхода-->

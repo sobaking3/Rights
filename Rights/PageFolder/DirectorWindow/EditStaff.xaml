@@ -80,7 +80,7 @@
                                         Height="26">
                                 <TextBlock Text="Фамилия"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding MiddleName, Mode=TwoWay}"
+                                <TextBox Text="{Binding LastName, Mode=TwoWay}"
                                          Width="220" x:Name="LastNameTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          materialDesign:HintAssist.Hint="Фамилия"
                                          Style="{StaticResource TextBoxField}" />
@@ -99,7 +99,7 @@
                                         Height="26">
                                 <TextBlock Text="Отчество"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding LastName, Mode=TwoWay}"
+                                <TextBox Text="{Binding MiddleName, Mode=TwoWay}"
                                          Width="220" x:Name="MiddleNameTb" MaxLength="30"
                                          materialDesign:HintAssist.Hint="Отчество" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          Style="{StaticResource TextBoxField}" />

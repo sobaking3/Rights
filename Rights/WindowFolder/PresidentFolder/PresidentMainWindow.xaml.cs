@@ -108,6 +108,7 @@ namespace Rights.WindowFolder.PresidentFolder
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             WindowTransitionHelper.OpenWindow(this, this);
+            MainFrame.Navigate(new PageFolder.PresidentWindow.ListStaff());
         }
 
         private void AppealsList_Click(object sender, RoutedEventArgs e)

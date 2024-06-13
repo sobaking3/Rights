@@ -106,6 +106,7 @@ namespace Rights.WindowFolder.AdminFolder
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             WindowTransitionHelper.OpenWindow(this, this);
+            MainFrame.Navigate(new PageFolder.AdminWindow.ListStaff());
         }
 
         private void AppealsList_Click(object sender, RoutedEventArgs e)
@@ -124,6 +125,11 @@ namespace Rights.WindowFolder.AdminFolder
                 WindowState = WindowState.Normal;
                 (FullSizeWindowBtn.Content as PackIcon).Kind = PackIconKind.CropSquare;
             }
+        }
+
+        private void RoleList_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new PageFolder.AdminWindow.ListRole());
         }
     }
 }

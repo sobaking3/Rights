@@ -1,0 +1,134 @@
+﻿<Page x:Class="Rights.PageFolder.AdminWindow.ListRole"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rights.PageFolder.AdminWindow"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      Height="868"
+      Width="1158"
+      Title="Бюджет">
+
+    <Border CornerRadius="14 14 14 14"
+            Background="Transparent">
+        <Grid Margin="18 23 29 28">
+            <Grid.RowDefinitions>
+                <!--Строка с поиском и фильтрацией-->
+                <RowDefinition Height="42" />
+                <!--Пустота-->
+                <RowDefinition Height="19" />
+                <!--Список-->
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--Разметка строки с поиском и фильтрацией-->
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 0 26 0">
+                    <TextBox x:Name="SearchStaffByFullNameTb"
+                             Height="42" TextChanged="SearchTb_TextChanged"
+                             materialDesign:TextFieldAssist.HasClearButton="True"
+                             Width="1011"
+                             Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             materialDesign:HintAssist.Hint="Поиск"
+                             Style="{StaticResource TextBoxSearch}">
+                    </TextBox>
+
+                    <Button Style="{StaticResource TextBoxSearchButton}" />
+                </StackPanel>
+
+
+
+
+
+                <Button x:Name="AddBudgetBtn"
+                        Height="42"
+                        Width="72" 
+                        Content="{materialDesign:PackIcon Kind=Plus, Size=24}"
+                        Style="{StaticResource ButtonIconGeneral}"
+                        Click="AddBudgetBtn_Click"/>
+            </StackPanel>
+
+            <Border CornerRadius="10"
+                    BorderThickness="1"
+                    BorderBrush="Transparent"
+                    Background="White"
+                    Grid.Row="2">
+                <Border.Effect>
+
+                    <DropShadowEffect Opacity="0.15"
+                                      Color="Black"
+                                      ShadowDepth="10"
+                                      BlurRadius="15"
+                                      Direction="135" />
+                </Border.Effect>
+            </Border>
+
+            <Border CornerRadius="10"
+                    BorderThickness="1"
+                    BorderBrush="Transparent"
+                    Background="White"
+                    Grid.Row="2">
+                <Border.Effect>
+
+                    <DropShadowEffect Opacity="0.15"
+                                      Color="Black"
+                                      ShadowDepth="10"
+                                      BlurRadius="15"
+                                      Direction="315" />
+                </Border.Effect>
+            </Border>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          x:Name="LoadingResult"
+                          Grid.Row="2">
+                <DataGrid x:Name="ListRoleDG" Background="White"
+                          AlternationCount="2" Foreground="Black"
+                          AutoGenerateColumns="False"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                          ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                          IsReadOnly="True"
+                          ItemsSource="{Binding Role}"
+                          Margin="0,22,10,0"
+                          FontSize="16"
+                          BorderBrush="{x:Null}">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Удалить должность"
+                                      x:Name="DeleteM1"
+                                      Click="DeleteM1_Click" />
+                            <MenuItem Header="Редактировать должность"
+                                      x:Name="EditM1" Click="EditM1_Click" />
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.RowHeight>50</DataGrid.RowHeight>
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="VerticalAlignment"
+                                    Value="Center" />
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+
+
+                        <DataGridTextColumn Header="
+                                            
+                                                           Должности" 
+                    Binding="{Binding NameRole}"
+                    Width="1050">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</Page>

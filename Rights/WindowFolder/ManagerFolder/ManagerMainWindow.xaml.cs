@@ -101,6 +101,7 @@ namespace Rights.WindowFolder.ManagerFolder
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             WindowTransitionHelper.OpenWindow(this, this);
+            MainFrame.Navigate(new PageFolder.ManagerWindow.ListStaff());
         }
 
         private void AppealsList_Click(object sender, RoutedEventArgs e)

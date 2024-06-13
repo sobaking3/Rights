@@ -105,8 +105,8 @@ namespace Rights.PageFolder.PresidentWindow
                 query = query.Where(x => x.User.IdRole == _selectedRole.IdRole);
             }
 
-            List<Staff> result = query.Where(x => x.User.Role.NameRole == "Админ"
-          || x.User.Role.NameRole != "Президент").ToList();
+            List<Staff> result = query.Where(x => x.User.Role.NameRole != "Админ"
+                                   && x.User.Role.NameRole != "Президент").ToList();
 
             StaffListItemsControl.ItemsSource = result;
         }
@@ -116,7 +116,7 @@ namespace Rights.PageFolder.PresidentWindow
         {
             UpdateStaffList();
             DepartamentFilterCb.ItemsSource = DBEntities.GetContext().Departament.ToList();
-            RoleFilterCb.ItemsSource = DBEntities.GetContext().Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Президент"))
+            RoleFilterCb.ItemsSource = DBEntities.GetContext().Role.Except(DBEntities.GetContext().Role.Where(r => r.NameRole == "Президент" || r.NameRole == "Админ" ))
            .ToList();
         }
 
