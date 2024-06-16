@@ -99,7 +99,7 @@
                                         Height="26">
                                 <TextBlock Text="Отчество"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding MiddleName, Mode=TwoWay}"
+                                <TextBox Text="{Binding MiddleName, Mode=TwoWay}" Tag="Optional"
                                          Width="220" x:Name="MiddleNameTb" MaxLength="30"
                                          materialDesign:HintAssist.Hint="Отчество" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
                                          Style="{StaticResource TextBoxField}" />

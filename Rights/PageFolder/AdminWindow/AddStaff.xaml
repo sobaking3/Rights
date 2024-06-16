@@ -101,7 +101,7 @@
                                            Style="{StaticResource TextBlockFieldName}" />
                                 <TextBox Text="{Binding MiddleName, Mode=TwoWay}"
                                          Width="220" x:Name="MiddleNameTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
-                                         materialDesign:HintAssist.Hint="Отчество"
+                                         materialDesign:HintAssist.Hint="Отчество" Tag="Optional"
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
 

@@ -154,7 +154,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox x:Name="LoginTb" CaretBrush="White" BorderBrush="White" BorderThickness="0 0 2 0"  Text="Egor" FontFamily="Montserrat" Foreground="White" FontSize="14" Padding="10 20 0 0" Margin="0,-6" Height="55"
+                            <TextBox x:Name="LoginTb" CaretBrush="White" BorderBrush="White" BorderThickness="0 0 2 0"  FontFamily="Montserrat" Foreground="White" FontSize="14" Padding="10 20 0 0" Margin="0,-6" Height="55"
                  Grid.Column="0">
 
                             </TextBox>
@@ -173,7 +173,7 @@
                                 Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"
                                Background="Transparent" Margin="39,10">
                         <StackPanel Orientation="Horizontal">
-                            <PasswordBox CaretBrush="White" Password="111" x:Name="PasswordPb" Padding="10 0 0 0" BorderBrush="White" BorderThickness="0 0 2 0"   Foreground="#ffffff" FontFamily="Montserrat" VerticalContentAlignment="Center" FontSize="14" Width="206" Margin="0,-6" Height="55" >
+                            <PasswordBox CaretBrush="White" x:Name="PasswordPb" Padding="10 0 0 0" BorderBrush="White" BorderThickness="0 0 2 0"   Foreground="#ffffff" FontFamily="Montserrat" VerticalContentAlignment="Center" FontSize="14" Width="206" Margin="0,-6" Height="55" >
 
                             </PasswordBox>
                             <Image Source="/Rights;component/ResourceFolder/Lock.png" Width="20" Height="20" Grid.Column="1" Margin="5,0,5,0"/>

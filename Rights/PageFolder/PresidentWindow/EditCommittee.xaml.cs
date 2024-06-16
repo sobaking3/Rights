@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using Rights.ClassFolder;
 using System.Data.Entity.Validation;
+using System.Data.Entity.Migrations;
 
 namespace Rights.PageFolder.PresidentWindow
 {
@@ -27,13 +28,18 @@ namespace Rights.PageFolder.PresidentWindow
     {
         private DBEntities _ctx = DBEntities.GetContext();
         private Committee _committee = new Committee();
+        private Committee _committee2 = new Committee();
+
 
 
         public EditCommittee(Committee committee)
         {
+            _committee = committee;
             InitializeComponent();
-            DataContext = _committee = committee;
-            StaffCb.ItemsSource = DBEntities.GetContext().Staff.Where(x => x.User.Role.NameRole == "Директор" 
+            _committee2 = DBEntities.GetContext().Committee.AsNoTracking().FirstOrDefault(o => o.IdCommittee == committee.IdCommittee);
+            DataContext = _committee2;
+            StaffCb.ItemsSource = DBEntities.GetContext()
+            .Staff.Where(x => x.User.Role.NameRole == "Директор"
             || x.User.Role.NameRole == "Президент").ToList();
 
         }
@@ -51,10 +57,12 @@ namespace Rights.PageFolder.PresidentWindow
                 {
                     try
                     {
+                        _ctx.Committee.AddOrUpdate(_committee2); 
                         Staff newDirector = StaffCb.SelectedItem as Staff;
                         _committee.IdStaff = newDirector.IdStaff;
                         DBEntities.GetContext().SaveChanges();
                         _committee.UpdateDirector();
+                        _ctx.SaveChanges();
                         MBClass.InfoMB("Изменения сохранены!");
                     }
                     catch (Exception ex)

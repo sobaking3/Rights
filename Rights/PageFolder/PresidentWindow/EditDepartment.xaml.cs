@@ -27,12 +27,15 @@ namespace Rights.PageFolder.PresidentWindow
     public partial class EditDepartment : Window
     {
         private Departament _departament = new Departament();
+        private Departament _departament2 = new Departament();
         private DBEntities _ctx = DBEntities.GetContext();
 
         public EditDepartment(Departament departament)
         {
+            _departament = departament;
             InitializeComponent();
-            DataContext = _departament = departament;
+            _departament2 = DBEntities.GetContext().Departament.AsNoTracking().FirstOrDefault(o => o.IdDepartament == departament.IdDepartament);
+            DataContext = _departament2;
             StaffCb.ItemsSource = DBEntities.GetContext().Staff.Where(x => x.User.Role.NameRole == "Директор"
            || x.User.Role.NameRole == "Президент").ToList();
 
@@ -51,10 +54,12 @@ namespace Rights.PageFolder.PresidentWindow
                 {
                     try
                     {
+                        _ctx.Departament.AddOrUpdate(_departament2);
                         Staff newDirector = StaffCb.SelectedItem as Staff;
                         _departament.IdStaff = newDirector.IdStaff;
                         DBEntities.GetContext().SaveChanges();
                         _departament.UpdateDirector();
+                        _ctx.SaveChanges();
                         MBClass.InfoMB("Изменения сохранены!");
                     }
                     catch (Exception ex)

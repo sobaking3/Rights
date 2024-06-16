@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rights.PageFolder.PresidentWindow"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Width="729"
         Height="617" WindowStartupLocation="CenterScreen"
@@ -88,9 +88,10 @@
                                         Height="26">
                                 <TextBlock Text="Телефон"
                                            Style="{StaticResource TextBlockFieldName}" />
-                                <TextBox Text="{Binding PhoneNumber, Mode=TwoWay}"
+
+                                <xctk:MaskedTextBox Text="{Binding PhoneNumber, Mode=TwoWay}"
                                          Width="220" x:Name="PhoneNumberTb" MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
-                                         materialDesign:HintAssist.Hint="Номер"
+                                         materialDesign:HintAssist.Hint="Номер" Mask="+7(###) ###-##-##" 
                                          Style="{StaticResource TextBoxField}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"
